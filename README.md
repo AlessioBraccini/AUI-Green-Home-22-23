@@ -1,6 +1,6 @@
-# hello-world
+# AUI-Green-Home-22-23
 
-## Project setup
+## Project setup: use this command in the directory of the project 
 ```
 npm install
 ```
