@@ -46,5 +46,6 @@ export default {
   height: 3591px;
   background-image: url("assets/HanyuAssets/Background.png");
   background-size: contain;
+  font-size: 60px;
 }
 </style>

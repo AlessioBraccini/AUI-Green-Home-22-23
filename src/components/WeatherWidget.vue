@@ -1,8 +1,6 @@
 <template>
 
   <div class="square">
-    <h3 class="title">Weather</h3>
-
     <div class="area">
 <!--      <img src="@/assets/icon/positionIcon.png"/>-->
       <h3 class="areaText">{{ area }}</h3>
@@ -64,7 +62,7 @@ export default {
     // Collect the weather info by calling an external api service by passing it the name of the district
     const loadWeather = async () => {
 
-      await fetch('https://api.openweathermap.org/data/2.5/weather?q='+ 'Rome' +'&units=metric&appid=547eaf1664e44666701371efa7605159')
+      await fetch('https://api.openweathermap.org/data/2.5/weather?q='+ 'Milan,Italy' +'&units=metric&appid=547eaf1664e44666701371efa7605159')
           .then( resp => resp.json())
           .then( data => {
 
@@ -140,7 +138,7 @@ export default {
     position: relative;
     display: block;
     background-color: #E9C197;
-    width: 90%;
+    width: fit-content;
     height: 200px;
     left: 5%;
     top: 5%;
