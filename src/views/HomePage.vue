@@ -16,6 +16,7 @@
 import WeatherWidget from "@/components/WeatherWidget";
 import DataWidget from "@/components/ClockWidget";
 import WeeklyStreak from "@/components/WeeklyStreak"
+
 export default {
   name: "HomePage",
   components: {DataWidget, WeatherWidget, WeeklyStreak}
