@@ -6,18 +6,18 @@
       <img :src="icon" class="icoImg" alt="icon"/>
     </div>
 
-    <div class="area">
-      <p class="areaText">{{ city }}</p>
-    </div>
+    <div class="right">
+      <div class="area">
+        <p class="areaText">{{ city }}</p>
+      </div>
 
-    <div class="temperature">
-      <p>{{temperatureValue}}°C</p>
-    </div>
+      <div class="temperature">
+        <p>{{temperatureValue}}°C</p>
+      </div>
 
-
-
-    <div class="description">
-      <p>{{description}}</p>
+      <div class="description">
+        <p>{{description}}</p>
+      </div>
     </div>
 
   </div>
@@ -95,7 +95,6 @@ export default {
               case '50n': icon.value = x50n; break;
             }
           })
-
     }
 
     loadWeather()
@@ -124,91 +123,44 @@ export default {
     margin: 0;
   }
 
-  .areaText{
-    display: inline-block;
-    margin-top: 3%;
-    margin-bottom: 5%;
+  .icon{
+    position: relative;
+    float: left;
+    width: 35%;
+    height: 90%;
+    top: 5%
   }
 
-  .square{
+  .right{
     position: relative;
     display: inline-block;
-    left: 5%;
-    top: 5%;
-    border-radius: 22px;
-  }
-
-  .title{
-    position: relative;
-    top: 10px;
-    text-align: center;
-
+    width: 65%;
   }
 
   .area{
     position: relative;
     display: inline-block;
-    width: 90%;
+    width: 100%;
     top: 5%;
     text-align: left;
   }
 
-  .temperature{
-    position: relative;
-    font-size: 25px;
-    font-weight: bold;
-    bottom: 10%;
+  .areaText{
+    display: inline-block;
+    margin-top: 5%;
   }
 
-  .icon{
+  .temperature{
     position: relative;
-    width: 60%;
-    height: 90%;
-    top: 5%
+    float: left;
   }
 
   .description{
+    display: inline-block;
     position: relative;
+    float: left;
     text-transform: capitalize;
-    font-size: 20px;
-    width: 78%;
-  }
-  @media only screen and (min-width: 612px) and (max-width: 1000px){
-    .areaText{
-      margin: 0;
-    }
-
-    .temperature{
-      margin-top: 4%;
-    }
-  }
-
-  @media only screen and (min-width: 1000px) and (max-width: 1550px){
-    .areaText{
-      margin: 0;
-    }
-
-    .temperature{
-      margin-top: 5%;
-    }
-
-    .square{
-      height: 250px;
-    }
-  }
-
-  @media only screen and (min-width: 1550px){
-    .areaText{
-      margin: 0;
-    }
-
-    .temperature{
-      margin-top: 5%;
-    }
-
-    .square{
-      height: 300px;
-    }
+    margin-left: 10%;
   }
 
 

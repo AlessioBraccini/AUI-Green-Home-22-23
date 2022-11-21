@@ -1,20 +1,20 @@
 <template>
   <div class="weeklyStreak">
     <div class="bigBar"/>
-    <div class="quadrotto">
-      <div class="quadrangoloGrosso">
+    <div class="extBox">
+      <div class="leftUpRect">
         <p class="bigRectangleText">Total energy saved</p>
       </div>
-      <div class="quadrangoloPiccolo">
+      <div class="rightUpRect">
         <p class="smallRectangleText">231kWh</p>
       </div>
     </div>
 
-    <div class="quadrotto">
-      <div class="quadrangoloGrosso">
+    <div class="extBox">
+      <div class="leftUpRect">
         <p class="bigRectangleText">This week streak</p>
       </div>
-      <div class="quadrangoloPiccolo">
+      <div class="rightUpRect">
         <p class="smallRectangleText">58kWh</p>
       </div>
     </div>
@@ -71,11 +71,11 @@ export default {
     border-radius: 20px;
   }
 
-  .quadrotto{
+  .extBox{
     height: 20%;
   }
 
-  .quadrangoloGrosso{
+  .leftUpRect{
     position: relative;
     text-align: left;
     text-indent: 7%;
@@ -84,7 +84,7 @@ export default {
     height: 100%;
   }
 
-  .quadrangoloPiccolo{
+  .rightUpRect{
     position: relative;
     float: right;
     vertical-align: bottom;
@@ -93,11 +93,11 @@ export default {
   }
 
   .bigRectangleText{
-    margin-top: 2.5%;
+    margin-top: 1%;
   }
 
  .smallRectangleText{
-    margin-top: 6.5%;
+    margin-top: 3%;
   }
 
  .smallBar{
@@ -105,7 +105,6 @@ export default {
    background: white;
    border-radius: 20px;
    box-shadow: black;
-   shadow: black;
  }
 
   .greenDay{
@@ -147,9 +146,8 @@ export default {
 
   .bulletImg{
     width: 14.2%;
-    height: 80%;
+    height: 90%;
     float: left;
-    margin-top: 1%;
   }
 
 </style>

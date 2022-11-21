@@ -1,9 +1,10 @@
 <template>
   <div class="data">
-    <div>
+    <div class="clock">
       {{hours}}:{{minutes}}
     </div>
-    <div>
+    <br>
+    <div class="date">
       {{weekday}}
     </div>
   </div>
@@ -51,9 +52,16 @@ export default {
   div{
     position: relative;
   }
-
   .data{
     align-content: end;
     width: fit-content;
   }
+  .clock{
+    position: relative;
+    float: right;
+  }
+  .date{
+    position: relative;
+  }
+
 </style>

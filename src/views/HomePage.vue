@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    dwd
+    <div class="navText">SMART MIRROR</div>
   </div>
 
   <div class="header">
@@ -9,11 +9,12 @@
   </div>
 
   <div class="body">
-    {{user}}
+    {{ user }}
   </div>
 
   <div class="footer">
     <WeeklyStreak class="weeklyStreak"/>
+    <TreeImageComponent class="treeClass"/>
   </div>
 
 </template>
@@ -25,10 +26,11 @@ import DataWidget from "@/components/ClockWidget";
 import WeeklyStreak from "@/components/WeeklyStreak"
 import {username} from "@/config/config";
 import {ref} from "vue";
+import TreeImageComponent from "@/components/TreeImageComponent";
 
 export default {
   name: "HomePage",
-  components: {DataWidget, WeatherWidget, WeeklyStreak},
+  components: {TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
 
   setup(){
 
@@ -43,53 +45,68 @@ export default {
 <style scoped>
 
   .navbar{
-    background: red;
     position: relative;
     top: 0;
     width: 100%;
     height: 4%;
+    text-align: left;
   }
 
+      .navText{
+        position: relative;
+        top: 18%;
+        width: fit-content;
+        left: 2.5%;
+      }
+
   .header{
-    background: blue;
     position: relative;
     height: 10%;
     width: 100%;
   }
 
       .weather{
-        background: green;
         float: left;
-        top: 25%;
-        left: 5%;
-        height: 50%;
+        top: 10%;
+        left: 2.5%;
+        position: relative;
+        display: inline-block;
+        height: 80%;
+        width: 50%;
       }
 
       .clock{
-        background: green;
         float: right;
-        top: 25%;
-        right: 5%;
+        top: 20%;
+        right: 2.5%;
         height: 50%;
       }
 
   .body{
-    background: grey;
     position: relative;
     height: 66%;
     width: 100%;
   }
 
   .footer{
-    background: purple;
     position: fixed;
     bottom: 0;
     height: 20%;
     width: 100%;
   }
       .weeklyStreak{
-        width: 70%;
+        position: absolute;
+        width: 65%;
+        height: 80%;
+        bottom: 0;
+      }
+
+      .treeClass{
+        position: absolute;
+        width: 35%;
         height: 100%;
+        bottom: 0;
+        right: 0;
       }
 
 </style>
