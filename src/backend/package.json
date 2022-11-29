@@ -1,0 +1,65 @@
+{
+    "name": "root",
+    "description": "Library for NLU (Natural Language Understanding) done in Node.js",
+    "scripts": {
+        "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls",
+        "postinstall": "lerna bootstrap",
+        "lint": "eslint .",
+        "lintfix": "eslint --fix .",
+        "test": "eslint --fix . && jest --silent --coverage --maxWorkers=4 ."
+    },
+    "author": {
+        "email": "jesus.seijas@axa.com",
+        "name": "Jesus Seijas"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/axa-group/nlp.js.git"
+    },
+    "bugs": {
+        "url": "https://github.com/axa-group/nlp.js/issues"
+    },
+    "homepage": "https://github.com/axa-group/nlp.js#readme",
+    "maintainers": [
+        {
+            "email": "jesus.seijas@axa.com",
+            "name": "Jesus Seijas"
+        }
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "@nlpjs/basic": "^4.23.5",
+        "@nlpjs/console-connector": "^4.23.4",
+        "@nlpjs/core": "^4.23.4",
+        "@nlpjs/core-loader": "^4.23.4",
+        "@nlpjs/request": "^4.22.7"
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "coveralls": "^3.1.0",
+        "eslint": "^7.2.0",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.21.2",
+        "eslint-plugin-jest": "^24.0.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "https-proxy-agent": "^5.0.0",
+        "jest": "^26.0.1",
+        "lerna": "^3.22.1",
+        "prettier": "^2.0.5",
+        "supertest": "^5.0.0"
+    },
+    "jest": {
+        "verbose": true,
+        "testURL": "http://localhost/",
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "**/src/**/**.js",
+            "!./packages/lang-**/**",
+            "!./packages/python-compiler/src/python-executer.js",
+            "!./packages/express-api-server/src/public/**/**"
+        ],
+        "coverageDirectory": "coverage",
+        "testEnvironment": "node"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "name": "Offender-Corpus",
+    "locale": "en-US",
+    "contextData": "../data_config/devices.json",
+    "data": [
+        {
+            "intent": "device.generictip",
+            "utterances": [
+                "can you give me some tips to consume less",
+                "i want to consume less",
+                "what can i do to consume less",
+                "tell me how i can consume less",
+                "how can i save energy"
+            ],
+            "answers": [
+                "You can do this",
+                "You can do that"
+            ]
+        },
+        {
+            "intent": "device.dailyoffender",
+            "utterances": [
+                "who's today's offender",
+                "what device consumed the most today",
+                "who do i have to blame for my energy bill today"
+            ]
+        },
+        {
+            "intent": "device.specificTip",
+            "utterances": [
+                "how can i consume less with @device"
+            ],
+            "answers": [
+                "you can do this: fafbjabfsa"
+            ]
+        }
+    ]
+}
