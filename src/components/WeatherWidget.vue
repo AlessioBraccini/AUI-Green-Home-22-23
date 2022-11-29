@@ -126,7 +126,7 @@ export default {
   .icon{
     position: relative;
     float: left;
-    width: 35%;
+    width: 30%;
     height: 90%;
     top: 5%
   }
