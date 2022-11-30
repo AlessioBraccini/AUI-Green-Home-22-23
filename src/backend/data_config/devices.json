@@ -4,13 +4,19 @@
         "tips": [
             "tip1_dishwasher",
             "tip2_dishwasher",
-            "tip3_"
+            "tip3_dishwasher"
         ]
     },
     "washing-machine": {
         "threshold": "40W/day",
         "tips": [
             "tip1_washing_machine"
+        ]
+    },
+    "ac": {
+        "threshold": "30W/day",
+        "tips": [
+            "tip1_ac"
         ]
     }
 }

@@ -40,11 +40,14 @@ async function main() {
 
 main();
 
-export async function compute(question) {
+// ignore for the moment being
+async function  compute(question){
   const container = new containerBootstrap();
   const nlp = container.get('nlp');
   const result = await nlp.process(question);
   console.log(result);
   return result;
 }
+
+module.exports = { compute };
 

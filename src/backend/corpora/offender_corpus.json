@@ -28,11 +28,30 @@
         {
             "intent": "device.specificTip",
             "utterances": [
-                "how can i consume less with @device"
+                "how can i consume less with the @device"
             ],
             "answers": [
-                "you can do this: fafbjabfsa"
+                "For {{ device }}, you can {{ _data[entities.device.option].tips[0] }}"
+            ]
+        },
+        {
+            "intent": "device.offenderInfo",
+            "utterances": [
+                "how do you choose the daily offender",
+                "what's a daily offender"
+            ],
+            "answers": [
+                "After I have gathered all the devices' energy consumption, I choose as daily offender the one that consumed the most.\nDo you want to know how to save energy?"
             ]
         }
-    ]
+    ],
+    "entities": {
+        "device": {
+            "options": {
+                "dishwasher": ["dishwasher"],
+                "washing-machine": ["washing machine", "washing machine"],
+                "ac": ["ac", "air conditioning"]
+            }
+        }
+    }
 }
