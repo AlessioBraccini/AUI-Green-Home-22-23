@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
+/*
 const { containerBootstrap } = require('./packages/core-loader/src');
 
 async function main() {
@@ -37,9 +37,11 @@ async function main() {
     connector.say(result.answer);
   };
 }
+*/
 
-main();
-
+require('./packages/core-loader/src').dockStart();
+//main();
+/* goo goo ga ga export no work
 // ignore for the moment being
 async function  compute(question){
   const container = new containerBootstrap();
@@ -48,6 +50,6 @@ async function  compute(question){
   console.log(result);
   return result;
 }
-
-module.exports = { compute };
+*/
+//module.exports = { compute };
 

@@ -1,7 +1,7 @@
 # Pipelines
 
 ## main
-nlp.loadOrTrain
+nlp.train
 
 ## onIntent(device.dailyoffender)
 // compiler=javascript

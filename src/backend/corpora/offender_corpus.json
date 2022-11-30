@@ -1,7 +1,7 @@
 {
     "name": "Offender-Corpus",
     "locale": "en-US",
-    "contextData": "../data_config/devices.json",
+    "contextData": "./data_config/devices.json",
     "data": [
         {
             "intent": "device.generictip",
@@ -31,7 +31,8 @@
                 "how can i consume less with the @device"
             ],
             "answers": [
-                "For {{ device }}, you can {{ _data[entities.device.option].tips[0] }}"
+                "The real name of {{ device }} is ti prego + {{ _data[entities.device.option].threshold }}",
+                "For {{ device }}, you can {{ _data[entities.device.option].threshold }}"
             ]
         },
         {
@@ -49,7 +50,7 @@
         "device": {
             "options": {
                 "dishwasher": ["dishwasher"],
-                "washing-machine": ["washing machine", "washing machine"],
+                "washing-machine": ["washing machine", "washing machine", "washy washy"],
                 "ac": ["ac", "air conditioning"]
             }
         }

@@ -12,11 +12,14 @@
       "corpora": [
         "./corpora/test_corpus.json",
         "./corpora/offender_corpus.json"
-      ]
+      ],
+      "nlu": { "log": true }
     }
   },
   "use": [
     { "className": "logger", "path": "./packages/logger/src" },
+    { "className": "Evaluator", "path": "./packages/evaluator/src" },
+    { "className": "Template", "path": "./packages/evaluator/src" },
     { "className": "ConsoleConnector", "path": "./packages/console-connector/src" },
     { "className": "Nlp", "path": "./packages/nlp/src" },
     { "className": "LangEn", "path": "./packages/lang-en/src" },
