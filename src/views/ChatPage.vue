@@ -38,7 +38,7 @@ import {ref} from "vue";
 import TreeImageComponent from "@/components/TreeImageComponent";
 import OffenderWidget from "@/components/OffenderWidget";
 import GoodboiWidget from "@/components/GoodboiWidget";
-import {computeInteraction} from "@/backend/nlpConnector";
+//import {computeInteraction} from "@/backend/nlpConnector";
 
 export default {
   name: "ChatPage",

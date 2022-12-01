@@ -38,6 +38,7 @@ import {ref} from "vue";
 import TreeImageComponent from "@/components/TreeImageComponent";
 import OffenderWidget from "@/components/OffenderWidget";
 import GoodboiWidget from "@/components/GoodboiWidget";
+import {computeInteraction} from "@/backend/nlpConnector";
 
 export default {
   name: "HomePage",
@@ -46,7 +47,7 @@ export default {
   setup(){
 
     const user = ref(username)
-
+    console.log(computeInteraction('hello'))
     return {user}
   }
 
