@@ -46,8 +46,9 @@ export default {
   /*height: 3591px;*/
   width: 100vw;
   height: 100vh;
-  background-image: url("assets/HanyuAssets/Background.png");
+  background-image: url("assets/Background.png");
   background-size: contain;
+  /*background: black;*/
   font-size: 3vw;
   color: white;
 }

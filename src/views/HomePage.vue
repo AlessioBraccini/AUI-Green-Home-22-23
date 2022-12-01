@@ -1,6 +1,9 @@
 <template>
   <div class="navbar">
-    <div class="navText">SMART MIRROR</div>
+    <div class="navText">SMART MIRROR of {{ user }}</div>
+    <div class="questionDiv">
+      <img src="../assets/QuestionMark.png" alt="?" class="question"/>
+    </div>
   </div>
 
   <div class="header">
@@ -9,7 +12,13 @@
   </div>
 
   <div class="body">
-    {{ user }}
+    <div class="offender">
+      <OffenderWidget class="dailyOffender"/>
+      <GoodboiWidget/>
+    </div>
+    <div class="micDiv">
+      <img src="../assets/Microphone.png" class="micImg" alt="mic">
+    </div>
   </div>
 
   <div class="footer">
@@ -27,10 +36,12 @@ import WeeklyStreak from "@/components/WeeklyStreak"
 import {username} from "@/config/config";
 import {ref} from "vue";
 import TreeImageComponent from "@/components/TreeImageComponent";
+import OffenderWidget from "@/components/OffenderWidget";
+import GoodboiWidget from "@/components/GoodboiWidget";
 
 export default {
   name: "HomePage",
-  components: {TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
+  components: {GoodboiWidget, OffenderWidget, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
 
   setup(){
 
@@ -50,6 +61,7 @@ export default {
     width: 100%;
     height: 4%;
     text-align: left;
+    display: inline-block;
   }
 
       .navText{
@@ -57,6 +69,21 @@ export default {
         top: 18%;
         width: fit-content;
         left: 2.5%;
+        align-content: start;
+      }
+
+      .questionDiv{
+        position: relative;
+        top: -57%;
+        width: fit-content;
+        right: 2%;
+        height: 85%;
+        float: right;
+      }
+
+      .question{
+        height: 100%;
+        width: 100%;
       }
 
   .header{
@@ -87,6 +114,29 @@ export default {
     height: 66%;
     width: 100%;
   }
+
+    .offender{
+      height: 80%;
+      width: 25%;
+      display: inline-block;
+      float: left;
+    }
+
+    .dailyOffender{
+      margin-bottom: 10%;
+    }
+
+    .micDiv{
+      display: inline-block;
+      float: right;
+      height: 14%;
+      width: 15%;
+    }
+
+    .micImg{
+      height: 100%;
+      width: 100%;
+    }
 
   .footer{
     position: fixed;
