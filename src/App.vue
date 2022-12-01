@@ -16,6 +16,8 @@ export default {
 
 <style>
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 /* width */
 ::-webkit-scrollbar {
   width: 0;
@@ -38,7 +40,7 @@ export default {
 }
 
 #app {
-  font-family: Montserrat, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

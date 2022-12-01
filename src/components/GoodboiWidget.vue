@@ -61,7 +61,7 @@ export default {
 
 .offenderDiv{
   position: relative;
-  background: #37383A;
+  background: #717173;
   border-radius: 20px;
   width: 90%;
   left: 5%;
