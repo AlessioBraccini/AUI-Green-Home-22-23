@@ -1,7 +1,11 @@
-import { compute } from "./index.js";
-//const { bot }=require('./index.js')
+const { compute, start  }=require('./index.js')
 
-export async function computeInteraction(questionText) {
+async function computeInteraction(questionText) {
     // return reply to user's input
     return  compute(questionText);
 }
+
+async function startCA() {
+    start();
+}
+module.exports = {computeInteraction, startCA};

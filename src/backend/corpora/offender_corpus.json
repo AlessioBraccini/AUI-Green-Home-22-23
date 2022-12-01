@@ -31,8 +31,7 @@
                 "how can i consume less with the @device"
             ],
             "answers": [
-                "The real name of {{ device }} is ti prego + {{ _data[entities.device.option].threshold }}",
-                "For {{ device }}, you can {{ _data[entities.device.option].threshold }}"
+                "For {{ device }}, you can {{ _data[entities.device.option].tips[0] }}"
             ]
         },
         {

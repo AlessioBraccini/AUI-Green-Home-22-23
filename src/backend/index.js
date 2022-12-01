@@ -21,9 +21,10 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/*
-const { containerBootstrap } = require('./packages/core-loader/src');
 
+const { containerBootstrap } = require('./packages/core-loader/src');
+let container;
+/*
 async function main() {
   const container = new containerBootstrap();
   await container.start();
@@ -39,17 +40,102 @@ async function main() {
 }
 */
 
-require('./packages/core-loader/src').dockStart();
+//const { dock } = require('./packages/core-loader/src').dockStart();
 //main();
-/* goo goo ga ga export no work
-// ignore for the moment being
-async function  compute(question){
-  const container = new containerBootstrap();
-  const nlp = container.get('nlp');
-  const result = await nlp.process(question);
-  console.log(result);
-  return result;
+/*
+const { NlpManager } = require('node-nlp');
+const activity = {
+    conversation: {
+        id: 'a1'
+    }
+}
+let container;
+let manager;
+let nlp;
+
+async function start() {
+    //container = new containerBootstrap();
+    manager = new NlpManager({
+        languages: ['en'],
+        forceNER: true,
+        autoSave: false,
+        nlu: { useNoneFeature: true }
+    })
+    nlp = manager.get('nlp');
+    //nlp = container.get('nlp');
+    await nlp.train()
+}
+
+async function compute(question){
+    const response = await nlp.process({ locale: 'en', utterance: question, activity });
+    console.log(response)
+    return response.answer;
 }
 */
-//module.exports = { compute };
+async function start() {
+    container = new containerBootstrap();
+    await container.start();
+}
+async function  compute(question){
+    const container = new containerBootstrap();
+    await container.start();
+    const nlp = container.get('nlp');
+    const result = await nlp.process(question);
+    return result.answer;
+}
+
+class NlpSession {
+    #today_offender;
+    #usedDevicesTips;
+
+    constructor() {
+        this.#usedDevicesTips = new Map();
+        this.#usedDevicesTips.set("dishwasher", []);
+        this.#usedDevicesTips.set("washing-machine", []);
+        this.#usedDevicesTips.set("ac", []);
+        this.#today_offender = {name: "washing-machine", consumption: "40W"}
+    }
+
+    addToUsedTips(device, tipIndex) {
+        if (!this.#usedDevicesTips.has(device)) {
+            console.log("No device " + device + "for this session")
+        } else {
+            this.#usedDevicesTips.get(device).push(tipIndex);
+        }
+    }
+
+    tipIsInHistory(device, tipIndex) {
+        if (!this.#usedDevicesTips.has(device)) {
+            console.log("No device " + device + "for this session");
+        } else {
+            const list = this.#usedDevicesTips.get(device);
+            return list.includes(tipIndex);
+        }
+    }
+
+    // getRandomDeviceTipIndex()
+
+    getDailyOffender() {
+        return this.#today_offender;
+    }
+}
+
+let session = new NlpSession();
+
+
+// function to be called by the pipeline
+function removeDeviceTipFromSession(device, tipIndex) {
+    session.addToUsedTips(device, tipIndex);
+}
+
+function checkAvailableSpecificTip(device, tipIndex) {
+    return !session.tipIsInHistory(device, tipIndex);
+}
+
+function getTodayOffender() {
+    return session.getDailyOffender()
+}
+
+module.exports = {compute, start};
+
 
