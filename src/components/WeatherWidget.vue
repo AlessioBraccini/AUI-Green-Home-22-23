@@ -160,7 +160,7 @@ export default {
     position: relative;
     float: left;
     text-transform: capitalize;
-    margin-left: 10%;
+    margin-left: 5%;
   }
 
 

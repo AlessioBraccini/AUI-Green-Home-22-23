@@ -20,6 +20,7 @@
     "node-nlp": "file:src/backend/packages/node-nlp",
     "pinia": "^2.0.23",
     "vue": "^3.2.13",
+    "vue-bot-ui": "^0.2.8",
     "vue-router": "^4.1.6",
     "vuetify": "^3.0.0"
   },

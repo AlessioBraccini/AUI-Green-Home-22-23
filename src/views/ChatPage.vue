@@ -12,42 +12,67 @@
   </div>
 
   <div class="body">
-    <div class="offender">
-      <OffenderWidget class="dailyOffender"/>
-      <GoodboiWidget/>
+
+    <div class="wrapper">
+      <ul v-if="messages.length">
+        <li v-for="mess in messages" :key="mess"> {{ mess }} </li>
+      </ul>
+      <ul v-else>
+        ciccia
+      </ul>
+
+      <input type="text" required v-model="message" v-on:keyup.enter="sendMessage" class="textInput" placeholder="Enter here your request">
+      <button class="sendButton" @click="sendMessage">Send</button>
+
+
     </div>
-    <div class="micDiv">
-      <img src="../assets/Microphone.png" class="micImg" alt="mic">
-    </div>
+
+
+
+
   </div>
 
   <div class="footer">
     <WeeklyStreak class="weeklyStreak"/>
     <TreeImageComponent class="treeClass"/>
   </div>
-
 </template>
 
 <script>
-// import WeatherPage from "@/components/WeatherPage";
 import WeatherWidget from "@/components/WeatherWidget";
 import DataWidget from "@/components/ClockWidget";
 import WeeklyStreak from "@/components/WeeklyStreak"
 import {username} from "@/config/config";
 import {ref} from "vue";
 import TreeImageComponent from "@/components/TreeImageComponent";
-import OffenderWidget from "@/components/OffenderWidget";
-import GoodboiWidget from "@/components/GoodboiWidget";
-import {computeInteraction} from "@/backend/nlpConnector";
+
+// import {computeInteraction} from "@/backend/nlpConnector";
 
 export default {
   name: "ChatPage",
-  components: {GoodboiWidget, OffenderWidget, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
+  components: {TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
 
   setup(){
 
     const user = ref(username)
-    return {user}
+    let messages = ref(['hello', 'salut', 'hola'])
+    const message = ref('')
+
+    const sendMessage = async () => {
+
+      messages.value.push(message.value)
+
+      // send messaqge logic
+
+      const reply = 'reply'
+
+      messages.value.push(reply)
+
+      message.value = ''
+
+    }
+
+    return {user, messages, message, sendMessage}
   },
 
   // mounted() {
@@ -104,7 +129,7 @@ export default {
   position: relative;
   display: inline-block;
   height: 80%;
-  width: 50%;
+  width: 60%;
 }
 
 .clock{
@@ -120,28 +145,15 @@ export default {
   width: 100%;
 }
 
-.offender{
-  height: 80%;
-  width: 25%;
-  display: inline-block;
-  float: left;
-}
+  .textInput{
+    background: white;
+    color: black;
+  }
 
-.dailyOffender{
-  margin-bottom: 10%;
-}
-
-.micDiv{
-  display: inline-block;
-  float: right;
-  height: 14%;
-  width: 15%;
-}
-
-.micImg{
-  height: 100%;
-  width: 100%;
-}
+  .sendButton{
+    background: red;
+    color: black;
+  }
 
 .footer{
   position: fixed;

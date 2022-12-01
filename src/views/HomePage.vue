@@ -17,7 +17,7 @@
       <GoodboiWidget/>
     </div>
     <div class="micDiv">
-      <img src="../assets/Microphone.png" class="micImg" alt="mic">
+      <img src="../assets/Microphone.png" class="micImg" alt="mic" @click="redirectChat">
     </div>
   </div>
 
@@ -38,6 +38,7 @@ import {ref} from "vue";
 import TreeImageComponent from "@/components/TreeImageComponent";
 import OffenderWidget from "@/components/OffenderWidget";
 import GoodboiWidget from "@/components/GoodboiWidget";
+import router from "@/router";
 
 export default {
   name: "HomePage",
@@ -47,7 +48,12 @@ export default {
 
     const user = ref(username)
 
-    return {user}
+    const redirectChat = () => {
+      router.push({ name: 'ChatPage'})   //use if to redirect under certain conditions
+
+    }
+
+    return {user, redirectChat}
   }
 
 }
@@ -99,7 +105,7 @@ export default {
         position: relative;
         display: inline-block;
         height: 80%;
-        width: 50%;
+        width: 60%;
       }
 
       .clock{

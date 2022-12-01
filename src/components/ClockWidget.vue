@@ -28,7 +28,7 @@ export default {
     }
   },
   mounted() {
-    setInterval(() => this.setTime(), 1000)
+    setInterval(() => this.setTime(), 10)
   },
   methods: {
     setTime() {
