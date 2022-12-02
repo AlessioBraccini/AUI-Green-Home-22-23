@@ -12,12 +12,7 @@
       "corpora": [
         "./corpora/test_corpus.json",
         "./corpora/offender_corpus.json"
-      ],
-      "nlu": { "log": true }
-    },
-    "api-server": {
-      "port": 3000,
-      "serveBot": true
+      ]
     }
   },
   "use": [
@@ -27,8 +22,6 @@
     { "className": "ConsoleConnector", "path": "./packages/console-connector/src" },
     { "className": "Nlp", "path": "./packages/nlp/src" },
     { "className": "LangEn", "path": "./packages/lang-en/src" },
-    { "className": "JavascriptCompiler", "path": "./packages/evaluator/src" },
-    { "className": "ExpressApiServer", "path": "./packages/express-api-server/src" },
-    { "className": "DirectlineConnector", "path": "./packages/directline-connector/src" }
+    { "className": "JavascriptCompiler", "path": "./packages/evaluator/src" }
   ]
 }

@@ -5,7 +5,8 @@ class DataAdapter{
     getOffender(date){
         const offender = {name: "dishwasher",
                             consumption: "50W",
-                            date: date};
+                            date: date,
+                            alternatives:['dishwasher', 'washy washy']};
         return offender;
     }
 

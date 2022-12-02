@@ -23,6 +23,9 @@
                 "who's today's offender",
                 "what device consumed the most today",
                 "who do i have to blame for my energy bill today"
+            ],
+            "answers": [
+                "Today offender is the {{ offender }}"
             ]
         },
         {
