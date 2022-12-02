@@ -23,50 +23,22 @@
 
 
 const { containerBootstrap } = require('./packages/core-loader/src');
-/*
-async function main() {
-  const container = new containerBootstrap();
-  await container.start();
-  const nlp = container.get('nlp');
-  nlp.train();
-  const connector = container.get('console');
-  connector.say("NLP-console is ready");
+//const { NlpManager} = require('./packages/node-nlp');
+//const { dock } = require('./packages/core-loader/src');
 
-  connector.onHear = async (self, text) => {
-    const result = await nlp.process(text);
-    connector.say(result.answer);
-  };
-}
-*/
-
-//main();
-
-/*
-async function  compute(question){
+async function compute(question) {
     const container = new containerBootstrap();
     await container.start();
+    //await dock.start();
+    //const container = dock.getContainer();
     const nlp = container.get('nlp');
-    // nlp.registerDefault();
-    await nlp.train();
-    console.log(question);
-    const result = await nlp.process(question);
-    return result.answer;
-}
-*/
-
-const { NlpManager, ConversationContext } = require('./packages/node-nlp');
-const { GreenHomeComponent } = require('./GreenHomeComponents/greenHomeComponent');
-async function compute(question) {
+    /*
+    // if there's something that doesn't work, try to un-comment this down below
     const activity = {
         conversation: {
             id: 'a1'
         }
     }
-    //const context = new ConversationContext();
-    const ghc = new GreenHomeComponent();
-    const offender = ghc.offender;
-
-    console.log(offender);
 
     const manager = new NlpManager({
         languages: ['en'],
@@ -75,20 +47,14 @@ async function compute(question) {
         nlu: { useNoneFeature: true }
     });
 
-    await manager.nlp.addCorpora(['./corpora/test_corpus.json', './corpora/offender_corpus.json']);
-    manager.addNamedEntityText(
-        "offender",
-        offender.name,
-        ['en'],
-        offender.alternatives
-    );
-    await manager.train();
+     */
+    //const manager = container.get('nlp');
+    //await manager.addCorpora(['./corpora/test_corpus.json', './corpora/offender_corpus.json']);
+    await nlp.train();
     console.log(question);
-    const response = await manager.process({ locale: 'en', utterance: question, activity });
+    const response = await nlp.process({ locale: 'en', utterance: question/*, activity*/ });
     return response.answer;
 }
-
-
 
 module.exports = {compute};
 
