@@ -1,0 +1,36 @@
+{
+    "name": "Leafy-Corpus",
+    "locale": "en-US",
+    "data": [
+        {
+            "intent": "agent.statusInfo",
+            "utterances": [
+                "what are your stages",
+                "what are the stages",
+                "what is a stage",
+                "what are your levels",
+                "what is a level",
+                "Hi Leafy! what are your stages",
+                "how do your stages work",
+                "do you have stages",
+                "do you have levels"
+            ],
+            "answers": [
+                "I have 5 different stages and the higher it is the better I am! Do you want me to show them to you?"
+            ]
+        },
+        {
+            "intent": "agent.status",
+            "utterances": [
+                "hi tree! how are you",
+                "hi leafy! how are you",
+                "how are you today",
+                "what's your level",
+                "what is your level",
+                "what's your stage",
+                "on what stage are you",
+                "how are you doing"
+            ]
+        }
+    ]
+}
