@@ -1,8 +1,6 @@
-const { compute }=require('./index.js')
+import {compute} from "@/backend/index";
 
-async function computeInteraction(questionText) {
+export async function computeInteraction(questionText) {
     // return reply to user's input
     return  compute(questionText);
 }
-
-module.exports = {computeInteraction};

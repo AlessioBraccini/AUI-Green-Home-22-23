@@ -22,11 +22,13 @@
  */
 
 
-const { containerBootstrap } = require('./packages/core-loader/src');
+//const { containerBootstrap } = require('./packages/core-loader/src');
 //const { NlpManager} = require('./packages/node-nlp');
 //const { dock } = require('./packages/core-loader/src');
 
-async function compute(question) {
+const {containerBootstrap} = require("@nlpjs/core");
+
+export async function compute(question) {
     const container = new containerBootstrap();
     await container.start();
     //await dock.start();
@@ -56,6 +58,5 @@ async function compute(question) {
     return response.answer;
 }
 
-module.exports = {compute};
 
 

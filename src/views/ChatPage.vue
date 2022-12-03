@@ -47,7 +47,7 @@ import WeeklyStreak from "@/components/WeeklyStreak"
 import {username} from "@/config/config";
 import {ref} from "vue";
 import TreeImageComponent from "@/components/TreeImageComponent";
-// import {computeInteraction} from "@/backend/nlpConnector";
+import {computeInteraction} from "@/backend/nlpConnector";
 
 export default {
   name: "ChatPage",
@@ -64,9 +64,9 @@ export default {
       messages.value.push(message.value)
 
       // send message logic
-      // const res = await computeInteraction("how can i consume less with the dishwasher")
+      const res = await computeInteraction("how can i consume less with the dishwasher")
 
-      messages.value.push('res')
+      messages.value.push(res)
       message.value = ''
     }
 
