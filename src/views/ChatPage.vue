@@ -25,7 +25,8 @@
       </div>
 
       <div class="interact">
-        <input type="text" required v-model="message" v-on:keyup.enter="sendMessage" class="textInput" placeholder="Enter here your request">
+        <input type="text" required v-model="message" v-on:keyup.enter="sendMessage"
+               class="textInput" placeholder="Enter here your request">
         <button class="sendButton" @click="sendMessage">Send</button>
       </div>
 
@@ -47,7 +48,7 @@ import WeeklyStreak from "@/components/WeeklyStreak"
 import {username} from "@/config/config";
 import {ref} from "vue";
 import TreeImageComponent from "@/components/TreeImageComponent";
-import {computeInteraction} from "@/backend/nlpConnector";
+// import {computeInteraction} from "@/backend/nlpConnector";
 
 export default {
   name: "ChatPage",
@@ -56,17 +57,40 @@ export default {
   setup(){
 
     const user = ref(username)
-    let messages = ref(['hello', 'salut', 'hola'])
+    const messages = ref(['hello', 'salut', 'hola'])
     const message = ref('')
+    const tts = window.speechSynthesis;
+
+    const speak = (text) => {
+      const utterThis = new SpeechSynthesisUtterance(text);
+
+      if (navigator.userAgent.match(/firefox|fxios/i)){
+        utterThis.pitch = 2;
+        utterThis.rate = 0.8;
+        utterThis.lang = "en-US"
+      }
+      else{
+        utterThis.pitch = 1.4;
+        utterThis.rate = 0.8;
+        utterThis.lang = "en-US"
+      }
+
+      tts.speak(utterThis);
+
+    }
 
     const sendMessage = async () => {
 
       messages.value.push(message.value)
 
       // send message logic
-      const res = await computeInteraction("how can i consume less with the dishwasher")
-
+      // const res = await computeInteraction("how can i consume less with the dishwasher")
+      const res = "Hi, i'm leafy, your personal new mirror"
+      console.log(res)
       messages.value.push(res)
+
+      speak(message.value)
+
       message.value = ''
     }
 

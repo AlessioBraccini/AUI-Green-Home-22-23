@@ -9,16 +9,16 @@
 
 <script>
 import {ref} from "vue";
-import AC from "@/assets/Offender/AC.png"
-import Boiler from "@/assets/Offender/Boiler.png"
-import Dishwasher from "@/assets/Offender/Dishwasher.png"
-import Dryer from "@/assets/Offender/Dryer.png"
-import Fridge from "@/assets/Offender/Fridge.png"
-import Induction from "@/assets/Offender/Induction.png"
-import Microwave from "@/assets/Offender/Microwave.png"
-import Oven from "@/assets/Offender/Oven.png"
-import TV from "@/assets/Offender/TV.png"
-import WashingMachine from "@/assets/Offender/WashingMachine.png"
+import AC from "@/assets/HappyAppliance/AC.png"
+import Boiler from "@/assets/HappyAppliance/Boiler.png"
+import Dishwasher from "@/assets/HappyAppliance/Dishwasher.png"
+import Dryer from "@/assets/HappyAppliance/Dryer.png"
+import Fridge from "@/assets/HappyAppliance/Fridge.png"
+import Induction from "@/assets/HappyAppliance/Induction.png"
+import Microwave from "@/assets/HappyAppliance/Microwave.png"
+import Oven from "@/assets/HappyAppliance/Oven.png"
+import TV from "@/assets/HappyAppliance/TV.png"
+import WashingMachine from "@/assets/HappyAppliance/WashingMachine.png"
 import {dailyGood} from "@/config/config";
 
 // import axios from "axios";

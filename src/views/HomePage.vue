@@ -2,7 +2,7 @@
   <div class="navbar">
     <div class="navText">SMART MIRROR of {{ user }}</div>
     <div class="questionDiv">
-      <img src="../assets/QuestionMark.png" alt="?" class="question"/>
+      <img src="../assets/QuestionMark.png" alt="?" class="question" @click="redirectOnboarding"/>
     </div>
   </div>
 
@@ -13,8 +13,10 @@
 
   <div class="body">
     <div class="offender">
+      <DashWidget class="dash"/>
       <OffenderWidget class="dailyOffender"/>
-      <GoodboiWidget/>
+      <GoodboiWidget class="goodBoy"/>
+      <TipsWidget class="tips"/>
     </div>
     <div class="micDiv">
       <img src="../assets/Microphone.png" class="micImg" alt="mic" @click="redirectChat">
@@ -39,10 +41,14 @@ import TreeImageComponent from "@/components/TreeImageComponent";
 import OffenderWidget from "@/components/OffenderWidget";
 import GoodboiWidget from "@/components/GoodboiWidget";
 import router from "@/router";
+import DashWidget from "@/components/DashWidget";
+import TipsWidget from "@/components/TipsWidget";
 
 export default {
   name: "HomePage",
-  components: {GoodboiWidget, OffenderWidget, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
+  components: {
+    TipsWidget,
+    DashWidget, GoodboiWidget, OffenderWidget, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
 
   setup(){
 
@@ -53,7 +59,12 @@ export default {
 
     }
 
-    return {user, redirectChat}
+    const redirectOnboarding = () => {
+      router.push({ name: 'OnboardingPage'})   //use if to redirect under certain conditions
+
+    }
+
+    return {user, redirectChat, redirectOnboarding}
   }
 
 }
@@ -122,13 +133,25 @@ export default {
   }
 
     .offender{
-      height: 80%;
+      height: 100%;
       width: 25%;
       display: inline-block;
       float: left;
     }
 
+    .dash{
+      margin-bottom: 10%;
+    }
+
     .dailyOffender{
+      margin-bottom: 10%;
+    }
+
+    .goodBoy{
+      margin-bottom: 10%;
+    }
+
+    .tips{
       margin-bottom: 10%;
     }
 
