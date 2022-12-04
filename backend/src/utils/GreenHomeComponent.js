@@ -1,4 +1,4 @@
-const {DataAdapter} = require("./DataAdapter");
+const {DataAdapter} = require("./DataAdapter.js");
 
 class GreenHomeComponent {
     #dataAdapter;

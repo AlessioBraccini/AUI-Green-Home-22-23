@@ -4,5 +4,5 @@
 nlp.train
 
 
-## onIntent(device.dailyoffender)
+## onIntent(device.dailyOffender)
 getOffender

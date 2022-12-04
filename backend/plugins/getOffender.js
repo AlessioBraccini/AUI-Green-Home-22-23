@@ -1,4 +1,4 @@
-const { GreenHomeComponent } = require("../GreenHomeComponents/greenHomeComponent")
+const { GreenHomeComponent } = require("../src/utils/GreenHomeComponent.js")
 class GetOffender{
     constructor() {
         this.name = 'getOffender';

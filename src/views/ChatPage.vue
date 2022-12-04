@@ -48,7 +48,7 @@ import WeeklyStreak from "@/components/WeeklyStreak"
 import {username} from "@/config/config";
 import {ref} from "vue";
 import TreeImageComponent from "@/components/TreeImageComponent";
-// import {computeInteraction} from "@/backend/nlpConnector";
+import axios from 'axios'
 
 export default {
   name: "ChatPage",
@@ -83,11 +83,18 @@ export default {
 
       messages.value.push(message.value)
 
-      // send message logic
-      // const res = await computeInteraction("how can i consume less with the dishwasher")
-      const res = "Hi, i'm leafy, your personal new mirror"
-      console.log(res)
-      messages.value.push(res)
+      let headersList = {
+        "Access-Control-Allow-Origin": "*"
+      }
+
+      axios.get(`http://localhost:3000/?msg=${message.value}`, { headers: headersList })
+          .then(res => {
+            console.log(res)
+            messages.value.push(res.data)
+          })
+          .catch(err => {
+            console.log(err)
+          })
 
       speak(message.value)
 

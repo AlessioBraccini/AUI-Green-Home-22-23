@@ -1,0 +1,22 @@
+{
+    "settings": {
+        "nlp": {
+            "languages": [
+                "en"
+            ],
+            "trainByDomain": false,
+            "threshold": 0.5,
+            "autoLoad": false,
+            "forceNER": true,
+            "autoSave": false,
+            "nlu": {
+                "useNoneFeature": true
+            },
+            "corpora": [
+                "./corpora/test_corpus.json",
+                "./corpora/offender_corpus.json"
+            ]
+        }
+    },
+    "use": ["Basic", "Evaluator", "Template", "logger", "Nlp", "LangEn", "JavascriptCompiler"]
+}

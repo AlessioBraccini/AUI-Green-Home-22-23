@@ -1,7 +1,7 @@
 {
     "name": "Offender-Corpus",
     "locale": "en-US",
-    "contextData": "./data_config/devices.json",
+    "contextData": "./corpora/data_config/devices.json",
     "data": [
         {
             "intent": "device.generictip",
@@ -18,7 +18,7 @@
             ]
         },
         {
-            "intent": "device.dailyoffender",
+            "intent": "device.dailyOffender",
             "utterances": [
                 "who's today's offender",
                 "what device consumed the most today",
