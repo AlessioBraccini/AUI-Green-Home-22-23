@@ -68,6 +68,8 @@ export default {
         utterThis.lang = "en-US"
       }
       else{
+        const voices = tts.getVoices();
+        utterThis.voice = voices[28] //Moira
         utterThis.pitch = 1.4;
         utterThis.rate = 0.8;
         utterThis.lang = "en-US"
