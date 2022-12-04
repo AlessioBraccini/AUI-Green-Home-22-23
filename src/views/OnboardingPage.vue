@@ -112,96 +112,98 @@ export default {
       delays.value.push(5000)
       messages.value.push('By pressing this button you can redo this tutorial. Press it if you need it!')
       delays.value.push(7000)
-      messages.value.push('That is the end, enjoy your magic mirror, and remember, if you need something I am here ready to assist you!')
-      delays.value.push(9000)
+      messages.value.push('That is the end, enjoy your smart mirror, and remember, if you need something I am here ready to assist you! Just ask me wat you want')
+      delays.value.push(11000)
       messages.value.push('')
       delays.value.push(1)
     }
 
     const startAnimation = () => {
       let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.navbar { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.header { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.offender { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.micDiv { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.weeklyStreak { opacity: 0.5 }', sheet.cssRules.length);
+      sheet.insertRule('.navbar { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.header { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.offender { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.micDiv { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.weeklyStreak { opacity:  0.2 }', sheet.cssRules.length);
     }
 
     const visualizeTree = () => {
      let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.navbar { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.header { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.offender { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.micDiv { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.weeklyStreak { opacity: 0.5 }', sheet.cssRules.length);
+      sheet.insertRule('.navbar { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.header { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.offender { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.micDiv { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.weeklyStreak { opacity:  0.2 }', sheet.cssRules.length);
      }
 
     const visualizeBotBar = () => {
       let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.navbar { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.header { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.offender { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.micDiv { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.weeklyStreak { opacity: 1 }', sheet.cssRules.length);
+      sheet.insertRule('.navbar { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.header { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.offender { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.micDiv { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.weeklyStreak { opacity: 1; box-shadow: 0px 0px 30px 10px green; }', sheet.cssRules.length);
     }
 
     const visualizeTip = () => {
       let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.navbar { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.header { opacity: 0.5 }', sheet.cssRules.length);
+      sheet.insertRule('.navbar { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.header { opacity:  0.2 }', sheet.cssRules.length);
       sheet.insertRule('.offender { opacity: 1 }', sheet.cssRules.length);
-      sheet.insertRule('.dailyOffender { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.goodBoy { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.dash { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.tips { opacity: 1 }', sheet.cssRules.length);
-      sheet.insertRule('.micDiv { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.weeklyStreak { opacity: 0.5 }', sheet.cssRules.length);
+      sheet.insertRule('.dailyOffender { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.goodBoy { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.dash { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.tips { opacity: 1; box-shadow: 0px 0px 30px 10px green;}', sheet.cssRules.length);
+      sheet.insertRule('.micDiv { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.weeklyStreak { opacity:  0.2; box-shadow: 0px 0px 0px 0px transparent; }', sheet.cssRules.length);
     }
 
     const visualizeOffender = () => {
       let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.navbar { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.header { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.tips { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.dailyOffender { opacity: 1 }', sheet.cssRules.length);
-      sheet.insertRule('.goodBoy { opacity: 1 }', sheet.cssRules.length);
-      sheet.insertRule('.micDiv { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.weeklyStreak { opacity: 0.5 }', sheet.cssRules.length);
+      sheet.insertRule('.navbar { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.header { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.tips { opacity:  0.2 ; box-shadow: 0px 0px 0px 0px transparent;}', sheet.cssRules.length);
+      sheet.insertRule('.dailyOffender { opacity: 1; box-shadow: 0px 0px 30px 10px green; }', sheet.cssRules.length);
+      sheet.insertRule('.goodBoy { opacity: 1; box-shadow: 0px 0px 30px 10px green; }', sheet.cssRules.length);
+      sheet.insertRule('.micDiv { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.weeklyStreak { opacity:  0.2 }', sheet.cssRules.length);
     }
 
     const visualizeDash = () => {
       let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.navbar { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.header { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.dailyOffender { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.goodBoy { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.dash { opacity: 1 }', sheet.cssRules.length);
-      sheet.insertRule('.micDiv { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.weeklyStreak { opacity: 0.5 }', sheet.cssRules.length);
+      sheet.insertRule('.navbar { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.header { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.dailyOffender { opacity:  0.2 ; box-shadow: 0px 0px 0px 0px transparent;}', sheet.cssRules.length);
+      sheet.insertRule('.goodBoy { opacity:  0.2; box-shadow: 0px 0px 0px 0px transparent; }', sheet.cssRules.length);
+      sheet.insertRule('.dash { opacity: 1; box-shadow: 0px 0px 30px 10px green; }', sheet.cssRules.length);
+      sheet.insertRule('.micDiv { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.weeklyStreak { opacity:  0.2 }', sheet.cssRules.length);
     }
 
     const visualizeMic = () => {
       let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.navbar { opacity: 0.5 }' , sheet.cssRules.length);
-      sheet.insertRule('.header { opacity: 0.5 }' , sheet.cssRules.length);
-      sheet.insertRule('.dash { opacity: 0.5 }' , sheet.cssRules.length);
-      sheet.insertRule('.micDiv { opacity: 1 }' , sheet.cssRules.length);
-      sheet.insertRule('.weeklyStreak { opacity: 0.5 }' , sheet.cssRules.length);
+      sheet.insertRule('.navbar { opacity:  0.2 }' , sheet.cssRules.length);
+      sheet.insertRule('.header { opacity:  0.2 }' , sheet.cssRules.length);
+      sheet.insertRule('.dash { opacity:  0.2 ; box-shadow: 0px 0px 0px 0px transparent;}' , sheet.cssRules.length);
+      sheet.insertRule('.micDiv { opacity: 1 ; box-shadow: 0px 0px 30px 10px green;}' , sheet.cssRules.length);
+      sheet.insertRule('.weeklyStreak { opacity:  0.2 }' , sheet.cssRules.length);
     }
 
     const visualizeQuestion = () => {
       let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.navbar { opacity: 1; drop}', sheet.cssRules.length);
-      sheet.insertRule('.navText { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.header { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.micDiv { opacity: 0.5 }', sheet.cssRules.length);
-      sheet.insertRule('.weeklyStreak { opacity: 0.5 }', sheet.cssRules.length);
+      sheet.insertRule('.navbar { opacity: 1;}', sheet.cssRules.length);
+      sheet.insertRule('.questionDiv { opacity: 1;  box-shadow: 0px 0px 30px 10px green;}', sheet.cssRules.length);
+      sheet.insertRule('.navText { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.header { opacity:  0.2 }', sheet.cssRules.length);
+      sheet.insertRule('.micDiv { opacity:  0.2 ;box-shadow: 0px 0px 0px 0px transparent;}', sheet.cssRules.length);
+      sheet.insertRule('.weeklyStreak { opacity:  0.2 }', sheet.cssRules.length);
     }
 
     const endAnimation = () => {
       let sheet = window.document.styleSheets[0];
       sheet.insertRule('.navbar { opacity: 1 }', sheet.cssRules.length);
-      sheet.insertRule('.questionDiv { opacity: 1 }', sheet.cssRules.length);
+      sheet.insertRule('.navText { opacity: 1 }', sheet.cssRules.length);
+      sheet.insertRule('.questionDiv { opacity: 1; box-shadow: 0px 0px 0px 0px transparent; }', sheet.cssRules.length);
       sheet.insertRule('.header { opacity: 1 }', sheet.cssRules.length);
       sheet.insertRule('.dailyOffender { opacity: 1 }', sheet.cssRules.length);
       sheet.insertRule('.goodBoy { opacity: 1 }', sheet.cssRules.length);

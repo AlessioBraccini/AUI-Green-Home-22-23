@@ -29,8 +29,6 @@
                class="textInput" placeholder="Enter here your request">
         <button class="sendButton" @click="sendMessage">Send</button>
       </div>
-
-
     </div>
 
   </div>
@@ -83,7 +81,7 @@ export default {
 
       messages.value.push(message.value)
 
-      let headersList = {
+      const headersList = {
         "Access-Control-Allow-Origin": "*"
       }
 
@@ -91,12 +89,13 @@ export default {
           .then(res => {
             console.log(res)
             messages.value.push(res.data)
+            speak(res.data)
+
           })
           .catch(err => {
             console.log(err)
           })
 
-      speak(message.value)
 
       message.value = ''
     }
