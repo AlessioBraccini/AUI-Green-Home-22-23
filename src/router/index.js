@@ -3,6 +3,7 @@ import HomePage from "@/views/HomePage";
 import NotFound from "@/views/NotFound";
 import ChatPage from "@/views/ChatPage";
 import OnboardingPage from "@/views/OnboardingPage";
+import test from "@/views/test.vue";
 
 const routes = [
     {
@@ -23,6 +24,11 @@ const routes = [
         component: OnboardingPage
     },
 
+    {
+        path: '/test',
+        name: 'test',
+        component: test
+    },
 
     // Catch 404
     {

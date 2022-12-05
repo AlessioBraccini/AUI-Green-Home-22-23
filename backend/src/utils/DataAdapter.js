@@ -10,6 +10,10 @@ class DataAdapter{
         return offender;
     }
 
+    getGoodBoy(date){
+        return {name: "dryer", consumption: "2W", date:date};
+    }
+
     countGreenStreak(){
         return {streak: 3, days: ["mon", "wed", "fri"]};
     }
@@ -17,6 +21,10 @@ class DataAdapter{
     getTreeLevel(){
         // levels go from 1 to 5 (3 is middle/neutral level)
         return 3;
+    }
+
+    getInstantTotalConsumption(){
+        return {data: 8.5, units:"kW"};
     }
 }
 
