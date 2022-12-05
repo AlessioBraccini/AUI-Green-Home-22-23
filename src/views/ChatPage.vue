@@ -1,9 +1,9 @@
 <template>
   <div class="navbar">
     <div class="navText">SMART MIRROR of {{ user }}</div>
-    <div class="questionDiv">
-      <img src="../assets/QuestionMark.png" alt="?" class="question"/>
-    </div>
+<!--    <div class="questionDiv">-->
+<!--      <img src="../assets/QuestionMark.png" alt="?" class="question"/>-->
+<!--    </div>-->
   </div>
 
   <div class="header">
@@ -16,8 +16,11 @@
     <div class="wrapper">
 
       <div class="messagePart">
-        <div v-if="messages.length">
-          <div v-for="mess in messages" :key="mess" class="list"> <p class="indent"> {{ mess }} </p> </div>
+        <div v-if="messages.length > 1">
+          <div v-for="i in messages.length" :key="i">
+            <div class="list" v-if="i % 2"> <p class="indentUser"> {{ messages[i] }} </p> </div>
+            <div class="listNlp" v-else> <p class="indent"> {{ messages[i] }} </p> </div>
+          </div>
         </div>
         <div v-else>
           ciccia
@@ -55,7 +58,7 @@ export default {
   setup(){
 
     const user = ref(username)
-    const messages = ref(['hello', 'salut', 'hola'])
+    const messages = ref([''])
     const message = ref('')
     const tts = window.speechSynthesis;
 
@@ -89,7 +92,6 @@ export default {
 
       axios.get(`http://localhost:3000/?msg=${message.value}`, { headers: headersList })
           .then(res => {
-            console.log(res)
             messages.value.push(res.data)
             speak(res.data)
 
@@ -218,7 +220,18 @@ export default {
   .list{
     position: relative;
     list-style-type: none;
-    background: linear-gradient(to bottom, #118722 0%, #458429 100%);
+    background: linear-gradient(to bottom, rgb(17, 135, 34, .5) 0%, rgb(69, 132, 41, .5) 100%);
+    text-align: right;
+    border-radius: 30px;
+    margin-top: 2%;
+    height: fit-content;
+    width: 100%;
+  }
+
+  .listNlp{
+    position: relative;
+    list-style-type: none;
+    background: linear-gradient(to bottom, #14d509 0%, #3BA632FF 100%);
     text-align: left;
     border-radius: 30px;
     margin-top: 2%;
@@ -228,7 +241,9 @@ export default {
 
   .indent{
     margin-left: 30px;
-
+  }
+  .indentUser{
+    margin-right: 30px;
   }
 
   .interact{

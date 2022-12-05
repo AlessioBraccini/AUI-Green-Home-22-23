@@ -48,9 +48,9 @@ export default {
   /*height: 3591px;*/
   width: 100vw;
   height: 100vh;
-  /*background-image: url("assets/Background.png");*/
-  /*background-size: contain;*/
-  background: black;
+  background-image: url("assets/Background.png");
+  background-size: contain;
+  /*background: black;*/
   font-size: 3vw;
   color: white;
   text-shadow: 1px 1px 10px white;
