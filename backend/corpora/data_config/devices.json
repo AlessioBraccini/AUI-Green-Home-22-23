@@ -2,21 +2,54 @@
     "dishwasher": {
         "threshold": "35W/day",
         "tips": [
-            "tip1_dishwasher",
-            "tip2_dishwasher",
-            "tip3_washdisher"
+            "tip1_dishwasher"
         ]
     },
     "washing-machine": {
         "threshold": "40W/day",
         "tips": [
-            "tip1_washing_machine"
+            "Use shorter washing machine program",
+            "Wash your clothes in cold water",
+            "Fill the washing machine / dryer / dishwasher before operation"
+
         ]
     },
     "ac": {
         "threshold": "30W/day",
         "tips": [
-            "tip1_ac"
+            "prefer a fan to the air conditioning, since it consume a lot less",
+            "depending on how hot it is, sometimes just opening the windows and generating airflow is enough to cool down your house instead of turning on the air conditioning",
+            "try to set air conditioner's thermostat to moderate temperature",
+            "use air conditioner locally in the room you're using instead of the whole house. Do you really need to cool or warm up all the rooms?"
+        ]
+    },
+    "fridge": {
+        "threshold": "",
+        "tips": [
+            "avoid opening frequently the refrigerator door",
+            "leave enough space between the refrigerator and the wall to allow ventilation"
+        ]
+    },
+    "dryer": {
+        "threshold": "",
+        "tips": [
+            "use a laundry hanger instead of the electric dryer"
+        ]
+    },
+    "oven": {
+        "threshold": "",
+        "tips": [
+
+        ]
+    },
+    "microwave": {
+        "threshold": "",
+        "tips": []
+    },
+    "boiler": {
+        "threshold": "",
+        "tips": [
+
         ]
     }
 }
