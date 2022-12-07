@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import {ref} from "vue";
+import {capitalize, ref} from "vue";
 import AC from "@/assets/Offender/AC.png"
 import Boiler from "@/assets/Offender/Boiler.png"
 import Dishwasher from "@/assets/Offender/Dishwasher.png"
@@ -19,7 +19,7 @@ import Microwave from "@/assets/Offender/Microwave.png"
 import Oven from "@/assets/Offender/Oven.png"
 import TV from "@/assets/Offender/TV.png"
 import WashingMachine from "@/assets/Offender/WashingMachine.png"
-import {dailyOffender} from "@/config/config";
+import axios from "axios";
 
 // import axios from "axios";
 
@@ -30,10 +30,18 @@ export default {
 
     const offenderImage = ref('');
     const name = ref('');
+    const headersList = { "Access-Control-Allow-Origin": "*" }
 
     const loadOffender = async () => {
 
-      name.value = dailyOffender.value
+      await axios.get('http://localhost:3000/offender', { headers: headersList })
+          .then(res => {
+            name.value = capitalize(res.data['name'])
+          })
+          .catch(err => {
+            console.log(err)
+          })
+
 
       switch (name.value) {
         case 'AC': offenderImage.value = AC; break;

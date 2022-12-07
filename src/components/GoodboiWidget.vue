@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import {ref} from "vue";
+import {capitalize, ref} from "vue";
 import AC from "@/assets/HappyAppliance/AC.png"
 import Boiler from "@/assets/HappyAppliance/Boiler.png"
 import Dishwasher from "@/assets/HappyAppliance/Dishwasher.png"
@@ -19,7 +19,7 @@ import Microwave from "@/assets/HappyAppliance/Microwave.png"
 import Oven from "@/assets/HappyAppliance/Oven.png"
 import TV from "@/assets/HappyAppliance/TV.png"
 import WashingMachine from "@/assets/HappyAppliance/WashingMachine.png"
-import {dailyGood} from "@/config/config";
+import axios from "axios";
 
 // import axios from "axios";
 
@@ -30,10 +30,18 @@ export default {
 
     const goodImage = ref('');
     const name = ref('');
+    const headersList = { "Access-Control-Allow-Origin": "*" }
 
     const loadOffender = async () => {
 
-      name.value = dailyGood.value
+      await axios.get('http://localhost:3000/goodBoy', { headers: headersList })
+          .then(res => {
+            name.value = capitalize(res.data['name'])
+          })
+          .catch(err => {
+            console.log(err)
+          })
+
 
       switch (name.value) {
         case 'AC': goodImage.value = AC; break;

@@ -2,7 +2,7 @@
   <div class="navbar">
     <div class="navText">SMART MIRROR of {{ user }}</div>
     <div class="questionDiv">
-      <img src="../assets/QuestionMark.png" alt="?" class="question" @click="redirectOnboarding"/>
+      <img src="../assets/QuestionMark.png" alt="?" class="question" />
     </div>
   </div>
 
@@ -142,7 +142,7 @@ export default {
       sheet.insertRule('.header { opacity:  0.2 }', sheet.cssRules.length);
       sheet.insertRule('.offender { opacity:  0.2 }', sheet.cssRules.length);
       sheet.insertRule('.micDiv { opacity:  0.2 }', sheet.cssRules.length);
-      sheet.insertRule('.weeklyStreak { opacity: 1; box-shadow: 0px 0px 30px 10px green; }', sheet.cssRules.length);
+      sheet.insertRule('.weeklyStreak { opacity: 1; box-shadow: 0px 0px 30px 10px green inset; }', sheet.cssRules.length);
     }
 
     const visualizeTip = () => {
@@ -185,14 +185,14 @@ export default {
       sheet.insertRule('.navbar { opacity:  0.2 }' , sheet.cssRules.length);
       sheet.insertRule('.header { opacity:  0.2 }' , sheet.cssRules.length);
       sheet.insertRule('.dash { opacity:  0.2 ; box-shadow: 0px 0px 0px 0px transparent;}' , sheet.cssRules.length);
-      sheet.insertRule('.micDiv { opacity: 1 ; box-shadow: 0px 0px 30px 10px green;}' , sheet.cssRules.length);
+      sheet.insertRule('.micDiv { opacity: 1 ; box-shadow: 0px 0px 30px 10px green inset;}' , sheet.cssRules.length);
       sheet.insertRule('.weeklyStreak { opacity:  0.2 }' , sheet.cssRules.length);
     }
 
     const visualizeQuestion = () => {
       let sheet = window.document.styleSheets[0];
       sheet.insertRule('.navbar { opacity: 1;}', sheet.cssRules.length);
-      sheet.insertRule('.questionDiv { opacity: 1;  box-shadow: 0px 0px 30px 10px green;}', sheet.cssRules.length);
+      sheet.insertRule('.questionDiv { opacity: 1;  box-shadow: 0px 0px 30px 10px green inset;}', sheet.cssRules.length);
       sheet.insertRule('.navText { opacity:  0.2 }', sheet.cssRules.length);
       sheet.insertRule('.header { opacity:  0.2 }', sheet.cssRules.length);
       sheet.insertRule('.micDiv { opacity:  0.2 ;box-shadow: 0px 0px 0px 0px transparent;}', sheet.cssRules.length);
@@ -337,6 +337,7 @@ export default {
 
     .tips{
       margin-bottom: 10%;
+      text-align: left;
     }
 
   .micDiv{

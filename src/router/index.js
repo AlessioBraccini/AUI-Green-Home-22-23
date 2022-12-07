@@ -4,6 +4,7 @@ import NotFound from "@/views/NotFound";
 import ChatPage from "@/views/ChatPage";
 import OnboardingPage from "@/views/OnboardingPage";
 import test from "@/views/test.vue";
+import offenderView from "@/views/offenderView";
 
 const routes = [
     {
@@ -25,6 +26,14 @@ const routes = [
     },
 
     {
+        path: '/OffenderView',
+        name: 'OffenderView',
+        component: offenderView
+    },
+
+
+
+    {
         path: '/test',
         name: 'test',
         component: test
@@ -37,9 +46,6 @@ const routes = [
         component: NotFound
     }
 ]
-
-// To cycle between farmers specification see this video for the links with the ':'
-// https://www.youtube.com/watch?v=juocv4AtrHo&list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1&index=9
 
 // Create a navigable history accessible through back and forward in the browser
 

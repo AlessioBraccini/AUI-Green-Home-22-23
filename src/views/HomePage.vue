@@ -14,7 +14,7 @@
   <div class="body">
     <div class="offender">
       <DashWidget class="dash"/>
-      <OffenderWidget class="dailyOffender"/>
+      <OffenderWidget class="dailyOffender"  @click="redirectOffenderBig"/>
       <GoodboiWidget class="goodBoy"/>
       <TipsWidget class="tips"/>
     </div>
@@ -55,16 +55,18 @@ export default {
     const user = ref(username)
 
     const redirectChat = () => {
-      router.push({ name: 'ChatPage'})   //use if to redirect under certain conditions
-
+      router.push({ name: 'ChatPage'})
     }
 
     const redirectOnboarding = () => {
-      router.push({ name: 'OnboardingPage'})   //use if to redirect under certain conditions
-
+      router.push({ name: 'OnboardingPage'})
     }
 
-    return {user, redirectChat, redirectOnboarding}
+    const redirectOffenderBig = () => {
+      router.push({ name: 'OffenderView'})
+    }
+
+    return {user, redirectChat, redirectOnboarding, redirectOffenderBig}
   }
 
 }
@@ -153,6 +155,7 @@ export default {
 
     .tips{
       margin-bottom: 10%;
+      text-align: left;
     }
 
     .micDiv{

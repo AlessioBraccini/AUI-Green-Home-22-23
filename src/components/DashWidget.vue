@@ -10,7 +10,7 @@
 
 <script>
 import {ref} from "vue";
-import {actualConsumption} from "@/config/config";
+import axios from "axios";
 
 // import axios from "axios";
 
@@ -21,37 +21,46 @@ export default {
 
     const number = ref(0);
     const name = ref('');
+    const headersList = { "Access-Control-Allow-Origin": "*" }
 
-    number.value = actualConsumption.value
 
-    if (number.value < 10){
-      let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.pointer { top: 58%; left: 7% }', sheet.cssRules.length);
-    }
-    else if(number.value < 20){
-      let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.pointer { top: 40%; left: 11% }', sheet.cssRules.length);
-    }
-    else if(number.value < 30){
-      let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.pointer { top: 26%; left: 25% }', sheet.cssRules.length);
-    }
-    else if(number.value < 40){
-      let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.pointer { top: 20%; left: 45% }', sheet.cssRules.length);
-    }
-    else if(number.value < 50){
-      let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.pointer { top: 26%; left: 64% }', sheet.cssRules.length);
-    }
-    else if(number.value < 60){
-      let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.pointer { top: 40%; left: 78% }', sheet.cssRules.length);
-    }
-    else{
-      let sheet = window.document.styleSheets[0];
-      sheet.insertRule('.pointer { top: 58%; left: 83% }', sheet.cssRules.length);
-    }
+    axios.get('http://localhost:3000/instantTotalConsumption', { headers: headersList })
+        .then(res => {
+          number.value = res.data['data']
+
+          if (number.value < 10){
+            let sheet = window.document.styleSheets[0];
+            sheet.insertRule('.pointer { top: 58%; left: 7% }', sheet.cssRules.length);
+          }
+          else if(number.value < 20){
+            let sheet = window.document.styleSheets[0];
+            sheet.insertRule('.pointer { top: 40%; left: 11% }', sheet.cssRules.length);
+          }
+          else if(number.value < 30){
+            let sheet = window.document.styleSheets[0];
+            sheet.insertRule('.pointer { top: 26%; left: 25% }', sheet.cssRules.length);
+          }
+          else if(number.value < 40){
+            let sheet = window.document.styleSheets[0];
+            sheet.insertRule('.pointer { top: 20%; left: 45% }', sheet.cssRules.length);
+          }
+          else if(number.value < 50){
+            let sheet = window.document.styleSheets[0];
+            sheet.insertRule('.pointer { top: 26%; left: 64% }', sheet.cssRules.length);
+          }
+          else if(number.value < 60){
+            let sheet = window.document.styleSheets[0];
+            sheet.insertRule('.pointer { top: 40%; left: 78% }', sheet.cssRules.length);
+          }
+          else{
+            let sheet = window.document.styleSheets[0];
+            sheet.insertRule('.pointer { top: 58%; left: 83% }', sheet.cssRules.length);
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
 
     return {number, name}
   }

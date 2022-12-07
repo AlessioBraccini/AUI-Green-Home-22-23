@@ -15,7 +15,7 @@
         <p class="bigRectangleText">This week streak</p>
       </div>
       <div class="rightUpRect">
-        <p class="smallRectangleText">58kWh</p>
+        <p class="smallRectangleText">{{streakDays}} Days</p>
       </div>
     </div>
 
@@ -32,25 +32,63 @@
         <p class="sunday">SUN</p>
       </div>
       <div class="bullet">
-        <img src="../assets/HanyuAssets/EmptyBullet.png" class="bulletImg" alt="O"/>
-        <img src="../assets/HanyuAssets/EmptyBullet.png" class="bulletImg" alt="O"/>
-        <img src="../assets/HanyuAssets/EmptyBullet.png" class="bulletImg" alt="O"/>
-        <img src="../assets/HanyuAssets/EmptyBullet.png" class="bulletImg" alt="O"/>
-        <img src="../assets/HanyuAssets/EmptyBullet.png" class="bulletImg" alt="O"/>
-        <img src="../assets/HanyuAssets/EmptyBullet.png" class="bulletImg" alt="O"/>
-        <img src="../assets/HanyuAssets/EmptyBullet.png" class="bulletImg" alt="O"/>
+        <img :src="mon" class="bulletImg" alt="O"/>
+        <img :src="tue" class="bulletImg" alt="O"/>
+        <img :src="wed" class="bulletImg" alt="O"/>
+        <img :src="thu" class="bulletImg" alt="O"/>
+        <img :src="fri" class="bulletImg" alt="O"/>
+        <img :src="sat" class="bulletImg" alt="O"/>
+        <img :src="sun" class="bulletImg" alt="O"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import NC from "@/assets/EmptyBullet.png"
+import C from "@/assets/CheckedBullet.png"
+
+import axios from "axios";
+import {ref} from "vue";
 
 export default {
   name: "WeeklyStreak",
   components: {},
 
   setup(){
+    const headersList = { "Access-Control-Allow-Origin": "*" }
+    const mon = ref(NC)
+    const tue = ref(NC)
+    const wed = ref(NC)
+    const thu = ref(NC)
+    const fri = ref(NC)
+    const sat = ref(NC)
+    const sun = ref(NC)
+    const streakDays = ref(0)
+
+    axios.get('http://localhost:3000/greenDayStreak', { headers: headersList })
+        .then(res => {
+
+          for (let i = 0; i < res.data['days'].length; i++) {
+            switch (res.data['days'][i]){
+              case 'mon': mon.value = C; break;
+              case 'tue': tue.value = C; break;
+              case 'wed': wed.value = C; break;
+              case 'thu': thu.value = C; break;
+              case 'fri': fri.value = C; break;
+              case 'sat': sat.value = C; break;
+              case 'sun': sun.value = C; break;
+            }
+          }
+
+          streakDays.value = res.data['streak']
+
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
+    return {mon, tue, wed, thu, fri, sat, sun, streakDays}
 
   }
 

@@ -1,9 +1,9 @@
 <template>
   <div class="navbar">
     <div class="navText">SMART MIRROR of {{ user }}</div>
-<!--    <div class="questionDiv">-->
-<!--      <img src="../assets/QuestionMark.png" alt="?" class="question"/>-->
-<!--    </div>-->
+    <div class="questionDiv">
+      <img src="../assets/QuestionMark.png" alt="?" class="question" @click="redirectOnboarding"/>
+    </div>
   </div>
 
   <div class="header">
@@ -22,18 +22,22 @@
             <div class="listNlp" v-else> <p class="indent"> {{ messages[i] }} </p> </div>
           </div>
         </div>
-        <div v-else>
-          ciccia
-        </div>
-      </div>
+        <div v-else> There are no messages</div>
 
+      </div>
       <div class="interact">
         <input type="text" required v-model="message" v-on:keyup.enter="sendMessage"
                class="textInput" placeholder="Enter here your request">
         <button class="sendButton" @click="sendMessage">Send</button>
       </div>
-    </div>
 
+    </div>
+    <div class="offender">
+      <DashWidget class="dash"/>
+      <OffenderWidget class="dailyOffender"/>
+      <GoodboiWidget class="goodBoy"/>
+      <TipsWidget class="tips"/>
+    </div>
   </div>
 
   <div class="footer">
@@ -50,10 +54,16 @@ import {username} from "@/config/config";
 import {ref} from "vue";
 import TreeImageComponent from "@/components/TreeImageComponent";
 import axios from 'axios'
+import TipsWidget from "@/components/TipsWidget";
+import DashWidget from "@/components/DashWidget";
+import GoodboiWidget from "@/components/GoodboiWidget";
+import OffenderWidget from "@/components/OffenderWidget";
+import router from "@/router";
 
 export default {
   name: "ChatPage",
-  components: {TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
+  components: {TipsWidget,
+    DashWidget, GoodboiWidget, OffenderWidget, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
 
   setup(){
 
@@ -61,6 +71,7 @@ export default {
     const messages = ref([''])
     const message = ref('')
     const tts = window.speechSynthesis;
+    const headersList = { "Access-Control-Allow-Origin": "*" }
 
     const speak = (text) => {
       const utterThis = new SpeechSynthesisUtterance(text);
@@ -84,27 +95,27 @@ export default {
 
     const sendMessage = async () => {
 
+      messages.value = ['']
       messages.value.push(message.value)
-
-      const headersList = {
-        "Access-Control-Allow-Origin": "*"
-      }
 
       axios.get(`http://localhost:3000/?msg=${message.value}`, { headers: headersList })
           .then(res => {
             messages.value.push(res.data)
             speak(res.data)
-
           })
           .catch(err => {
             console.log(err)
           })
 
-
       message.value = ''
     }
 
-    return {user, messages, message, sendMessage}
+    const redirectOnboarding = () => {
+      router.push({ name: 'OnboardingPage'})   //use if to redirect under certain conditions
+
+    }
+
+    return {user, messages, message, sendMessage, redirectOnboarding}
   },
 
   // mounted() {
@@ -179,11 +190,12 @@ export default {
 
   .wrapper{
     position: relative;
-    width: 70%;
-    left: 15%;
+    width: 35%;
+    left: 18%;
     background: linear-gradient(to bottom left, #2E2F30 0%, #37383A 100%);
     border-radius: 70px;
-    height: 80%;
+    height: 45%;
+    display: inline-block;
   }
 
   .messagePart{
@@ -194,6 +206,7 @@ export default {
     left: 10%;
     overflow-y: scroll;
     overflow-x: visible;
+    font-size: 2.5vw;
   }
 
 
@@ -250,7 +263,30 @@ export default {
     position: absolute;
     bottom: 0;
     width: 100%;
+  }
 
+  .offender{
+    height: 100%;
+    width: 25%;
+    display: inline-block;
+    float: left;
+  }
+
+  .dash{
+    margin-bottom: 10%;
+  }
+
+  .dailyOffender{
+    margin-bottom: 10%;
+  }
+
+  .goodBoy{
+    margin-bottom: 10%;
+  }
+
+  .tips{
+    margin-bottom: 10%;
+    text-align: left;
   }
 
   .textInput{
@@ -261,17 +297,16 @@ export default {
     text-indent: 20px;
     position: relative;
     bottom: 10%;
+    width: 90%;
   }
 
   .sendButton{
     position: relative;
-    float: right;
     color: white;
     border: solid 1px #919191;
     border-radius: 30px;
-    width: 15%;
+    width: 35%;
     margin: 5% 0 5% 0;
-    right: 10%;
   }
 
 .footer{
