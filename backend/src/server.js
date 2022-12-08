@@ -16,7 +16,7 @@ app.get('/', async (req, res) => {
   const nlp = dock.get('nlp')
   const response = await nlp.process('en', req.query.msg);
   //const boh = fsmProcessState(response.intent, fsm);
-  console.log(response)
+  //console.log(response)
   res.send(response.answer)
 })
 

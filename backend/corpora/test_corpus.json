@@ -696,21 +696,6 @@
         ]
       },
       {
-        "intent": "greetings.howareyou",
-        "utterances": [
-          "how is your day",
-          "how is your day going",
-          "how are you",
-          "how are you doing",
-          "what about your day",
-          "are you alright"
-        ],
-        "answers": [
-          "Feeling wonderful!",
-          "Wonderful! Thanks for asking"
-        ]
-      },
-      {
         "intent": "greetings.nicetomeetyou",
         "utterances": [
           "nice to meet you",

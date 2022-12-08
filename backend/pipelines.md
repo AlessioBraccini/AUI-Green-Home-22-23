@@ -9,3 +9,6 @@ getOffender
 
 ## onIntent(agent.leafyProgress)
 getLevelUpDaysNeeded
+
+## onIntent(agent.leafyStatus)
+getLeafyStatus

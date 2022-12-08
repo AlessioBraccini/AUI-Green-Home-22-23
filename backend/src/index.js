@@ -15,7 +15,7 @@ function fsmProcessState(intent) {
 
 const FSM =  {
     state: 'RESET',
-    transtions: {
+    transitions: {
         RESET : {
             getOffender() {
                 this.state = 'OFFENDER'
@@ -51,7 +51,7 @@ const FSM =  {
         }
     },
     dispatch(actionName) {
-        const action = this.transtions[this.state][actionName];
+        const action = this.transitions[this.state][actionName];
 
         if (action) {
             action.call(this);

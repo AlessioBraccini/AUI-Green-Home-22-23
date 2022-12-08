@@ -13,18 +13,18 @@ class GetLevelUpDaysNeeded {
 
         const d = new Date()
         const daysInMonth = new Date(d.getFullYear(), d.getMonth() +1, 0).getDate()
-        //const today = new Date().getUTCDay()
-        let daysNeededForEachLevel = [];
+        const today = new Date().getUTCDate()
+        let percNeededForEachLevel = [];
 
         for (const i of Array(maxLevel).keys()) {
             // i = 0,1,2,3,4
-            daysNeededForEachLevel.push(Math.floor(i * daysInMonth / maxLevel))
+            percNeededForEachLevel.push(i / maxLevel)
         }
 
         if (level === maxLevel) {
             input.answer = "I am already at max level! Good job!"
         } else {
-            const levelsLeft = daysNeededForEachLevel[level] - currentGreenStreak
+            const levelsLeft = Math.ceil(percNeededForEachLevel[level] * today) - currentGreenStreak
             input.answer = "I need " + levelsLeft + " more days this month to level up, so I can get to level " + (level + 1);
         }
 
