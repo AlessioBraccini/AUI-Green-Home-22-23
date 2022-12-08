@@ -25,7 +25,7 @@ npm run lint
 ```
 
 ## Start the backend server
-In the backend directory:
+In the backend directory (be sure to be in the ./backend when deploying the backend server):
 ```
 node src/server.js
 ```

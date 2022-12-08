@@ -35,6 +35,10 @@ class GreenHomeComponent {
         return this.#dataAdapter.getInstantTotalConsumption();
     }
 
+    treeMaxLevel() {
+        return 5;
+    }
+
 }
 
 module.exports = {GreenHomeComponent};

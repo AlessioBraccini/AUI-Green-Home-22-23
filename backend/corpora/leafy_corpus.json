@@ -3,7 +3,7 @@
     "locale": "en-US",
     "data": [
         {
-            "intent": "agent.statusInfo",
+            "intent": "agent.leafyStatusInfo",
             "utterances": [
                 "what are your stages",
                 "what are the stages",
@@ -20,7 +20,7 @@
             ]
         },
         {
-            "intent": "agent.status",
+            "intent": "agent.leafyStatus",
             "utterances": [
                 "hi tree! how are you",
                 "hi leafy! how are you",
@@ -30,6 +30,26 @@
                 "what's your stage",
                 "on what stage are you",
                 "how are you doing"
+            ]
+        },
+        {
+            "intent": "agent.leafyProgress",
+            "utterances": [
+                "hi leafy! how long until you level up",
+                "how long until you level up",
+                "how long before you go to the next level",
+                "how many days until you level up"
+            ]
+        },
+        {
+            "intent": "agent.greenDayInfo",
+            "utterances": [
+                "what's a green day",
+                "what's a good day"
+            ],
+            "answers": [
+                "A Green Day is a with a low energy consumption.",
+                "It means you've been mindful of your energy usage."
             ]
         }
     ]

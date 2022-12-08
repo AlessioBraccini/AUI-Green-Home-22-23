@@ -3,6 +3,30 @@
     "locale": "en-US",
     "data": [
       {
+        "intent": "user.approval",
+        "utterances": [
+          "yes",
+          "okay",
+          "ok",
+          "sure",
+          "go on",
+          "yup",
+          "you should"
+        ]
+      },
+      {
+        "intent": "user.negation",
+        "utterances": [
+          "no",
+          "stop",
+          "that's enough",
+          "i don't want to",
+          "don't",
+          "nope",
+          "you should not"
+        ]
+      },
+      {
         "intent": "agent.acquaintance",
         "utterances": [
           "say about you",
