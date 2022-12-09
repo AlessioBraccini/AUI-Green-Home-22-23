@@ -45,6 +45,11 @@ app.get('/greenDayStreak', async (req, res) => {
   res.send(ghc.greenStreak)
 })
 
+app.get('/genericTip', async (req, res) => {
+  const tip = {tip: "Use the washing machine at night"}
+  res.send(tip)
+})
+
 app.listen(port, async () => {
   console.log(`NLP server listening on port ${port}`)
   dock = await dockStart();

@@ -29,9 +29,23 @@
         {
             "intent": "device.dailyOffender",
             "utterances": [
+                "who's yesterday's offender",
+                "who's the offender",
+                "what device consumed the most yesterday",
+                "who do i have to blame for my energy bills"
+            ]
+        },
+        {
+            "intent": "device.todayOffenderError",
+            "utterances": [
                 "who's today's offender",
                 "what device consumed the most today",
-                "who do i have to blame for my energy bill today"
+                "what device is consuming the most"
+            ],
+            "answers": [
+                "Sorry, I don't have enough data yet to tell you which device is the most consuming one for today",
+                "Sorry, but I can't tell you yet. Ask me about yesterday's offender",
+                "Sorry, I can only tell you about past offenders. For example, ask me about yesterday's one"
             ]
         },
         {
@@ -59,8 +73,13 @@
         "device": {
             "options": {
                 "dishwasher": ["dishwasher"],
-                "washing-machine": ["washing machine", "washing machine", "washy washy"],
-                "ac": ["ac", "air conditioning"]
+                "washing-machine": ["washing machine", "washing-machine", "washy washy"],
+                "ac": ["ac", "air conditioning"],
+                "fridge": ["fridge", "refrigerator"],
+                "dryer": ["dryer"],
+                "oven": ["oven", "toaster", "broiler", "grill"],
+                "microwave": ["microwave", "micro-wave"],
+                "boiler": ["boiler", "water heater", "hot water heater"]
             }
         }
     }
