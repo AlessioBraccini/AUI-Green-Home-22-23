@@ -1,0 +1,22 @@
+{
+    "shortPool": [
+        "Try to exploit sunlight as much as you can, instead of artificial light",
+        "Use the washing machine at night",
+        "Use the most consuming devices when the energy cost less",
+        "Hang your laundry to dry, instead of using the dryer",
+        "There are alternatives to the AC in warmer month",
+        "Turn off all the lights when you leave a room",
+        "Wash your clothes in cold water"
+    ],
+    "longPool": [
+        "Installing efficient shower heads can help you cut hot water usage dramatically, saving an average of 330 kilowatt hours of electricity per year. That's around 80$ worth of savings!",
+        "If you haven't already, gradually switch to LED light bulbs instead incandescent bulbs when they burn out. LED bulbs are about six times more efficient and generally last much longer. They would save you about 300 kwh of energy annually, about $66 a year!",
+        "Adding insulation to your house is a good investment, because it will allow you to dramatically lower your cooling and heating bills, ending up saving about $400 a year on heating alone! Look if your state offers some financial incentives for this renovation, they usually do.",
+        "If you have a garden, plant some trees and in the long run they can lower your home's energy needs by up to 25% a year. But only if positioned right: shade trees on the south and west sides of your home can shade your windows and walls from the hot summer sun and lower the air temperature around your home, while dense evergreen trees planted on the north side of your lot can block biting winter winds.",
+        "Have you ever considered going solar? If your rooftop gets a lot of unobstructed sunlight during the day, you could reduce or even eliminate your electric bill by installing solar panels.",
+        "If you have space, try to hang your laundry to dry, instead of using the dryer.",
+        "Be mindful with the air conditioning, especially in the warmer months. There are plenty of alternatives, ask me about the AC specifically!",
+        "Be sure to turn off all the lights when you leave a room. You could also install a presence detector to turn them off when you leave.",
+        "Heating water takes a lot of energy, accounting for about 14% of the average home electric bill! Prefer to wash your clothes in cold water."
+    ]
+}
