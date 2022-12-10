@@ -52,8 +52,10 @@ export default {
 <style scoped>
 
   .treeImg{
-    height: 100%;
+    height: 130%;
     width: 100%;
+    bottom: 30%;
+    position: relative;
   }
 
 </style>
