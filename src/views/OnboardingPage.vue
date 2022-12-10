@@ -54,8 +54,7 @@ import TipsWidget from "@/components/TipsWidget";
 export default {
   name: "OnboardingPage",
   components: {
-    TipsWidget,
-    DashWidget, GoodboiWidget, OffenderWidget, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
+    TipsWidget, DashWidget, GoodboiWidget, OffenderWidget, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
 
   setup: function () {
 

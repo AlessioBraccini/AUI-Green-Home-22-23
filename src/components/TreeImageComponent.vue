@@ -10,6 +10,7 @@ import stage1 from "@/assets/TreeStages/Stage1.png"
 import stage2 from "@/assets/TreeStages/Stage2.png"
 import stage3 from "@/assets/TreeStages/Stage3.png"
 import stage4 from "@/assets/TreeStages/Stage4.png"
+import stage5 from "@/assets/TreeStages/Stage5.png"
 import axios from "axios";
 
 export default {
@@ -30,6 +31,7 @@ export default {
               case 2: treeImg.value = stage2; break;
               case 3: treeImg.value = stage3; break;
               case 4: treeImg.value = stage4; break;
+              case 5: treeImg.value = stage5; break;
             }
 
           })

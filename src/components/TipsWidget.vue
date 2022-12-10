@@ -28,6 +28,8 @@ export default {
     // Chiamata a tip
     tip.value = 'Use the dishwasher at night in order to consume less'
 
+    // setInterval(() => loadTips(), 60000*60)
+
     return {tip, name}
   }
 }

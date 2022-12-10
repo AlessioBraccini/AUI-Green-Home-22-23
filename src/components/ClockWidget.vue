@@ -42,6 +42,9 @@ export default {
       this.minutes = minutes;
       this.seconds = seconds;
       this.weekday = date.toDateString()
+
+      if(hours === 0 && minutes === 0 && seconds <= 15)
+        location.reload()
     }
   }
 

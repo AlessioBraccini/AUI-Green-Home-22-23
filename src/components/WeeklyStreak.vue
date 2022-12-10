@@ -12,7 +12,7 @@
 
     <div class="extBox">
       <div class="leftUpRect">
-        <p class="bigRectangleText">This week streak</p>
+        <p class="bigRectangleText">This month streak</p>
       </div>
       <div class="rightUpRect">
         <p class="smallRectangleText">{{streakDays}} Days</p>
@@ -80,7 +80,6 @@ export default {
               case 'sun': sun.value = C; break;
             }
           }
-
           streakDays.value = res.data['streak']
 
         })
