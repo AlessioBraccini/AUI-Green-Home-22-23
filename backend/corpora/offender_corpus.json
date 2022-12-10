@@ -4,6 +4,30 @@
     "contextData": "./corpora/data_config/devices.json",
     "data": [
         {
+            "intent": "user.approval",
+            "utterances": [
+                "yes",
+                "okay",
+                "ok",
+                "sure",
+                "go on",
+                "yup",
+                "you should"
+            ]
+        },
+        {
+            "intent": "user.negation",
+            "utterances": [
+                "no",
+                "stop",
+                "that's enough",
+                "i don't want to",
+                "don't",
+                "nope",
+                "you should not"
+            ]
+        },
+        {
             "intent": "device.genericTip",
             "utterances": [
                 "can you give me some tips to consume less",
@@ -18,12 +42,16 @@
                 "If you have space, try to hang your laundry to dry, instead of using the dryer.",
                 "Heating water takes a lot of energy, accounting for about 14% of the average home electric bill! Prefer to wash your clothes in cold water.",
                 "Installing efficient shower heads can help you cut hot water usage dramatically, saving an average of 330 kilowatt hours of electricity per year. That's around 80$ worth of savings!",
-                "If you haven't already, gradually switch to LED light bulbs instead incandescent bulbs when they burn out. LED bulbs are about six times more efficient and generally last much longer. They would save you about 300 kwh of energy annually, about $66 a year!",
-                "Adding insulation to your house is a good investment, because it will allow you to dramatically lower your cooling and heating bills, ending up saving about $400 a year on heating alone! Look if your state offers some financial incentives for this renovation, they usually do.",
-                "If you have a garden, plant some trees and in the long run they can lower your home's energy needs by up to 25% a year. But only if positioned right: shade trees on the south and west sides of your home can shade your windows and walls from the hot summer sun and lower the air temperature around your home, while dense evergreen trees planted on the north side of your lot can block biting winter winds.",
+                "If you haven't already, gradually switch from incandescent bulbs to LED ones. LED bulbs are about six times more efficient !",
+                "Adding insulation to your house is a good investment, because it will dramatically lower your cooling and heating bills! Look if your state offers some financial incentives for this renovation, they usually do.",
+                "If you have a garden, plant some shade trees on the south and west sides of your house. They will shade your windows and walls from the hot summer sun and lower the air temperature around your home",
+                "If you have a garden, consider planting an evergreen tree on the north side of your house. It will block biting winter winds!",
                 "Have you ever considered going solar? If your rooftop gets a lot of unobstructed sunlight during the day, you could reduce or even eliminate your electric bill by installing solar panels.",
                 "Be sure to turn off all the lights when you leave a room. You could also install a presence detector to turn them off when you leave.",
-                "Try to exploit sunlight as much as you can, instead of artificial light"
+                "Try to exploit sunlight as much as you can, artificial light is expensive!",
+                "Keeping your shower time to just 4 minutes can save you lots of energy, especially in the winter!",
+                "When cooking, try boiling your kettle with the right amount of water you need. Any extra water that needs to be heated is money wasted!"
+
             ]
         },
         {

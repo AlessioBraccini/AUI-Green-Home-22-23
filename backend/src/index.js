@@ -10,12 +10,52 @@ async function compute(userInput) {
     return response.answer;
 }
 
-function fsmProcessState(intent, fsm) {
+function fsmProcessState(response, fsm) {
+    const intent = response.intent;
     console.log(intent)
-
+    console.log(fsm.state)
     // mega switch case for meaningful intent that cause to switch in the fsm --> set actionName to send to dispatch
     //actionName = 'getOffender'
     //fsm.dispatch(actionName)
+    switch(intent) {
+        case 'device.dailyOffender':
+            response.answer="If wanted, this can be modified"
+            fsm.dispatch("getOffender")
+            break;
+        case 'device.genericTip':
+            fsm.dispatch("getGenericTip")
+            break;
+
+        case 'user.approval':
+            fsm.dispatch("approve")
+            break;
+
+        case 'user.negate':
+            fsm.dispatch("negateOrDefault")
+            break;
+
+        case 'device.specificTip':
+            fsm.dispatch("getSpecificTip")
+            break;
+
+        case 'device.offenderInfo':
+            fsm.dispatch("howOffenderIsChosen")
+            break;
+
+        case 'agent.leafyStatus':
+            //if(result. get stage somehow<2)
+            //  allora response.answer+="Would you like a reminder on how I work?"
+            fsm.dispatch("proposeLeafyExplaination")
+            break;
+
+        default :
+            console.log(response.intent)
+            fsm.dispatch('negateOrDefault')
+            break;
+    }
+
+    console.log(fsm.state)
+    return response
 }
 
 const FSM =  {
