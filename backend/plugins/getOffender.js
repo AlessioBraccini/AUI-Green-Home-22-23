@@ -9,7 +9,7 @@ class GetOffender{
         const offender = ghc.offender;
 
         if (offender){
-            input.answer =  "Today's offender is " + offender.name + " with " + offender.consumption + " consumed. Do you want to have some energy savings tips about it?";
+            input.answer =  "Yesterday's offender is " + offender.name + " with " + offender.consumption + " consumed. Do you want to have some energy savings tips about it?";
         } else {
             input.answer = "I don't have enough data for the offender yet.";
         }
