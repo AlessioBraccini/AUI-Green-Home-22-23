@@ -111,7 +111,7 @@ export default {
       delays.value.push(5000)
       messages.value.push('By pressing this button you can redo this tutorial. Press it if you need it!')
       delays.value.push(7000)
-      messages.value.push('That is the end, enjoy your smart mirror, and remember, if you need something I am here ready to assist you! Just ask me wat you want')
+      messages.value.push('That is the end, enjoy your smart mirror, and remember, if you need something I am here ready to assist you! Just ask me what you want')
       delays.value.push(11000)
       messages.value.push('')
       delays.value.push(1)
@@ -354,7 +354,7 @@ export default {
   .comicCloud{
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 10%;
     height: fit-content;
     width: 50%;
   }
