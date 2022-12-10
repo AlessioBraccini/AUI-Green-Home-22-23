@@ -1,0 +1,15 @@
+{
+    "name": "Onboarding-Corpus",
+    "locale": "en-US",
+    "data": [
+        {
+            "intent": "",
+            "utterances": [
+
+            ],
+            "answers": [
+
+            ]
+        }
+    ]
+}

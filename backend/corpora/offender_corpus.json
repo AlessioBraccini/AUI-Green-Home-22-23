@@ -82,8 +82,8 @@
                 "how can i consume less with the @device"
             ],
             "answers": [
-                "For {{ device }}, you can {{ _data[entities.device.option].tips[0] }}",
-                "For {{ device }}, you can {{ _data[entities.device.option].tips[1] }}"
+                "For {{ device }}, you can {{ _data[entities.device.option].tips[0] }}. Do you want any more tips?",
+                "For {{ device }}, you can {{ _data[entities.device.option].tips[1] }}. Do you want any more tips?"
             ]
         },
         {
