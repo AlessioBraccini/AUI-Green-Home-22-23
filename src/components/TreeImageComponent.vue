@@ -1,5 +1,7 @@
 <template>
   <div class="treeDiv">
+    <button class="btn" @click="changeTree">Increase tree stage</button>
+
     <img :src="treeImg" class="treeImg" alt="treeImg"/>
   </div>
 </template>
@@ -21,6 +23,7 @@ export default {
 
     const treeImg = ref('')
     const headersList = { "Access-Control-Allow-Origin": "*" }
+    const treeStage = ref(3)
 
     const loadTree = async () => {
 
@@ -42,8 +45,21 @@ export default {
 
     loadTree()
 
+    const changeTree = () =>{
+      treeStage.value++
+      if (treeStage.value === 6)
+        treeStage.value = 1
+      switch (treeStage.value){
+        case 1: treeImg.value = stage1; break;
+        case 2: treeImg.value = stage2; break;
+        case 3: treeImg.value = stage3; break;
+        case 4: treeImg.value = stage4; break;
+        case 5: treeImg.value = stage5; break;
+      }
+    }
 
-    return{ treeImg }
+
+    return{ treeImg, changeTree, treeStage }
 
   }
 }
@@ -54,8 +70,18 @@ export default {
   .treeImg{
     height: 130%;
     width: 100%;
-    bottom: 30%;
+    /*bottom: 30%;*/
+    bottom: 45%;
     position: relative;
+  }
+
+  .btn{
+    position: relative;
+    /*top: -30%*/
+    top: -50%;
+    border: 5px solid #717173;
+    background-color: #717173;
+    border-radius: 20px;
   }
 
 </style>
