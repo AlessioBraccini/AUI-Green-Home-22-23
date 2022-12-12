@@ -2,54 +2,65 @@
     "dishwasher": {
         "threshold": "35W/day",
         "tips": [
-            "tip1_dishwasher"
+            "use it during the night",
+            "use the eco program",
+            "fill it completely before operation"
         ]
     },
     "washing-machine": {
         "threshold": "40W/day",
         "tips": [
-            "Use shorter washing machine program",
-            "Wash your clothes in cold water",
-            "Fill the washing machine / dryer / dishwasher before operation"
-
+            "use shorter programs",
+            "wash your clothes in cold water",
+            "fill it completely before operation"
         ]
     },
     "ac": {
         "threshold": "30W/day",
         "tips": [
             "prefer a fan to the air conditioning, since it consume a lot less",
-            "depending on how hot it is, sometimes just opening the windows and generating airflow is enough to cool down your house instead of turning on the air conditioning",
             "try to set air conditioner's thermostat to moderate temperature",
-            "use air conditioner locally in the room you're using instead of the whole house. Do you really need to cool or warm up all the rooms?"
+            "use air conditioner locally in the room you're using instead of the whole house"
         ]
     },
     "fridge": {
         "threshold": "",
         "tips": [
-            "avoid opening frequently the refrigerator door",
-            "leave enough space between the refrigerator and the wall to allow ventilation"
+            "avoid opening the door frequently",
+            "leave enough space between the refrigerator and the wall to allow ventilation",
+            "try to avoid filling it too much"
         ]
     },
     "dryer": {
         "threshold": "",
         "tips": [
-            "use a laundry hanger instead of the electric dryer"
+            "use a laundry hanger instead of the electric dryer",
+            "fill it completely before operation",
+            "program its start for late at night"
         ]
     },
     "oven": {
         "threshold": "",
         "tips": [
-
+            "prefer the stove or the microwave for small portions",
+            "try to not pre-heat it and let the meal cook for a little longer",
+            "avoid opening its door to check the meal too often"
         ]
     },
     "microwave": {
         "threshold": "",
-        "tips": []
+        "tips": [
+            "use the specific program to cook your meal",
+            "avoid overfilling it with too much food",
+            "use it at lower power, if possible"
+        ]
     },
     "boiler": {
         "threshold": "",
         "tips": [
-
+            "make sure that it is well suited for your house's size",
+            "turn it off when you are not at home for a long time",
+            "wash your hands with cold water, if possible"
         ]
     }
 }

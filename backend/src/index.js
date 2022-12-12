@@ -68,13 +68,12 @@ const FSM =  {
     transitions: {
         RESET : {
             getOffender() {
-                this.state = 'OFFENDER'
                 this.currentDevice = new GreenHomeComponent().offender.name
                 this.state = 'WAIT_APPROVAL_FOR_SPECIFIC_TIP'
                 return {reply: null, interactionEnd: false}
             },
             getGenericTip() {
-                this.state = 'GENERIC_TIP'
+                this.state = 'WAIT_APPROVAL_FOR_GENERIC_TIP'
                 return {reply: null, interactionEnd: false}
             },
             howOffenderIsChosen() {
@@ -84,7 +83,6 @@ const FSM =  {
             getSpecificTip(nlp, device) {
                 this.currentDevice = device
                 console.log(this.currentDevice)
-                this.state = 'DEVICE_TIP'
                 this.state = 'WAIT_APPROVAL_FOR_SPECIFIC_TIP'
                 return {reply: null, interactionEnd: false}
             },
@@ -101,25 +99,7 @@ const FSM =  {
                 return {reply: null, interactionEnd: false}
             }
         },
-        OFFENDER: {
-            getOffenderTip () {
-                this.state = 'WAIT_APPROVAL_FOR_SPECIFIC_TIP'
-                return {reply: null, interactionEnd: false}
-            }
-        },
         OFFENDER_INFO: {
-            getGenericTip() {
-                this.state = 'WAIT_APPROVAL_FOR_GENERIC_TIP'
-                return {reply: null, interactionEnd: false}
-            }
-        },
-        DEVICE_TIP: {
-            getSpecificTip() {
-                this.state = 'WAIT_APPROVAL_FOR_SPECIFIC_TIP'
-                return {reply: null, interactionEnd: false}
-            }
-        },
-        GENERIC_TIP: {
             getGenericTip() {
                 this.state = 'WAIT_APPROVAL_FOR_GENERIC_TIP'
                 return {reply: null, interactionEnd: false}
@@ -138,7 +118,6 @@ const FSM =  {
         },
         WAIT_APPROVAL_FOR_SPECIFIC_TIP: {
             async approve(nlp) {
-                this.state = 'DEVICE_TIP'
                 return {reply: (await nlp.process("how can i consume less with the " + this.currentDevice)).answer, interactionEnd: false}
             },
             negateOrDefault() {
@@ -149,9 +128,7 @@ const FSM =  {
         },
         WAIT_APPROVAL_FOR_GENERIC_TIP: {
             async approve(nlp) {
-                this.state = 'GENERIC_TIP'
                 return {reply: (await nlp.process("how can i consume less")).answer, interactionEnd: false}
-                //return {reply: res, interactionEnd: false}
             },
             negateOrDefault() {
                 this.state = 'RESET'

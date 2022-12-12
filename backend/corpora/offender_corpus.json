@@ -83,7 +83,9 @@
             ],
             "answers": [
                 "For {{ device }}, you can {{ _data[entities.device.option].tips[0] }}. Do you want any more tips?",
-                "For {{ device }}, you can {{ _data[entities.device.option].tips[1] }}. Do you want any more tips?"
+                "For {{ device }}, you can {{ _data[entities.device.option].tips[1] }}. Do you want any more tips?",
+                "For {{ device }}, you can {{ _data[entities.device.option].tips[2] }}. Do you want any more tips?"
+
             ]
         },
         {
