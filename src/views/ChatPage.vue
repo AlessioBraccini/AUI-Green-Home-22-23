@@ -100,8 +100,10 @@ export default {
 
       axios.get(`http://localhost:3000/?msg=${message.value}`, { headers: headersList })
           .then(res => {
-            messages.value.push(res.data)
-            speak(res.data)
+            messages.value.push(res.data['reply'])
+            speak(res.data['reply'])
+            if (res.data['interactionEnd'] === true)
+              router.push({ name: 'Homepage'})
           })
           .catch(err => {
             console.log(err)
