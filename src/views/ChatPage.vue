@@ -192,11 +192,11 @@ export default {
 
   .wrapper{
     position: relative;
-    width: 35%;
-    left: 18%;
+    width: 40%;
+    left: 15%;
     background: linear-gradient(to bottom left, #2E2F30 0%, #37383A 100%);
     border-radius: 70px;
-    height: 45%;
+    height: 60%;
     display: inline-block;
   }
 
