@@ -1,7 +1,5 @@
 <template>
-  <div class="treeDiv">
-    <button class="btn" @click="changeTree">Increase tree stage</button>
-
+  <div class="treeDiv"  @click="changeTree">
     <img :src="treeImg" class="treeImg" alt="treeImg"/>
   </div>
 </template>
@@ -70,18 +68,8 @@ export default {
   .treeImg{
     height: 130%;
     width: 100%;
-    /*bottom: 30%;*/
-    bottom: 45%;
+    bottom: 30%;
     position: relative;
-  }
-
-  .btn{
-    position: relative;
-    /*top: -30%*/
-    top: -50%;
-    border: 5px solid #717173;
-    background-color: #717173;
-    border-radius: 20px;
   }
 
 </style>
