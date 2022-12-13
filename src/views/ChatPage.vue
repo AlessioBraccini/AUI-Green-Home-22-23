@@ -22,7 +22,7 @@
             <div class="listNlp" v-else> <p class="indent"> {{ messages[i] }} </p> </div>
           </div>
         </div>
-        <div v-else> There are no messages</div>
+        <div v-else>Try to ask me "Leafy, what can you do?"</div>
 
       </div>
       <div class="interact">
@@ -103,7 +103,7 @@ export default {
             messages.value.push(res.data['reply'])
             speak(res.data['reply'])
             if (res.data['interactionEnd'] === true)
-              router.push({ name: 'Homepage'})
+              setTimeout(() => (router.push({ name: 'Homepage'})), 3000)
           })
           .catch(err => {
             console.log(err)
