@@ -6,12 +6,16 @@ class GreenHomeComponent {
     #goodBoy;
     #treeLevel;
     #greenStreak;
+    #monthAverage;
+    #yesterdayTotal;
     constructor() {
         this.#dataAdapter = new DataAdapter();
         this.#offender = this.#dataAdapter.getOffender(Date.now());
         this.#goodBoy = this.#dataAdapter.getGoodBoy(Date.now());
         this.#greenStreak = this.#dataAdapter.countGreenStreak();
         this.#treeLevel = this.#dataAdapter.getTreeLevel();
+        this.#yesterdayTotal = this.#dataAdapter.getYesterdayTotal();
+        this.#monthAverage = this.#dataAdapter.getMonthAverage();
     }
 
 
@@ -38,7 +42,13 @@ class GreenHomeComponent {
     treeMaxLevel() {
         return 5;
     }
+    getYesterdayTotal() {
+        return this.#yesterdayTotal;
+    }
 
+    getMonthAverage(){
+        return this.#monthAverage;
+    }
 }
 
 module.exports = {GreenHomeComponent};

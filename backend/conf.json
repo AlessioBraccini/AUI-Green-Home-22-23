@@ -15,7 +15,9 @@
             "corpora": [
                 "./corpora/test_corpus.json",
                 "./corpora/offender_corpus.json",
-                "./corpora/leafy_corpus.json"
+                "./corpora/leafy_corpus.json",
+                "./corpora/dashboard_corpus.json",
+                "./corpora/onboarding_corpus.json"
             ]
         }
     },

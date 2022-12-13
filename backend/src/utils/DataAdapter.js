@@ -41,6 +41,16 @@ class DataAdapter{
     getInstantTotalConsumption(){
         return {data: 12.4, units:"kW"};
     }
+
+    getYesterdayTotal(){
+        return{data: 51, units:"pere"}
+    }
+
+
+    getMonthAverage(){
+        return{data: 42, units:"mele"}
+    }
+
 }
 
 module.exports = {DataAdapter};

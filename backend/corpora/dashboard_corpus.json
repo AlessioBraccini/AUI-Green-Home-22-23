@@ -1,0 +1,49 @@
+{
+  "name": "Dashboard-Corpus",
+  "locale": "en-US",
+  "data": [
+    {
+      "intent": "dashboard.yesterdayConsumption",
+      "utterances": [
+        "How much did i consume yesterday",
+        "Hey leafy, how much did i consume yesterday",
+        "How much did i spend yesterday"
+      ]
+    },
+    {
+      "intent": "dashboard.yesterdayConsumptionDetail",
+      "utterances": [
+        "Hey Leafy show me the consumption history of yesterday",
+        "What's yesterday's consumption history",
+        "What is the consumption history of yesterday",
+        "Hey leafy, yesterday in detail",
+        "Hey leafy show me yesterday's detailed history"
+      ],
+      "answers": [
+        "Sorry, my team is real Lazy! "
+      ]
+    },
+    {
+      "intent": "dashboard.monthConsumption",
+      "utterances": [
+        "Hey Leafy how much did i consume last month",
+        "What's last month's consumption",
+        "How much did i consume last month",
+        "Hey leafy how much have i consumed last month"
+      ]
+    },
+    {
+      "intent": "dashboard.monthConsumptionDetail",
+      "utterances": [
+        "Hey Leafy show me the consumption history of last month",
+        "What's last month's consumption history",
+        "Show me in detail last month",
+        "Hey leafy, can i have last month detailed",
+        "Hey leafy show me last month in detail"
+      ],
+      "answers": [
+        "Sorry, my team is real Lazy! "
+      ]
+    }
+  ]
+}

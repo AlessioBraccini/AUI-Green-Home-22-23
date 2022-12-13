@@ -3,11 +3,73 @@
     "locale": "en-US",
     "data": [
         {
-            "intent": "",
+            "intent": "onboarding.dailyEnergyInfo",
             "utterances": [
+                "Leafy what is this dashboard",
+                "Leafy how can I tell my daily energy consumption",
+                "Hi leafy how do I know how much i consumed today",
+                "Where can I see how much i consumed today",
+                "What is my daily energy",
+                "WHere is my daily energy"
 
             ],
             "answers": [
+                "The  top left dashboard shows your consumptions today. Do you want to see last month's detailed energy history?"
+            ]
+        },
+        {
+            "intent": "onboarding.greenStreakInfo",
+            "utterances": [
+                "Leafy what is a green streak",
+                "Leafy how do I see my green streak",
+                "Leafy what is a green streak"
+
+            ],
+            "answers": [
+                "A green streak is the amount of consecutive days in which you manage to stay under the threshold! In other words, it's the amount of days in which you overall save energy"
+
+            ]
+        },
+        {
+            "intent": "onboarding.treeInfo",
+            "utterances": [
+                "What is this tree",
+                "What is a leafy",
+                "Who is leafy"
+
+            ],
+            "answers": [
+                "That would be me! You can see me in the bottom right, call me Leafy! If you forgot how the mirror works, just press the question mark on the top of the screen"
+
+            ]
+        },
+        {
+            "intent": "onboarding.genericInfo",
+            "utterances": [
+                "What can you do",
+                "Leafy which functions do you have",
+                "What should i do",
+                "What should i say",
+                "Who are you",
+                "What are you, abominable freak of nature"
+
+            ],
+            "answers": [
+                "If you forgot what my components do, press the question mark at the top. Did you instead want to know about the data i can show you?"
+
+            ]
+        },
+        {
+            "intent": "onboarding.graphInfo",
+            "utterances": [
+                "What type of graphs can you display to me",
+                "What graphs can i view",
+                "Hey leafy, which graphs can i see?",
+                "Hey leafy, what graphs i can visualize"
+
+            ],
+            "answers": [
+                " I can show you past data! Just ask me these:\n\"How much did i consume yesterday?\" ,\n\"How much did i consume last month?\" ,\n\"Show me the appliance history\"\n"
 
             ]
         }

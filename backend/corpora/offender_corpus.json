@@ -3,38 +3,15 @@
     "locale": "en-US",
     "contextData": "./corpora/data_config/devices.json",
     "data": [
-        {
-            "intent": "user.approval",
-            "utterances": [
-                "yes",
-                "okay",
-                "ok",
-                "sure",
-                "go on",
-                "yup",
-                "you should"
-            ]
-        },
-        {
-            "intent": "user.negation",
-            "utterances": [
-                "no",
-                "stop",
-                "that's enough",
-                "i don't want to",
-                "don't",
-                "nope",
-                "you should not"
-            ]
-        },
+
         {
             "intent": "device.genericTip",
             "utterances": [
                 "can you give me some tips to consume less",
                 "i want to consume less",
-                "what can i do to consume less",
-                "tell me how i can consume less",
-                "how can i save energy",
+                "what can I do to consume less",
+                "tell me how I can consume less",
+                "how can I save energy",
                 "give me a tip"
             ],
             "answers": [

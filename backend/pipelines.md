@@ -12,3 +12,9 @@ getLevelUpDaysNeeded
 
 ## onIntent(agent.leafyStatus)
 getLeafyStatus
+
+## onIntent(dashboard.monthConsumption)
+getMonthAverage
+
+## onIntent(dashboard.yesterdayConsumption)
+getYesterdayTotal

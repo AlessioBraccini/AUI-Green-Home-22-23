@@ -48,6 +48,15 @@ async function fsmProcessState(response, fsm, nlp) {
             }
             break;
         }
+        case 'dashboard.yesterdayConsumption':
+            reply = await fsm.dispatch("getConsumptionYesterday", nlp)
+            break;
+        case 'dashboard.monthConsumption':
+            reply = await fsm.dispatch("getConsumptionMonth", nlp)
+            break;
+        case 'onboarding.genericInfo':
+                reply = await fsm.dispatch("getGenericInfo", nlp)
+                break;
         default :
             console.log(response.intent)
             reply = await fsm.dispatch('negateOrDefault', nlp)
@@ -96,6 +105,18 @@ const FSM =  {
             },
             getTodayConsumption() {
                 this.state = 'TODAY_CONSUMPTION'
+                return {reply: null, interactionEnd: false}
+            },
+            getConsumptionYesterday() {
+                this.state = 'WAIT_APPROVAL_YESTERDAY_DETAIL'
+                return {reply: null, interactionEnd: false}
+            },
+            getConstumptionMonth(){
+                this.state = 'WAIT_APPROVAL_MONTH_DETAIL'
+                return {reply: null, interactionEnd: false}
+            },
+            getGenericInfo(){
+                this.state = 'WAIT_APPROVAL_INFO_DETAIL'
                 return {reply: null, interactionEnd: false}
             }
         },
@@ -147,6 +168,39 @@ const FSM =  {
                 return {reply: null, interactionEnd: true}
             }
         },
+        WAIT_APPROVAL_YESTERDAY_DETAIL: {
+            async approve(nlp) {
+                this.state = 'RESET'
+                return {reply: (await nlp.process("Hey leafy, yesterday in detail")).answer, interactionEnd: false}
+            },
+            negateOrDefault() {
+                this.state = 'RESET'
+                this.currentDevice = null
+                return {reply: null, interactionEnd: true}
+            }
+        },
+        WAIT_APPROVAL_INFO_DETAIL: {
+            async approve(nlp) {
+                this.state = 'RESET'
+                return {reply: (await nlp.process("What graphs can i view")).answer, interactionEnd: false}
+            },
+            negateOrDefault() {
+                this.state = 'RESET'
+                this.currentDevice = null
+                return {reply: null, interactionEnd: true}
+            }
+        },
+        WAIT_APPROVAL_MONTH_DETAIL: {
+            async approve(nlp) {
+                this.state = 'RESET'
+                return {reply: (await nlp.process("show me in detail last month")).answer, interactionEnd: false}
+            },
+            negateOrDefault() {
+                this.state = 'RESET'
+                this.currentDevice = null
+                return {reply: null, interactionEnd: true}
+            }
+        },
         LEAFY_INFO: {
             negateOrDefault() {
                 this.state = 'RESET'
@@ -178,6 +232,17 @@ const FSM =  {
                 this.currentDevice = null
                 return {reply: null, interactionEnd: true}
             }
+        },
+        CONSUMPTION_HISTORY_YESTERDAY: {
+            approve() {
+                this.state = 'RESET'
+                return {reply: null, interactionEnd: false}
+            },
+            negateOrDefault() {
+                this.state = 'RESET'
+                this.currentDevice = null
+                return {reply: null, interactionEnd: true}
+            }
         }
     },
     async dispatch(actionName, nlp, device=null) {
@@ -194,7 +259,7 @@ const FSM =  {
         } else {
             console.log('invalid action')
             this.state = 'RESET'
-            return {reply: null, interactionEnd: true}
+            return {reply: null, interactionEnd: false}
         }
     }
 }
