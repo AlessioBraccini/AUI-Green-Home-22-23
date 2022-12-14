@@ -29,6 +29,7 @@
         <input type="text" required v-model="message" v-on:keyup.enter="sendMessage"
                class="textInput" placeholder="Enter here your request">
         <button class="sendButton" @click="sendMessage">Send</button>
+        <button class="sendButton" @click="home">Back</button>
       </div>
 
     </div>
@@ -114,10 +115,12 @@ export default {
 
     const redirectOnboarding = () => {
       router.push({ name: 'OnboardingPage'})   //use if to redirect under certain conditions
-
+    }
+    const home = () => {
+      router.push({ name: 'Homepage'})   //use if to redirect under certain conditions
     }
 
-    return {user, messages, message, sendMessage, redirectOnboarding}
+    return {user, messages, message, sendMessage, redirectOnboarding, home}
   },
 
   // mounted() {
