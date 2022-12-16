@@ -42,6 +42,8 @@ export default {
             console.log(err)
           })
 
+      name.value = 'Microwave'
+
 
       switch (name.value) {
         case 'AC': goodImage.value = AC; break;

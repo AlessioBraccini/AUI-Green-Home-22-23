@@ -1,4 +1,6 @@
 <template>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
   <div class="navbar">
     <div class="navText">SMART MIRROR of {{ user }}</div>
     <div class="questionDiv">
@@ -16,15 +18,47 @@
     <div class="wrapper">
 
       <div class="messagePart">
-        <div v-if="messages.length > 1">
-          <div v-for="i in messages.length" :key="i">
-            <div class="list" v-if="i % 2"> <p class="indentUser"> {{ messages[i] }} </p> </div>
-            <div class="listNlp" v-else> <p class="indent"> {{ messages[i] }} </p> </div>
+          <div v-if="messages.length > 1">
+            <div v-for="i in messages.length" :key="i">
+              <div class="list" v-if="i % 2"> <p class="indentUser"> {{ messages[i] }} </p> </div>
+              <div class="listNlp" v-else> <p class="indent"> {{ messages[i] }} </p> </div>
+            </div>
           </div>
-        </div>
-        <div v-else>Try to ask me "Leafy, what can you do?"</div>
+          <div v-else>Try to ask me "Leafy, what can you do?"</div>
 
+
+
+
+
+
+
+          <div style="user-select: None">
+            <br/>
+            <div class='parent grid-parent'>
+              <div @click="toggle ? endSpeechRecognition() : startSpeechRecognition(undefined, undefined)" class='child' style="margin-right:10px">
+
+                <div v-if="toggle">
+                  <i class="fa fa-microphone-slash fa-2x"/>
+                </div>
+                <div v-else>
+                  <i class="fa fa-microphone fa-2x"/>
+                </div>
+
+              </div>
+              <div class='child'>
+
+                <p v-if="error.length" class="grey--text">{{error}}</p>
+                <div v-else class="mb-0 box">
+                  {{runtimeTranscription}}
+                </div>
+
+              </div>
+            </div>
+
+
+        </div>
       </div>
+
       <div class="interact">
         <input type="text" required v-model="message" v-on:keyup.enter="sendMessage"
                class="textInput" placeholder="Enter here your request">
@@ -74,7 +108,18 @@ export default {
     const tts = window.speechSynthesis;
     const headersList = { "Access-Control-Allow-Origin": "*" }
 
-    const speak = (text) => {
+    /////////////////////////////////////// Speech to text /////////////////////////////////////////////////////
+    let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+    let recognition = SpeechRecognition? new SpeechRecognition() : false
+
+    let error = ref('')
+    let speaking = false
+    let toggle = ref(false)
+    const runtimeTranscription = ref('')
+    let sentences = ''
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    const speak = async (text, end) => {
       const utterThis = new SpeechSynthesisUtterance(text);
 
       if (navigator.userAgent.match(/firefox|fxios/i)){
@@ -92,6 +137,12 @@ export default {
 
       tts.speak(utterThis);
 
+      utterThis.onend = function () {
+        if (end === true)
+          router.push({name: 'Homepage'})
+        else
+          startSpeechRecognition()
+      }
     }
 
     const sendMessage = async () => {
@@ -100,11 +151,8 @@ export default {
       messages.value.push(message.value)
 
       axios.get(`http://localhost:3000/?msg=${message.value}`, { headers: headersList })
-          .then(res => {
+          .then(async res => {
             messages.value.push(res.data['reply'])
-            speak(res.data['reply'])
-            if (res.data['interactionEnd'] === true)
-              setTimeout(() => (router.push({ name: 'Homepage'})), 3000)
           })
           .catch(err => {
             console.log(err)
@@ -113,6 +161,85 @@ export default {
       message.value = ''
     }
 
+
+    /////////////////////////////////////// Speech to text /////////////////////////////////////////////////////
+
+    const checkCompatibility = () => {
+      if (!recognition) {
+        error.value = 'Speech Recognition is not available on this browser. Please use Chrome or Firefox'
+      }
+    }
+
+    const endSpeechRecognition = () => {
+      messages.value = ['']
+      messages.value.push(message.value)
+      axios.get(`http://localhost:3000/?msg=${sentences}`, { headers: headersList })
+          .then(res => {
+            recognition.stop()
+            toggle.value = false
+
+            messages.value.push(res.data['reply'])
+            speak(res.data['reply'], res.data['interactionEnd'])
+            console.log(res.data['reply'])
+            if (res.data['interactionEnd'] === true)
+              // endInter = true
+            sentences = ''
+
+          })
+          .catch(err => {
+            console.log(err)
+            sentences = []
+          })
+      sentences = ''
+      message.value = ''
+    }
+    const startSpeechRecognition = () => {
+
+        if (!recognition) {
+          error.value = 'Speech Recognition is not available on this browser. Please use Chrome'
+          return false
+        }
+        toggle.value = true
+        recognition.lang = 'en-US'
+        recognition.interimResults = true
+
+        recognition.addEventListener('speechstart', function() {
+          recognition = SpeechRecognition? new SpeechRecognition() : false
+          speaking = true
+        })
+
+        recognition.addEventListener('speechend', function() {
+          speaking = false
+        })
+
+        recognition.addEventListener('result', event => {
+          const text = Array.from(event.results).map(result => result[0]).map(result => result.transcript).join('')
+          runtimeTranscription.value = text
+        })
+
+        recognition.addEventListener('end', () => {
+
+          if (runtimeTranscription.value !== '') {
+            sentences = (capitalizeFirstLetter(runtimeTranscription.value))
+            // $emit('update:text', `${text}${sentences.slice(-1)[0]}. `)
+          }
+          runtimeTranscription.value = ''
+          // recognition.stop()
+          endSpeechRecognition()
+          sentences = ''
+
+      })
+
+      recognition.start()
+
+    }
+    const capitalizeFirstLetter = (string) => {
+      return string.charAt(0).toUpperCase() + string.slice(1)
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
     const redirectOnboarding = () => {
       router.push({ name: 'OnboardingPage'})   //use if to redirect under certain conditions
     }
@@ -120,7 +247,9 @@ export default {
       router.push({ name: 'Homepage'})   //use if to redirect under certain conditions
     }
 
-    return {user, messages, message, sendMessage, redirectOnboarding, home}
+
+    return {user, messages, message, sentences, runtimeTranscription, toggle, speaking, error,
+      sendMessage, redirectOnboarding, home, endSpeechRecognition, startSpeechRecognition, checkCompatibility}
   },
 
   // mounted() {
@@ -132,7 +261,10 @@ export default {
 </script>
 
 <style scoped>
-
+.grid-parent {
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+}
 .navbar{
   position: relative;
   top: 0;
@@ -267,7 +399,17 @@ export default {
   .interact{
     position: absolute;
     bottom: 0;
+  }
+
+  .box{
+    color:white;
+    background-color:grey;
+    padding:10px;
+    border-radius:10px;
     width: 100%;
+    min-height: 60px;
+    user-select: none;
+    text-align: left;
   }
 
   .offender{
@@ -301,7 +443,7 @@ export default {
     border-radius: 30px;
     text-indent: 20px;
     position: relative;
-    bottom: 10%;
+    bottom: 0;
     width: 90%;
   }
 

@@ -1,6 +1,7 @@
 {
   "author": "",
   "dependencies": {
+    "@google-cloud/speech": "^5.1.0",
     "@nlpjs/basic": "^4.23.5",
     "cors": "^2.8.5",
     "express": "^4.18.2"

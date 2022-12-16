@@ -44,12 +44,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /*width: 2042px;*/
-  /*height: 3591px;*/
+  /*width: 1080px;*/
+  /*height: 1910px;*/
   width: 100vw;
   height: 100vh;
   background-image: url("assets/Background.png");
-  background-size: contain;
+  background-size: cover;
   /*background: black;*/
   font-size: 3vw;
   color: white;
