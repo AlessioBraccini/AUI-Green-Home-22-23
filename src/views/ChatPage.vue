@@ -180,7 +180,7 @@ export default {
 
             messages.value.push(res.data['reply'])
             speak(res.data['reply'], res.data['interactionEnd'])
-            console.log(res.data['reply'])
+
             if (res.data['interactionEnd'] === true)
               // endInter = true
             sentences = ''
@@ -246,7 +246,7 @@ export default {
     const home = () => {
       router.push({ name: 'Homepage'})   //use if to redirect under certain conditions
     }
-
+    startSpeechRecognition()
 
     return {user, messages, message, sentences, runtimeTranscription, toggle, speaking, error,
       sendMessage, redirectOnboarding, home, endSpeechRecognition, startSpeechRecognition, checkCompatibility}

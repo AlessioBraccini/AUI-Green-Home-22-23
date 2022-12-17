@@ -54,6 +54,27 @@ export default {
 
     const user = ref(username)
 
+    const startListening = () => {  // eslint-disable-line
+
+      let recognition = new (window.speechRecognition || window.webkitSpeechRecognition)();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+
+      recognition.addEventListener('result', (event) => {
+        const transcript = event.results[0][0].transcript;
+        if (transcript.includes('hello')) {
+          // Do something when the wake word is spoken
+          recognition.stop();
+          redirectChat()
+        }
+      });
+
+      recognition.start();
+    }
+
+
+
     const redirectChat = () => {
       router.push({ name: 'ChatPage'})
     }
@@ -66,6 +87,7 @@ export default {
       router.push({ name: 'OffenderView'})
     }
 
+    startListening()
     return {user, redirectChat, redirectOnboarding, redirectOffenderBig}
   }
 
