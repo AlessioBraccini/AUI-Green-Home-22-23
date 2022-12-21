@@ -18,6 +18,16 @@ class GreenHomeComponent {
         this.#monthAverage = this.#dataAdapter.getMonthAverage();
     }
 
+    stepForwardDemo() {
+        // utility function just for demo
+        this.#dataAdapter.stepForwardDemo()
+    }
+
+    resetDemo(){
+        // utility function just for demo
+        this.#dataAdapter.resetDemo()
+    }
+
 
     get offender() {
         return this.#offender;

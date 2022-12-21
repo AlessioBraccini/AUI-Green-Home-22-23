@@ -52,6 +52,18 @@ app.get('/genericTip', async (req, res) => {
   res.send(tip)
 })
 
+app.post('/stepForwardDemo', async (req, res) => {
+  const ghc = new GreenHomeComponent()
+  ghc.stepForwardDemo()
+  res.send()
+})
+
+app.post('/resetDemo', async (req, res) => {
+  const ghc = new GreenHomeComponent()
+  ghc.resetDemo()
+  res.send()
+})
+
 app.listen(port, async () => {
   console.log(`NLP server listening on port ${port}`)
   dock = await dockStart();
