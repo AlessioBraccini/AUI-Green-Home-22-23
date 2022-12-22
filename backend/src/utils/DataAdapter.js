@@ -32,27 +32,27 @@ class DataAdapter{
     constructor() {
     }
 
-    demoStepForward(){
+    static demoStepForward(){
         this.statusCtrDemo++
     }
 
-    demoReset(){
+    static demoReset(){
         this.statusCtrDemo = 0
     }
 
-    getOffender(date){
+    static getOffender(date){
         return this.offenders[this.statusCtrDemo % this.offenders.length];
     }
 
-    getGoodBoy(date){
+    static getGoodBoy(date){
         return this.goodBois[this.statusCtrDemo % this.goodBois.length];
     }
 
-    countGreenStreak(){
+    static countGreenStreak(){
         return this.greenStreak[this.statusCtrDemo % this.greenStreak.length];
     }
 
-    getTreeLevel(){
+    static getTreeLevel(){
         //todo: modify the logic of the level up using the reward system
 
         // levels go from 1 to 5 (3 is middle/neutral level)
@@ -74,17 +74,17 @@ class DataAdapter{
         return {data: 1};
     }
 
-    getInstantTotalConsumption(){
+    static getInstantTotalConsumption(){
         return this.instantTotalConsumption[this.statusCtrDemo % this.instantTotalConsumption.length];
     }
 
-    getYesterdayTotal(){
+    static getYesterdayTotal(){
         const ctr = (this.statusCtrDemo === 0) ? this.statusCtrDemo : (this.statusCtrDemo - 1)
         return this.instantTotalConsumption[ctr % this.instantTotalConsumption.length]
     }
 
 
-    getMonthAverage(){
+    static getMonthAverage(){
         let data = 0
         const totalSamples = (this.statusCtrDemo % this.instantTotalConsumption.length) + 1
         for (let e in this.instantTotalConsumption.slice(0, totalSamples)){

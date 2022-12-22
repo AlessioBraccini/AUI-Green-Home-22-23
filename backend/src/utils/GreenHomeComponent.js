@@ -10,22 +10,22 @@ class GreenHomeComponent {
     #yesterdayTotal;
     constructor() {
         this.#dataAdapter = new DataAdapter();
-        this.#offender = this.#dataAdapter.getOffender(Date.now());
-        this.#goodBoy = this.#dataAdapter.getGoodBoy(Date.now());
-        this.#greenStreak = this.#dataAdapter.countGreenStreak();
-        this.#treeLevel = this.#dataAdapter.getTreeLevel();
-        this.#yesterdayTotal = this.#dataAdapter.getYesterdayTotal();
-        this.#monthAverage = this.#dataAdapter.getMonthAverage();
+        this.#offender = DataAdapter.getOffender(Date.now());
+        this.#goodBoy = DataAdapter.getGoodBoy(Date.now());
+        this.#greenStreak = DataAdapter.countGreenStreak();
+        this.#treeLevel = DataAdapter.getTreeLevel();
+        this.#yesterdayTotal = DataAdapter.getYesterdayTotal();
+        this.#monthAverage = DataAdapter.getMonthAverage();
     }
 
     stepForwardDemo() {
         // utility function just for demo
-        this.#dataAdapter.stepForwardDemo()
+        DataAdapter.stepForwardDemo()
     }
 
     resetDemo(){
         // utility function just for demo
-        this.#dataAdapter.resetDemo()
+        DataAdapter.resetDemo()
     }
 
 
@@ -46,7 +46,7 @@ class GreenHomeComponent {
     }
 
     getInstantTotalConsumption() {
-        return this.#dataAdapter.getInstantTotalConsumption();
+        return DataAdapter.getInstantTotalConsumption();
     }
 
     treeMaxLevel() {
