@@ -46,11 +46,19 @@ app.get('/greenDayStreak', async (req, res) => {
   res.send(ghc.greenStreak)
 })
 
+app.get('/goodAppliances', async (req, res) => {
+  const ghc = new GreenHomeComponent()
+  res.send(ghc.goodAppliances)
+})
 
-//Da rifare in quest
+app.get('/offenderAppliances', async (req, res) => {
+  const ghc = new GreenHomeComponent()
+  res.send(ghc.offenderAppliances)
+})
+
 app.get('/quest', async (req, res) => {
   const ghc = new GreenHomeComponent()
-  res.send(ghc.getQuest())
+  res.send(ghc.quest())
 })
 
 app.post('/stepForwardDemo', async (req, res) => {

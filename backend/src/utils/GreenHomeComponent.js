@@ -47,15 +47,15 @@ class GreenHomeComponent {
     getMonthAverage(){
         return DataAdapter.getMonthAverage();
     }
-    getGoodAppliances(){
+    get goodAppliances(){
         return DataAdapter.getGoodAppliances();
     }
 
-    getOffenderAppliances(){
+    get offenderAppliances(){
         return DataAdapter.getOffenderAppliances();
     }
 
-    getQuest(){
+    get quest(){
         return DataAdapter.getQuest()
     }
 
