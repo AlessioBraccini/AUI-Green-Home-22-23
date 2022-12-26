@@ -11,7 +11,7 @@
     <DataWidget class="clock"/>
   </div>
 
-  <div class="body" >
+  <div class="body"  @click="startListening">
     <div class="offender">
       <DashWidget class="dash"/>
       <OffenderWidget class="dailyOffender" @click="redirectOffenderBig"/>
@@ -23,6 +23,7 @@
     <div class="micDiv">
       <img src="../assets/Microphone.png" class="micImg" alt="mic" @click="redirectChat">
     </div>
+
   </div>
 
   <div class="footer">
@@ -49,8 +50,7 @@ import axios from "axios";
 export default {
   name: "HomePage",
   components: {
-    TipsWidget,
-    DashWidget, GoodboiWidget, OffenderWidget, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
+    TipsWidget, DashWidget, GoodboiWidget, OffenderWidget, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
 
   setup(){
 
@@ -59,12 +59,16 @@ export default {
 
     const startListening = () => {  // eslint-disable-line
 
-      let recognition = new (window.speechRecognition || window.webkitSpeechRecognition)();
-      recognition.continuous = true;
-      recognition.interimResults = true;
-      recognition.lang = 'en-US';
 
-      recognition.addEventListener('result', (event) => {
+      let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+      let recognition1 = SpeechRecognition? new SpeechRecognition() : false
+
+      recognition1.continuous = true;
+      recognition1.interimResults = true;
+      recognition1.lang = 'en-US';
+
+
+      recognition1.addEventListener('result', (event) => {
         const transcript = event.results[0][0].transcript;
         console.log(transcript)
         if (
@@ -75,16 +79,12 @@ export default {
             transcript.includes('hello')
         ) {
           // Do something when the wake word is spoken
-          recognition.stop();
-          router.replace({ path: '/ChatPage' })
+          recognition1.stop()
+          router.push({ name: 'ChatPage'})
         }
       });
-
-      recognition.start();
+      recognition1.start();
     }
-
-    // TODO: pulsante per skippare nella demo
-    // TODO: bigoffender, biggoodboy
 
     const redirectChat = () => {
       router.push({ name: 'ChatPage'})
@@ -102,12 +102,11 @@ export default {
       router.push({ name: 'goodBoyView'})
     }
 
-    startListening()
-
     const goOn = () => {
       axios.post('http://localhost:3000/stepForwardDemo', {},{ headers: headersList })
           .then(() => {
             console.log('Forward')
+            location.reload()
           })
           .catch(err => {
             console.log(err)
@@ -117,15 +116,16 @@ export default {
       axios.post('http://localhost:3000/resetDemo', {},{ headers: headersList })
           .then(() => {
             console.log('Forward')
+            location.reload()
           })
           .catch(err => {
             console.log(err)
           })
     }
+    startListening()
 
-    return {user, redirectChat, redirectOnboarding, redirectOffenderBig, redirectGoodBoyBig, goOn, resetDemo}
+    return {user, redirectChat, redirectOnboarding, redirectOffenderBig,startListening, redirectGoodBoyBig, goOn, resetDemo}
   },
-
 }
 </script>
 
