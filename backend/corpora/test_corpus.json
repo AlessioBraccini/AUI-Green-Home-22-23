@@ -896,6 +896,15 @@
         "answers": [
           "Sorry, I don't understand"
         ]
+      },
+      {
+        "intent": "agent.franceso",
+        "utterances": [
+          "do you know me"
+        ],
+        "answers": [
+          "Of course, you're Franceso!"
+        ]
       }
     ]
   }

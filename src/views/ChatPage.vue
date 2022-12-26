@@ -247,7 +247,7 @@ export default {
       router.push({ name: 'Homepage'})   //use if to redirect under certain conditions
     }
 
-    startSpeechRecognition()
+    //startSpeechRecognition()
 
     return {user, messages, message, sentences, runtimeTranscription, toggle, speaking, error, recognition,SpeechRecognition,
       sendMessage, redirectOnboarding, home, endSpeechRecognition, startSpeechRecognition, checkCompatibility}

@@ -15,11 +15,11 @@ class DataAdapter{
     ]
 
     static greenStreak = [
-        {streak: 6, days:["mon", "wed", "fri"]},
-        {streak: 7, days:["mon", "wed", "fri", "sat"]},
-        {streak: 8, days:["mon"]},
-        {streak: 9, days:["mon", "tue"]},
-        {streak: 10, days:["mon", "tue", "thu"]}
+        {leaf: 1,star:1,cross:1,days:["leaf","star","cross","","","",""], date:Date.now()},
+        {leaf: 2,star:1,cross:1, days:["leaf", "star", "cross", "leaf", "", "",""], date:Date.now()+1},
+        {leaf: 15,star:22,cross: 2, days:["star", "", "","","", "",""], date:Date.now()+2},
+        {leaf: 60,star:15,cross: 3,days:["mon", "tue"]},
+        {leaf: 120,star:30,cross:7, days:["mon", "tue", "thu"]}
     ]
 
     static instantTotalConsumption = [
@@ -29,6 +29,47 @@ class DataAdapter{
         {data: 7.9, units: 'kWh'},
         {data: 35.6, units: 'kWh'}
     ]
+
+    static goodAppliances =[
+        {appliances:["dryer","oven","microwave","boiler"],
+            consumptions:[2    , 18  ,   19      ,   40],
+            unitsList:["Wh","Wh","Wh","Wh"],
+            date:Date.now()},
+
+        {appliances:["dryer","oven","microwave","boiler","washing-machine"],
+            consumptions:[12    , 25  ,   11      ,   42, 470],
+            unitsList:["Wh","Wh","Wh","Wh","Wh"],
+            date:Date.now()+1},
+
+
+
+        {appliances:["dishwasher", "washing-machine", "ac", "fridge" ,"dryer","oven","microwave","boiler"],
+        consumptions:[100        ,        12 ,         13 ,      15  ,  16    , 18 ,   19        ,   40],
+        date:Date.now()+7}, //Stock one to have all devices in one place
+
+    ]
+
+    static offenderAppliances =[
+        {appliances:["dishwasher", "washing-machine", "ac", "fridge" ],
+            consumptions:[400    ,        12        ,  13 ,      15],
+            unitsList:["Wh","Wh","Wh", "Wh"],
+            date:Date.now()},
+
+        {appliances:[ "washing-machine", "ac", "fridge" ],
+            consumptions:[   15        ,  8 ,      2],
+            unitsList:["Wh","Wh","Wh"],
+            date:Date.now()+1},
+    ]
+
+    //Consideration: a json would probably be better. Though right now i don't know how to read EXACTLY the line number x
+    static questList=[
+        {quest:"Make yestery's offender a good boy today",
+            date:Date.now()},
+        {quest:"Consume less with yout dishwasher",
+            date:Date.now()+1},
+    ]
+
+
     constructor() {
     }
 
@@ -40,11 +81,11 @@ class DataAdapter{
         this.statusCtrDemo = 0
     }
 
-    static getOffender(date){
+    static getOffender(){
         return this.offenders[this.statusCtrDemo % this.offenders.length];
     }
 
-    static getGoodBoy(date){
+    static getGoodBoy(){
         return this.goodBois[this.statusCtrDemo % this.goodBois.length];
     }
 
@@ -52,26 +93,40 @@ class DataAdapter{
         return this.greenStreak[this.statusCtrDemo % this.greenStreak.length];
     }
 
-    static getTreeLevel(){
-        //todo: modify the logic of the level up using the reward system
+    static getGoodAppliances(){
+        return this.goodAppliances[this.statusCtrDemo % this.greenStreak.length];
+    }
 
-        // levels go from 1 to 5 (3 is middle/neutral level)
-        const maxLevel = 5
-        const today = new Date().getUTCDate()
-        let percNeededForEachLevel = []
-        const ratio = (this.countGreenStreak().streak / today)
+    static getOffenderAppliances(){
+        return this.offenderAppliances[this.statusCtrDemo % this.greenStreak.length];
+    }
 
-        for (const i of Array(maxLevel).keys()) {
-            // i = 0,1,2,3,4
-            percNeededForEachLevel.push(i / maxLevel)
+    static getQuest(){
+        return this.questList[this.statusCtrDemo % this.greenStreak.length];
+    }
+
+
+
+    static getTreeScore() {
+        const info = this.greenStreak[this.statusCtrDemo % this.greenStreak.length]
+        const score = 30 + 0.5 * info.leaf + 0.75 * info.star - 0.5 * info.cross
+        switch (true) {
+            case (score>0 && score<=22):
+                return {data: 1}
+            case (score>22 && score<=27):
+                return {data: 2}
+            case (score>27 && score<=33):
+                return {data: 3}
+            case (score>33 && score<=43):
+                return {data: 4}
+            case (score >43):
+                return {data: 5}
+            default:
+                console.log("something went horribly wrong")
+                return{data: 3}
+
+
         }
-
-        for (const i of Array(maxLevel).keys()) {
-            if ( ratio >= percNeededForEachLevel[i] && ratio < percNeededForEachLevel[i+1] || i===maxLevel-1) {
-                return {data: (i+1)}
-            }
-        }
-        return {data: 1};
     }
 
     static getInstantTotalConsumption(){

@@ -38,6 +38,19 @@
             ]
         },
         {
+            "intent": "agent.leafyInfo",
+            "utterances": [
+                "Hi tree how do you work",
+                "Hey leafy how do you level up",
+                "How do you level",
+                "How do i score points",
+                "How can i level you up"
+            ],
+            "answers": [
+                "Every month i get better based on how many green days and quests you complete, while bad days make me worse. If you want to know more about any of them just ask about them!"
+            ]
+        },
+        {
             "intent": "agent.leafyProgress",
             "utterances": [
                 "hi leafy! how long until you level up",
@@ -47,17 +60,6 @@
                 "when are you leveling up",
                 "when do you level up",
                 "when do you upgrade"
-            ]
-        },
-        {
-            "intent": "agent.greenDayInfo",
-            "utterances": [
-                "what's a green day",
-                "what's a good day"
-            ],
-            "answers": [
-                "A Green Day is a with a low energy consumption.",
-                "It means you've been mindful of your energy usage."
             ]
         }
     ]

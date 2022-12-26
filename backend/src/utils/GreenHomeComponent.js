@@ -25,7 +25,7 @@ class GreenHomeComponent {
         return DataAdapter.getGoodBoy(Date.now());
     }
     get treeLevel() {
-        return DataAdapter.getTreeLevel();
+        return DataAdapter.getTreeScore();
     }
 
 
@@ -47,6 +47,19 @@ class GreenHomeComponent {
     getMonthAverage(){
         return DataAdapter.getMonthAverage();
     }
+    getGoodAppliances(){
+        return DataAdapter.getGoodAppliances();
+    }
+
+    getOffenderAppliances(){
+        return DataAdapter.getOffenderAppliances();
+    }
+
+    getQuest(){
+        return DataAdapter.getQuest()
+    }
+
+
 }
 
 module.exports = {GreenHomeComponent};

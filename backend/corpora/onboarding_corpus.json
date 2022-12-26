@@ -72,6 +72,65 @@
                 " I can show you past data! Just ask me these:\n\"How much did i consume yesterday?\" ,\n\"How much did i consume last month?\" ,\n\"Show me the appliance history\"\n"
 
             ]
+        },
+        {
+            "intent": "onboarding.starInfo",
+            "utterances": [
+                "What is a star?",
+                "How do i get stars",
+                "Hey leafy what about those stars",
+                "Hey leafy what are star days",
+                "How do i get a star"
+
+
+            ],
+            "answers": [
+                "If you succesfully complete your quest AND have a green day, you'll earn a star. But remember, even if you complete the quest, no green day will result in no star!"
+
+            ]
+        },
+        {
+            "intent": "onboarding.greenDayInfo",
+            "utterances": [
+                "What is a green day",
+                "What are those leaves",
+                "Hey leafy tell me about those leaves",
+                "Hey leafy what are green days"
+
+
+            ],
+            "answers": [
+                "If you successfully save enough energy in a day it will be marked as a leaf in the calendar. Get enough leaves and stars and level leafy up!"
+
+            ]
+        },
+        {
+            "intent": "onboarding.badDayInfo",
+            "utterances": [
+                "What is a bad day",
+                "What are those crosses",
+                "Hey leafy tell me about that X",
+                "What is that X",
+                "Hey leafy what are bad days"
+            ],
+            "answers": [
+                "Every day you waste too much energy will be marked in the calendar as an X. Be careful! Those Xs will make me weak!"
+
+            ]
+        },
+        {
+            "intent": "onboarding.questInfo",
+            "utterances": [
+                "What is a quest",
+                "How do i know today's quest",
+                "Hey leafy what are quests",
+                "Which is my quest",
+                "Hey leafy what are bad days"
+            ],
+            "answers": [
+                "Every day you waste too much energy will be marked in the calendar as an X. Be careful! Those Xs will make me weak!"
+
+            ]
         }
     ]
 }

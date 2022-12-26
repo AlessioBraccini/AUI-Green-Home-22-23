@@ -3,7 +3,7 @@ var cors = require('cors')
 const { fsmProcessState, FSM } = require('./index')
 const {dockStart} = require("@nlpjs/basic");
 const {GreenHomeComponent} = require('./utils/GreenHomeComponent')
-const {readJson} = require('./utils/readJson')
+//const {readJson} = require('./utils/readJson')
 
 const app = express()
 const port = 3000
@@ -46,10 +46,11 @@ app.get('/greenDayStreak', async (req, res) => {
   res.send(ghc.greenStreak)
 })
 
-app.get('/genericTip', async (req, res) => {
-  const tipsPool = readJson('./corpora/data_config/genericTipsPool.json').shortPool
-  const tip = {tip: tipsPool[Math.floor(Math.random() * tipsPool.length)]}
-  res.send(tip)
+
+//Da rifare in quest
+app.get('/quest', async (req, res) => {
+  const ghc = new GreenHomeComponent()
+  res.send(ghc.getQuest())
 })
 
 app.post('/stepForwardDemo', async (req, res) => {
