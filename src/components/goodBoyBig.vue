@@ -1,6 +1,6 @@
 <template>
   <div class="offenderDiv">
-    OFFENDERS
+    GOOD BOY
     <div v-for="i in devices.length" :key="i" class="container">
       <div class="ext">
         <img :src="offenderImage[i-1]" class="icoImg" alt="icon"/>
@@ -17,16 +17,16 @@
 
 <script>
 import {ref} from "vue";
-import AC from "@/assets/Offender/AC.png"
-import Boiler from "@/assets/Offender/Boiler.png"
-import Dishwasher from "@/assets/Offender/Dishwasher.png"
-import Dryer from "@/assets/Offender/Dryer.png"
-import Fridge from "@/assets/Offender/Fridge.png"
-import Induction from "@/assets/Offender/Induction.png"
-import Microwave from "@/assets/Offender/Microwave.png"
-import Oven from "@/assets/Offender/Oven.png"
-import TV from "@/assets/Offender/TV.png"
-import WashingMachine from "@/assets/Offender/WashingMachine.png"
+import AC from "@/assets/HappyAppliance/AC.png"
+import Boiler from "@/assets/HappyAppliance/Boiler.png"
+import Dishwasher from "@/assets/HappyAppliance/Dishwasher.png"
+import Dryer from "@/assets/HappyAppliance/Dryer.png"
+import Fridge from "@/assets/HappyAppliance/Fridge.png"
+import Induction from "@/assets/HappyAppliance/Induction.png"
+import Microwave from "@/assets/HappyAppliance/Microwave.png"
+import Oven from "@/assets/HappyAppliance/Oven.png"
+import TV from "@/assets/HappyAppliance/TV.png"
+import WashingMachine from "@/assets/HappyAppliance/WashingMachine.png"
 
 // import axios from "axios";
 
@@ -51,13 +51,13 @@ export default {
       //     })
 
       // Call api return only bad boy
-      // Same thing for good boy but al contrario
 
       const list = ['AC', 'Dishwasher', 'Fridge', 'Microwave']
       const consumption1 = ['1KW', '1W', '200W', '999W']
 
 
       for (let i = 0; i < list.length; i++) {
+
         devices.value.push(list[i])
         consumption.value.push(consumption1[i])
 

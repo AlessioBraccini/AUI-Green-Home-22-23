@@ -79,7 +79,7 @@ export default {
         utterThis.rate = 0.9;
         utterThis.lang = "en-US"
       } else {
-        utterThis.pitch = 1.4;
+        utterThis.pitch = 1.2;
         utterThis.rate = 0.8;
         utterThis.lang = "en-US"
       }
@@ -93,10 +93,12 @@ export default {
       delays.value.push(5500)
       messages.value.push('I will guide you into this tutorial, are you ready?')
       delays.value.push(5000)
-      messages.value.push('This section shows you how much energy you saved and your streak of green days of the week')
+      messages.value.push('This section shows you how much energy you saved and your stars and leaves count of the month')
+      delays.value.push(7500)
+      messages.value.push('You earn a leaf when you complete a day below the threshold or you get a cross otherwise')
+      delays.value.push(7500)
+      messages.value.push('This section shows which is your daily quest, complete it and you will earn a star')
       delays.value.push(7000)
-      messages.value.push('Follow the tips to decrease your energy consumption')
-      delays.value.push(5000)
       messages.value.push('This section shows the appliance that has consumed the most and the less yesterday')
       delays.value.push(7000)
 
@@ -107,8 +109,8 @@ export default {
         messages.value.push('This dashboard displays your today consumption in kilowatt per hour')
 
       delays.value.push(6000)
-      messages.value.push('Press this icon to interact with the mirror')
-      delays.value.push(5000)
+      messages.value.push('Press this icon or say "Hey Leafy" to interact with the mirror')
+      delays.value.push(5500)
       messages.value.push('By pressing this button you can redo this tutorial. Press it if you need it!')
       delays.value.push(7000)
       messages.value.push('That is the end, enjoy your smart mirror, and remember, if you need something I am here ready to assist you! Just ask me what you want')
@@ -233,13 +235,14 @@ export default {
           case 0: startAnimation(); break;
           case 1: visualizeTree(); break;
           case 2: visualizeBotBar(); break;
-          case 3: visualizeTip(); break;
-          case 4: visualizeOffender(); break;
-          case 5: visualizeDash(); break;
-          case 6: visualizeMic(); break;
-          case 7: visualizeQuestion(); break;
-          case 8: endAnimation(); break;
-          case 9: returnHomepage(); break;
+          case 3: visualizeBotBar(); break;
+          case 4: visualizeTip(); break;
+          case 5: visualizeOffender(); break;
+          case 6: visualizeDash(); break;
+          case 7: visualizeMic(); break;
+          case 8: visualizeQuestion(); break;
+          case 9: endAnimation(); break;
+          case 10: returnHomepage(); break;
         }
         await delay(delays.value[i])
       }

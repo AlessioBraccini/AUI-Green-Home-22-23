@@ -11,11 +11,11 @@
     <DataWidget class="clock"/>
   </div>
 
-  <div class="body">
+  <div class="body" >
     <div class="offender">
       <DashWidget class="dash"/>
-      <OffenderWidget class="dailyOffender"  @click="redirectOffenderBig"/>
-      <GoodboiWidget class="goodBoy"/>
+      <OffenderWidget class="dailyOffender" @click="redirectOffenderBig"/>
+      <GoodboiWidget class="goodBoy" @click="redirectGoodBoyBig"/>
       <TipsWidget class="tips"/>
     </div>
     <div class="micDiv">
@@ -43,6 +43,7 @@ import GoodboiWidget from "@/components/GoodboiWidget";
 import router from "@/router";
 import DashWidget from "@/components/DashWidget";
 import TipsWidget from "@/components/TipsWidget";
+// const tts = window.speechSynthesis;
 
 export default {
   name: "HomePage",
@@ -63,17 +64,25 @@ export default {
 
       recognition.addEventListener('result', (event) => {
         const transcript = event.results[0][0].transcript;
-        if (transcript.includes('hello')) {
+        console.log(transcript)
+        if (
+            transcript.includes('hey leafy') ||
+            transcript.includes('hey') ||
+            transcript.includes('leafy') ||
+            transcript.includes('Hayley') ||
+            transcript.includes('hello')
+        ) {
           // Do something when the wake word is spoken
           recognition.stop();
-          redirectChat()
+          router.replace({ path: '/ChatPage' })
         }
       });
 
       recognition.start();
     }
 
-
+    // TODO: pulsante per skippare nella demo
+    // TODO: bigoffender, biggoodboy
 
     const redirectChat = () => {
       router.push({ name: 'ChatPage'})
@@ -87,9 +96,12 @@ export default {
       router.push({ name: 'OffenderView'})
     }
 
+    const redirectGoodBoyBig = () => {
+      router.push({ name: 'goodBoyView'})
+    }
     startListening()
-    return {user, redirectChat, redirectOnboarding, redirectOffenderBig}
-  }
+    return {user, redirectChat, redirectOnboarding, redirectOffenderBig, redirectGoodBoyBig}
+  },
 
 }
 </script>

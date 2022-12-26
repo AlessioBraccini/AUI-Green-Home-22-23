@@ -119,7 +119,8 @@ export default {
     let sentences = ''
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    const speak = async (text, end) => {
+    const speak = (text, end) => {
+
       const utterThis = new SpeechSynthesisUtterance(text);
 
       if (navigator.userAgent.match(/firefox|fxios/i)){
@@ -130,7 +131,7 @@ export default {
       else{
         const voices = tts.getVoices();
         utterThis.voice = voices[28] //Moira
-        utterThis.pitch = 1.4;
+        utterThis.pitch = 1.2;
         utterThis.rate = 0.8;
         utterThis.lang = "en-US"
       }
@@ -213,8 +214,7 @@ export default {
         })
 
         recognition.addEventListener('result', event => {
-          const text = Array.from(event.results).map(result => result[0]).map(result => result.transcript).join('')
-          runtimeTranscription.value = text
+          runtimeTranscription.value = Array.from(event.results).map(result => result[0]).map(result => result.transcript).join('')
         })
 
         recognition.addEventListener('end', () => {
@@ -246,14 +246,14 @@ export default {
     const home = () => {
       router.push({ name: 'Homepage'})   //use if to redirect under certain conditions
     }
+
     startSpeechRecognition()
 
-    return {user, messages, message, sentences, runtimeTranscription, toggle, speaking, error,
+    return {user, messages, message, sentences, runtimeTranscription, toggle, speaking, error, recognition,SpeechRecognition,
       sendMessage, redirectOnboarding, home, endSpeechRecognition, startSpeechRecognition, checkCompatibility}
   },
 
   // mounted() {
-  //   // computeInteraction('ciao')
   //
   // }
 

@@ -13,7 +13,7 @@
 
   <div class="body">
     <div class="offender">
-      <OffenderBig class="dash"/>
+      <goodBoyBig class="dash"/>
 
     </div>
     <div class="micDiv">
@@ -36,12 +36,12 @@ import {username} from "@/config/config";
 import {ref} from "vue";
 import TreeImageComponent from "@/components/TreeImageComponent";
 import router from "@/router";
-import OffenderBig from "@/components/offenderBig";
+import goodBoyBig from "@/components/goodBoyBig";
 
 export default {
-  name: "offenderView",
+  name: "goodBoyView",
   components: {
-    OffenderBig, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
+    goodBoyBig, TreeImageComponent, DataWidget, WeatherWidget, WeeklyStreak},
 
   setup(){
 

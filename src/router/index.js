@@ -5,6 +5,8 @@ import ChatPage from "@/views/ChatPage";
 import OnboardingPage from "@/views/OnboardingPage";
 import test from "@/views/test.vue";
 import offenderView from "@/views/offenderView";
+import goodBoyView from "@/views/goodBoyView";
+// import ChatPage2 from "@/views/ChatPage2";
 
 const routes = [
     {
@@ -30,7 +32,11 @@ const routes = [
         name: 'OffenderView',
         component: offenderView
     },
-
+    {
+        path: '/goodBoyView',
+        name: 'goodBoyView',
+        component: goodBoyView
+    },
 
 
     {

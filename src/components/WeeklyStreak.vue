@@ -11,11 +11,17 @@
     </div>
 
     <div class="extBox">
-      <div class="leftUpRect">
-        <p class="bigRectangleText">This week streak</p>
+      <div class="leftUpRectStar">
+        <p class="bigRectangleText">Star: </p>
       </div>
-      <div class="rightUpRect">
-        <p class="smallRectangleText">{{streakDays}} Days</p>
+      <div class="rightUpRectStar correctionDiv">
+        <p class="smallRectangleTextStar">{{stars}}</p>
+      </div>
+      <div class="leftUpRectStar">
+        <p class="bigRectangleText">Leaf: </p>
+      </div>
+      <div class="rightUpRectStar ">
+        <p class="smallRectangleTextStar corrText">{{leafs}}</p>
       </div>
     </div>
 
@@ -32,21 +38,19 @@
         <p class="sunday">SUN</p>
       </div>
       <div class="bullet">
-        <img :src="mon" class="bulletImg" alt="O"/>
-        <img :src="tue" class="bulletImg" alt="O"/>
-        <img :src="wed" class="bulletImg" alt="O"/>
-        <img :src="thu" class="bulletImg" alt="O"/>
-        <img :src="fri" class="bulletImg" alt="O"/>
-        <img :src="sat" class="bulletImg" alt="O"/>
-        <img :src="sun" class="bulletImg" alt="O"/>
+        <div v-for="day in week.length" :key="day">
+          <img :src="week[day-1]" class="bulletImg" alt="O"/>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Cross from "@/assets/Cross.png"
+import Leaf from "@/assets/Leaf.png"
+import Star from "@/assets/Star.png"
 import NC from "@/assets/EmptyBullet.png"
-import C from "@/assets/CheckedBullet.png"
 
 import axios from "axios";
 import {ref} from "vue";
@@ -57,37 +61,31 @@ export default {
 
   setup(){
     const headersList = { "Access-Control-Allow-Origin": "*" }
-    const mon = ref(NC)
-    const tue = ref(NC)
-    const wed = ref(NC)
-    const thu = ref(NC)
-    const fri = ref(NC)
-    const sat = ref(NC)
-    const sun = ref(NC)
-    const streakDays = ref(0)
+    const week = ref([])
+    const leafs = ref(0)
+    const stars = ref(0)
 
     axios.get('http://localhost:3000/greenDayStreak', { headers: headersList })
         .then(res => {
 
+          // TODO: campi di http req: leaf, star, days
+
           for (let i = 0; i < res.data['days'].length; i++) {
             switch (res.data['days'][i]){
-              case 'mon': mon.value = C; break;
-              case 'tue': tue.value = C; break;
-              case 'wed': wed.value = C; break;
-              case 'thu': thu.value = C; break;
-              case 'fri': fri.value = C; break;
-              case 'sat': sat.value = C; break;
-              case 'sun': sun.value = C; break;
+              case 'leaf': week.value.push(Leaf); break;
+              case 'cross': week.value.push(Cross); break;
+              case 'star': week.value.push(Star); break;
+              default: week.value.push(NC); break;
             }
           }
-          streakDays.value = res.data['days'].length
-
+          leafs.value = res.data['streak']
+          stars.value = res.data['streak']
         })
         .catch(err => {
           console.log(err)
         })
 
-    return {mon, tue, wed, thu, fri, sat, sun, streakDays}
+    return {week, leafs, stars}
 
   }
 
@@ -129,6 +127,30 @@ export default {
     height: 100%;
   }
 
+  .leftUpRectStar{
+    position: relative;
+    text-align: left;
+    text-indent: 18%;
+    float: left;
+    /*width: 30%;*/
+    height: 100%;
+    left: 3%;
+  }
+
+  .rightUpRectStar{
+    position: relative;
+    float: left;
+    vertical-align: bottom;
+    /*width: 15%;*/
+    height: 100%;
+    left: 10%;
+  }
+
+  .correctionDiv{
+    width: 61%;
+    text-align: left;
+  }
+
   .bigRectangleText{
     margin-top: 1%;
   }
@@ -136,8 +158,12 @@ export default {
  .smallRectangleText{
     margin-top: 3%;
   }
+  .smallRectangleTextStar{
+    margin-top: 0;
+  }
 
- .smallBar{
+
+  .smallBar{
    height: 2%;
    background: white;
    border-radius: 20px;
