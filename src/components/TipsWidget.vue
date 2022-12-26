@@ -14,34 +14,25 @@
 
 <script>
 import {ref} from "vue";
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   name: "TipsWidget",
 
   setup() {
 
-    // TODO: aggiornare e mettere le quest (manca hanyu assets)
-
     const quest = ref('');
     const name = ref('');
-    // const headersList = { "Access-Control-Allow-Origin": "*" }
+    const headersList = { "Access-Control-Allow-Origin": "*" }
 
 
-    // axios.get('http://localhost:3000/quest', { headers: headersList })
-    //     .then(res => {
-    //       quest.value = res.data['quest']
-    //     })
-    //     .catch(err => {
-    //       console.log(err)
-    //     })
-    quest.value = 'hellooooo oooo ddkkdkd dcvdcvd'
-
-
-    // Chiamata a quest
-   'Use the dishwasher at night in order to consume less'
-
-    // setInterval(() => loadTips(), 60000*60)
+    axios.get('http://localhost:3000/quest', { headers: headersList })
+        .then(res => {
+          quest.value = res.data['quest']
+        })
+        .catch(err => {
+          console.log(err)
+        })
 
     return {quest, name}
   }

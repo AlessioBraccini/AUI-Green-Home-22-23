@@ -78,8 +78,8 @@ export default {
               default: week.value.push(NC); break;
             }
           }
-          leafs.value = res.data['streak']
-          stars.value = res.data['streak']
+          leafs.value = res.data['leaf']
+          stars.value = res.data['star']
         })
         .catch(err => {
           console.log(err)

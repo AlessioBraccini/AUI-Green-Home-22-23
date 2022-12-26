@@ -58,7 +58,7 @@ app.get('/offenderAppliances', async (req, res) => {
 
 app.get('/quest', async (req, res) => {
   const ghc = new GreenHomeComponent()
-  res.send(ghc.quest())
+  res.send(ghc.quest)
 })
 
 app.post('/stepForwardDemo', async (req, res) => {

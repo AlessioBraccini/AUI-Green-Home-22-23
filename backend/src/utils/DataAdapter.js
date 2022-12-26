@@ -94,15 +94,15 @@ class DataAdapter{
     }
 
     static getGoodAppliances(){
-        return this.goodAppliances[this.statusCtrDemo % this.greenStreak.length];
+        return this.goodAppliances[this.statusCtrDemo % this.goodAppliances.length];
     }
 
     static getOffenderAppliances(){
-        return this.offenderAppliances[this.statusCtrDemo % this.greenStreak.length];
+        return this.offenderAppliances[this.statusCtrDemo % this.offenderAppliances.length];
     }
 
     static getQuest(){
-        return this.questList[this.statusCtrDemo % this.greenStreak.length];
+        return this.questList[this.statusCtrDemo % this.questList.length];
     }
 
 

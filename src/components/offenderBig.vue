@@ -5,7 +5,7 @@
       <div class="ext">
         <img :src="offenderImage[i-1]" class="icoImg" alt="icon"/>
         <p class="text">{{devices[i-1]}}</p>
-        <p class="text">{{consumption[i-1]}}</p>
+        <p class="text">{{consumption[i-1]}} {{unit[i-1]}}</p>
       </div>
 
 
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import {ref} from "vue";
+import {capitalize, ref} from "vue";
 import AC from "@/assets/Offender/AC.png"
 import Boiler from "@/assets/Offender/Boiler.png"
 import Dishwasher from "@/assets/Offender/Dishwasher.png"
@@ -28,7 +28,7 @@ import Oven from "@/assets/Offender/Oven.png"
 import TV from "@/assets/Offender/TV.png"
 import WashingMachine from "@/assets/Offender/WashingMachine.png"
 
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   name: "offenderBig",
@@ -38,31 +38,30 @@ export default {
     const offenderImage = ref([]);
     const devices = ref([]);
     const consumption = ref([]);
-    // const headersList = { "Access-Control-Allow-Origin": "*" }
+    const unit = ref([]);
+    const headersList = { "Access-Control-Allow-Origin": "*" }
 
     const loadOffender = async () => {
 
-      // await axios.get('http://localhost:3000/offenderList', { headers: headersList })
-      //     .then(res => {
-      //       name.value = capitalize(res.data['name'])
-      //     })
-      //     .catch(err => {
-      //       console.log(err)
-      //     })
+      await axios.get('http://localhost:3000/offenderAppliances', { headers: headersList })
+          .then(res => {
+            for (let i = 0; i < res.data['appliances'].length; i++) {
+              devices.value.push(res.data['appliances'][i])
+              consumption.value.push(res.data['consumptions'][i])
+              unit.value.push(res.data['unitsList'][i])
+            }
 
-      // Call api return only bad boy
-      // Same thing for good boy but al contrario
+          })
+          .catch(err => {
+            console.log(err)
+          })
 
-      const list = ['AC', 'Dishwasher', 'Fridge', 'Microwave']
-      const consumption1 = ['1KW', '1W', '200W', '999W']
 
-
-      for (let i = 0; i < list.length; i++) {
-        devices.value.push(list[i])
-        consumption.value.push(consumption1[i])
-
-        switch (list[i]) {
-          case 'AC': offenderImage.value.push(AC); break;
+      for (let i = 0; i < devices.value.length; i++) {
+        devices.value[i] = capitalize(devices.value[i])
+        console.log( devices.value[i])
+        switch (devices.value[i]) {
+          case 'Ac': offenderImage.value.push(AC); break;
           case 'Boiler': offenderImage.value.push(Boiler); break;
           case 'Dishwasher': offenderImage.value.push(Dishwasher); break;
           case 'Dryer': offenderImage.value.push(Dryer); break;
@@ -71,7 +70,7 @@ export default {
           case 'Microwave': offenderImage.value.push(Microwave); break;
           case 'Oven': offenderImage.value.push(Oven); break;
           case 'TV': offenderImage.value.push(TV); break;
-          case 'WashingMachine': offenderImage.value.push(WashingMachine); break;
+          case 'Washing-machine': offenderImage.value.push(WashingMachine); break;
         }
       }
 
@@ -80,7 +79,7 @@ export default {
 
     loadOffender()
 
-    return {offenderImage, devices, consumption}
+    return {offenderImage, devices, consumption, unit}
   }
 }
 </script>
