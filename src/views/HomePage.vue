@@ -17,6 +17,8 @@
       <OffenderWidget class="dailyOffender" @click="redirectOffenderBig"/>
       <GoodboiWidget class="goodBoy" @click="redirectGoodBoyBig"/>
       <TipsWidget class="tips"/>
+      <button class="button" @click="goOn">Step Forward</button>
+      <button class="button" @click="resetDemo">Reset Demo</button>
     </div>
     <div class="micDiv">
       <img src="../assets/Microphone.png" class="micImg" alt="mic" @click="redirectChat">
@@ -31,7 +33,6 @@
 </template>
 
 <script>
-// import WeatherPage from "@/components/WeatherPage";
 import WeatherWidget from "@/components/WeatherWidget";
 import DataWidget from "@/components/ClockWidget";
 import WeeklyStreak from "@/components/WeeklyStreak"
@@ -43,7 +44,7 @@ import GoodboiWidget from "@/components/GoodboiWidget";
 import router from "@/router";
 import DashWidget from "@/components/DashWidget";
 import TipsWidget from "@/components/TipsWidget";
-// const tts = window.speechSynthesis;
+import axios from "axios";
 
 export default {
   name: "HomePage",
@@ -54,6 +55,7 @@ export default {
   setup(){
 
     const user = ref(username)
+    const headersList = { "Access-Control-Allow-Origin": "*" }
 
     const startListening = () => {  // eslint-disable-line
 
@@ -99,8 +101,29 @@ export default {
     const redirectGoodBoyBig = () => {
       router.push({ name: 'goodBoyView'})
     }
+
     startListening()
-    return {user, redirectChat, redirectOnboarding, redirectOffenderBig, redirectGoodBoyBig}
+
+    const goOn = () => {
+      axios.post('http://localhost:3000/stepForwardDemo', {},{ headers: headersList })
+          .then(() => {
+            console.log('Forward')
+          })
+          .catch(err => {
+            console.log(err)
+          })
+    }
+    const resetDemo = () => {
+      axios.post('http://localhost:3000/resetDemo', {},{ headers: headersList })
+          .then(() => {
+            console.log('Forward')
+          })
+          .catch(err => {
+            console.log(err)
+          })
+    }
+
+    return {user, redirectChat, redirectOnboarding, redirectOffenderBig, redirectGoodBoyBig, goOn, resetDemo}
   },
 
 }
@@ -202,6 +225,14 @@ export default {
     .micImg{
       height: 100%;
       width: 100%;
+    }
+
+    .button{
+      border-radius: 30px;
+      border: #717173 solid 2px;
+      margin-top: 5%;
+      width: 90%;
+      left: 5%;
     }
 
   .footer{
