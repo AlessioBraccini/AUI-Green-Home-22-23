@@ -18,14 +18,14 @@ class GreenHomeComponent {
 
 
     get offender() {
-        return DataAdapter.getOffender(Date.now());;
+        return DataAdapter.getOffender(Date.now());
     }
 
     get goodBoy() {
         return DataAdapter.getGoodBoy(Date.now());
     }
     get treeLevel() {
-        return DataAdapter.getTreeLevel();;
+        return DataAdapter.getTreeLevel();
     }
 
 
