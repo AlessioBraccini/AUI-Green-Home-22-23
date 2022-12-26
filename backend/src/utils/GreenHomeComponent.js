@@ -2,47 +2,35 @@ const {DataAdapter} = require("./DataAdapter.js");
 
 class GreenHomeComponent {
     #dataAdapter;
-    #offender;
-    #goodBoy;
-    #treeLevel;
-    #greenStreak;
-    #monthAverage;
-    #yesterdayTotal;
     constructor() {
         this.#dataAdapter = new DataAdapter();
-        this.#offender = DataAdapter.getOffender(Date.now());
-        this.#goodBoy = DataAdapter.getGoodBoy(Date.now());
-        this.#greenStreak = DataAdapter.countGreenStreak();
-        this.#treeLevel = DataAdapter.getTreeLevel();
-        this.#yesterdayTotal = DataAdapter.getYesterdayTotal();
-        this.#monthAverage = DataAdapter.getMonthAverage();
     }
 
     stepForwardDemo() {
         // utility function just for demo
-        DataAdapter.stepForwardDemo()
+        DataAdapter.demoStepForward()
     }
 
     resetDemo(){
         // utility function just for demo
-        DataAdapter.resetDemo()
+        DataAdapter.demoReset()
     }
 
 
     get offender() {
-        return this.#offender;
+        return DataAdapter.getOffender(Date.now());;
     }
 
     get goodBoy() {
-        return this.#goodBoy;
+        return DataAdapter.getGoodBoy(Date.now());
     }
     get treeLevel() {
-        return this.#treeLevel;
+        return DataAdapter.getTreeLevel();;
     }
 
 
     get greenStreak() {
-        return this.#greenStreak;
+        return DataAdapter.countGreenStreak();
     }
 
     getInstantTotalConsumption() {
@@ -53,11 +41,11 @@ class GreenHomeComponent {
         return 5;
     }
     getYesterdayTotal() {
-        return this.#yesterdayTotal;
+        return DataAdapter.getYesterdayTotal();
     }
 
     getMonthAverage(){
-        return this.#monthAverage;
+        return DataAdapter.getMonthAverage();
     }
 }
 

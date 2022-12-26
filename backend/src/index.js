@@ -259,7 +259,7 @@ const FSM =  {
         } else {
             console.log('invalid action')
             this.state = 'RESET'
-            return {reply: null, interactionEnd: false}
+            return {reply: null, interactionEnd: true}
         }
     }
 }
