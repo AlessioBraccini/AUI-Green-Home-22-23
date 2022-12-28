@@ -2,7 +2,7 @@ class DataAdapter{
     static statusCtrDemo = 0 // shared between all instances of DataAdapter
     static offenders = [
         {name:'dishwasher', consumption:'400Wh', date:Date.now()},
-        {name:'washing machine', consumption:'470Wh', date:Date.now()+1},
+        {name:'washing-machine', consumption:'470Wh', date:Date.now()+1},
         {name:'dryer', consumption: '490Wh', date:Date.now()+2},
         {name:'fridge', consumption: '153Wh', date:Date.now()+3}
     ]
@@ -11,7 +11,7 @@ class DataAdapter{
         {name:'dryer', consumption:'2Wh', date:Date.now()},
         {name:'fridge', consumption:'3Wh', date:Date.now()+1},
         {name:'fridge', consumption: '3Wh', date:Date.now()+2},
-        {name:'washing machine', consumption: '8Wh', date: Date.now()+3}
+        {name:'washing-machine', consumption: '8Wh', date: Date.now()+3}
     ]
 
     static greenStreak = [

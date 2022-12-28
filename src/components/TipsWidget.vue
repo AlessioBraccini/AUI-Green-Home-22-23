@@ -58,17 +58,17 @@ export default {
 
 .bulbImg{
   position: relative;
-  display: inline-block;
   float: right;
-  height: 100%;
-  width: 100%;
+  width: 90%;
+  margin-top: 20%;
 }
 
 .text{
   position: relative;
   display: inline-block;
   font-size: 2vw;
-  width: 75%;
+  width: 65%;
+  margin-left: 5%;
 }
 
 </style>

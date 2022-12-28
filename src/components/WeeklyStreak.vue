@@ -12,13 +12,13 @@
 
     <div class="extBox">
       <div class="leftUpRectStar">
-        <p class="bigRectangleText">Star: </p>
+        <p class="bigRectangleText">Stars: </p>
       </div>
       <div class="rightUpRectStar correctionDiv">
         <p class="smallRectangleTextStar">{{stars}}</p>
       </div>
       <div class="leftUpRectStar">
-        <p class="bigRectangleText">Leaf: </p>
+        <p class="bigRectangleText">Leaves: </p>
       </div>
       <div class="rightUpRectStar ">
         <p class="smallRectangleTextStar corrText">{{leafs}}</p>
@@ -38,7 +38,7 @@
         <p class="sunday">SUN</p>
       </div>
       <div class="bullet">
-        <div v-for="day in week.length" :key="day">
+        <div v-for="day in week.length" :key="day" class="bulletDiv">
           <img :src="week[day-1]" class="bulletImg" alt="O"/>
         </div>
       </div>
@@ -147,7 +147,7 @@ export default {
   }
 
   .correctionDiv{
-    width: 61%;
+    width: 55%;
     text-align: left;
   }
 
@@ -207,10 +207,14 @@ export default {
     height: 50%;
   }
 
-  .bulletImg{
-    width: 14.2%;
+  .bulletDiv{
+    width: 14.1%;
     height: 90%;
     float: left;
+  }
+
+  .bulletImg{
+    width: 85%;
   }
 
 </style>
