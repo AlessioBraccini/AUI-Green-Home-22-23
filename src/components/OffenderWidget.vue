@@ -53,7 +53,7 @@ export default {
         case 'Microwave': offenderImage.value = Microwave; break;
         case 'Oven': offenderImage.value = Oven; break;
         case 'TV': offenderImage.value = TV; break;
-        case 'WashingMachine': offenderImage.value = WashingMachine; name.value= 'Washing Machine'; break;
+        case 'Washing-machine': offenderImage.value = WashingMachine; name.value= 'Washing Machine'; break;
         default: offenderImage.value = TV; name.value = 'TV'; break;
       }
     }

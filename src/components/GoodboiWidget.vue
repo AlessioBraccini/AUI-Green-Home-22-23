@@ -52,7 +52,7 @@ export default {
         case 'Microwave': goodImage.value = Microwave; break;
         case 'Oven': goodImage.value = Oven; break;
         case 'TV': goodImage.value = TV; break;
-        case 'WashingMachine': goodImage.value = WashingMachine; name.value= 'Washing Machine'; break;
+        case 'Washing-machine': goodImage.value = WashingMachine; name.value= 'Washing Machine'; break;
         default: goodImage.value = TV; name.value = 'TV'; break;
       }
     }
