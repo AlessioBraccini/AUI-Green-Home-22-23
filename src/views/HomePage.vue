@@ -6,12 +6,12 @@
     </div>
   </div>
 
-  <div class="header">
+  <div class="header" @click="startListening">
     <WeatherWidget class="weather"/>
     <DataWidget class="clock"/>
   </div>
 
-  <div class="body"  @click="startListening">
+  <div class="body">
     <div class="offender">
       <DashWidget class="dash"/>
       <OffenderWidget class="dailyOffender" @click="redirectOffenderBig"/>
@@ -57,11 +57,9 @@ export default {
     const user = ref(username)
     const headersList = { "Access-Control-Allow-Origin": "*" }
 
-    const startListening = () => {  // eslint-disable-line
-
-
-      let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
-      let recognition1 = SpeechRecognition? new SpeechRecognition() : false
+    const startListening = () => {
+      let SpeechRecognition1 = window.SpeechRecognition || window.webkitSpeechRecognition
+      let recognition1 = SpeechRecognition1? new SpeechRecognition1() : false
 
       recognition1.continuous = true;
       recognition1.interimResults = true;
@@ -86,7 +84,7 @@ export default {
       recognition1.start();
     }
 
-    const redirectChat = () => {
+    const redirectChat = () => { // eslint-disable-line
       router.push({ name: 'ChatPage'})
     }
 
@@ -124,7 +122,8 @@ export default {
     }
     startListening()
 
-    return {user, redirectChat, redirectOnboarding, redirectOffenderBig,startListening, redirectGoodBoyBig, goOn, resetDemo}
+    return {user, redirectChat, redirectOnboarding, redirectOffenderBig,startListening,
+      redirectGoodBoyBig, goOn, resetDemo}
   },
 }
 </script>
