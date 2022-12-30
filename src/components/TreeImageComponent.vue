@@ -67,9 +67,10 @@ export default {
 
   .treeImg{
     height: 130%;
-    width: 100%;
+    width: 130%;
     bottom: 30%;
     position: relative;
+    right: 16%;
   }
 
 </style>
