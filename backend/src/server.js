@@ -15,6 +15,7 @@ app.use(cors())
 app.get('/', async (req, res) => {
   //const response = await compute(req.query.msg)
   const nlp = dock.get('nlp')
+  console.log(req.query.msg)
   const response = await nlp.process('en', req.query.msg);
   const fsmResp= await fsmProcessState(response, fsm, nlp);
   console.log(fsmResp)

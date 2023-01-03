@@ -46,17 +46,14 @@
         {
             "intent": "onboarding.genericInfo",
             "utterances": [
-                "What can you do",
+                "what can you do",
                 "Leafy which functions do you have",
-                "What should i do",
-                "What should i say",
-                "Who are you",
-                "What are you, abominable freak of nature"
-
+                "what should i do",
+                "what should i say",
+                "what are you, abominable freak of nature"
             ],
             "answers": [
                 "If you forgot what my components do, press the question mark at the top. Did you instead want to know about the data i can show you?"
-
             ]
         },
         {
