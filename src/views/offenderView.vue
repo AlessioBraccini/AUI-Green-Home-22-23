@@ -11,7 +11,7 @@
     <DataWidget class="clock"/>
   </div>
 
-  <div class="body">
+  <div class="body" @click="returnHome">
     <div class="offender">
       <OffenderBig class="dash"/>
 
@@ -49,15 +49,17 @@ export default {
 
     const redirectChat = () => {
       router.push({ name: 'ChatPage'})   //use if to redirect under certain conditions
-
     }
 
     const redirectOnboarding = () => {
       router.push({ name: 'OnboardingPage'})   //use if to redirect under certain conditions
-
     }
 
-    return {user, redirectChat, redirectOnboarding}
+    const returnHome = () => {
+      router.push({ name: 'Homepage'})   //use if to redirect under certain conditions
+    }
+
+    return {user, redirectChat, redirectOnboarding, returnHome}
   }
 
 }
