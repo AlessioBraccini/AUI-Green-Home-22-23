@@ -31,11 +31,26 @@
             ]
         },
         {
+            "intent": "onboarding.calendarInfo",
+            "utterances": [
+                "What is that calendar",
+                "Why do i see a week",
+                "What is that week"
+
+            ],
+            "answers": [
+                "In that calendar i show how you perform each day, whether you earn a star, a leaf or nothing. Ask me about them if you have doubts! "
+
+            ]
+        },
+        {
             "intent": "onboarding.treeInfo",
             "utterances": [
                 "What is this tree",
                 "What is a leafy",
-                "Who is leafy"
+                "Who is leafy",
+                "What is the tree in the corner"
+
 
             ],
             "answers": [
@@ -62,7 +77,8 @@
                 "What type of graphs can you display to me",
                 "What graphs can i view",
                 "Hey leafy, which graphs can i see?",
-                "Hey leafy, what graphs i can visualize"
+                "Hey leafy, what graphs i can visualize",
+                "What data can you show me"
 
             ],
             "answers": [
@@ -125,7 +141,7 @@
                 "Hey leafy what are bad days"
             ],
             "answers": [
-                "Every day you waste too much energy will be marked in the calendar as an X. Be careful! Those Xs will make me weak!"
+                "Today's quest is visible on the left, next to the star. If you complete quests you'll earn stars!"
 
             ]
         }

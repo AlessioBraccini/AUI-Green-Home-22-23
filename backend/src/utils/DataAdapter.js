@@ -14,10 +14,12 @@ class DataAdapter{
         {name:'washing-machine', consumption: '8Wh', date: Date.now()+3}
     ]
 
+    static levelThresholds=[22,27,33,43]
+
     static greenStreak = [
         {leaf: 1,star:1,cross:1,days:["leaf","star","cross","","","",""], date:Date.now()},
-        {leaf: 2,star:1,cross:1, days:["leaf", "star", "cross", "leaf", "", "",""], date:Date.now()+1},
-        {leaf: 15,star:22,cross: 2, days:["star", "", "","","", "",""], date:Date.now()+2},
+        {leaf: 6,star:1,cross:1, days:["leaf", "star", "cross", "leaf", "", "",""], date:Date.now()+1},
+        {leaf: 26,star:1,cross: 1, days:["star", "", "","","", "",""], date:Date.now()+2},
         {leaf: 60,star:15,cross: 3,days:["mon", "tue"]},
         {leaf: 120,star:30,cross:7, days:["mon", "tue", "thu"]}
     ]
@@ -63,7 +65,7 @@ class DataAdapter{
 
     //Consideration: a json would probably be better. Though right now i don't know how to read EXACTLY the line number x
     static questList=[
-        {quest:"Make yestery's offender a good boy today",
+        {quest:"Make yesterday's offender a good boy today",
             date:Date.now()},
         {quest:"Consume less with yout dishwasher",
             date:Date.now()+1},
@@ -105,11 +107,15 @@ class DataAdapter{
         return this.questList[this.statusCtrDemo % this.questList.length];
     }
 
+    static getLevelThresholds(){
+        return this.levelThresholds
+    }
 
 
-    static getTreeScore() {
-        const info = this.greenStreak[this.statusCtrDemo % this.greenStreak.length]
-        const score = 30 + 0.5 * info.leaf + 0.75 * info.star - 0.5 * info.cross
+
+    static getTreeLevel() {
+        const score = this.currentTreeScore()
+
         switch (true) {
             case (score>0 && score<=22):
                 return {data: 1}
@@ -124,7 +130,6 @@ class DataAdapter{
             default:
                 console.log("something went horribly wrong")
                 return{data: 3}
-
 
         }
     }
@@ -148,6 +153,12 @@ class DataAdapter{
         data = data / totalSamples
 
         return {data: data, units:'kWh'}
+    }
+
+
+    static currentTreeScore(){
+        const info = this.greenStreak[this.statusCtrDemo % this.greenStreak.length]
+        return 30 + 0.5 * info.leaf + 0.75 * info.star - 0.5 * info.cross
     }
 
 }
