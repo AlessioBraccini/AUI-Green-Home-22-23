@@ -115,7 +115,6 @@ class DataAdapter{
 
     static getTreeLevel() {
         const score = this.currentTreeScore()
-
         switch (true) {
             case (score>0 && score<=22):
                 return {data: 1}

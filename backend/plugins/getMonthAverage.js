@@ -10,7 +10,7 @@ class getMonthAverage{
         const total= ghc.getMonthAverage().data
         const units = ghc.getMonthAverage().units
 
-        input.answer="tié " + total + " "+ units+ ". Would you like to know more?"
+        input.answer="You consumed " + total + " "+ units+ " on average last month. Would you like to know more?"
 
     }
 }

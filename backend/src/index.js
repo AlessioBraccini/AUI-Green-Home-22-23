@@ -41,7 +41,7 @@ async function fsmProcessState(response, fsm, nlp) {
         case 'agent.leafyStatus': {
             const ghc = new GreenHomeComponent()
             if (ghc.treeLevel < 2) {
-                response.answer += "Would you like a reminder on how I work?"
+                response.answer += "Do you want a reminder on how I work?"
                 reply = await fsm.dispatch("proposeLeafyExplanation", nlp)
             } else {
                 reply = await fsm.dispatch('negateOrDefault', nlp)
@@ -81,9 +81,9 @@ const FSM =  {
                 this.state = 'WAIT_APPROVAL_FOR_SPECIFIC_TIP'
                 return {reply: null, interactionEnd: false}
             },
-            getGenericTip() {
+            async getGenericTip(nlp) {
                 this.state = 'WAIT_APPROVAL_FOR_GENERIC_TIP'
-                return {reply: null, interactionEnd: false}
+                return {reply: (await nlp.process("how can i consume less")).answer+" Do you want another tip?", interactionEnd: false}
             },
             howOffenderIsChosen() {
                 this.state = 'OFFENDER_INFO'
@@ -111,7 +111,7 @@ const FSM =  {
                 this.state = 'WAIT_APPROVAL_YESTERDAY_DETAIL'
                 return {reply: null, interactionEnd: false}
             },
-            getConstumptionMonth(){
+            getConsumptionMonth(){
                 this.state = 'WAIT_APPROVAL_MONTH_DETAIL'
                 return {reply: null, interactionEnd: false}
             },
@@ -121,9 +121,14 @@ const FSM =  {
             }
         },
         OFFENDER_INFO: {
-            getGenericTip() {
+            async approve(nlp) {
                 this.state = 'WAIT_APPROVAL_FOR_GENERIC_TIP'
-                return {reply: null, interactionEnd: false}
+                return {reply: (await nlp.process("how can i consume less ")).answer+" Do you want another tip?", interactionEnd: false}
+            },
+            negateOrDefault() {
+                this.state = 'RESET'
+                this.currentDevice = null
+                return {reply: null, interactionEnd: true}
             }
         },
         LEAFY_STATUS: {
@@ -149,7 +154,7 @@ const FSM =  {
         },
         WAIT_APPROVAL_FOR_GENERIC_TIP: {
             async approve(nlp) {
-                return {reply: (await nlp.process("how can i consume less")).answer, interactionEnd: false}
+                return {reply: (await nlp.process("how can i consume less")).answer+" Do you want another tip?", interactionEnd: false}
             },
             negateOrDefault() {
                 this.state = 'RESET'
@@ -171,7 +176,7 @@ const FSM =  {
         WAIT_APPROVAL_YESTERDAY_DETAIL: {
             async approve(nlp) {
                 this.state = 'RESET'
-                return {reply: (await nlp.process("Hey leafy, yesterday in detail")).answer, interactionEnd: false}
+                return {reply: (await nlp.process("Hey leafy, yesterday in detail")).answer, interactionEnd: true}
             },
             negateOrDefault() {
                 this.state = 'RESET'
@@ -193,7 +198,7 @@ const FSM =  {
         WAIT_APPROVAL_MONTH_DETAIL: {
             async approve(nlp) {
                 this.state = 'RESET'
-                return {reply: (await nlp.process("show me in detail last month")).answer, interactionEnd: false}
+                return {reply: (await nlp.process("show me in detail last month")).answer, interactionEnd: true}
             },
             negateOrDefault() {
                 this.state = 'RESET'

@@ -16,7 +16,7 @@
                 "do you have levels"
             ],
             "answers": [
-                "I have 5 different stages and the higher it is the better I am!"
+                "I have 5 different stages and the higher the stage, the better I am!"
             ]
         },
         {
@@ -29,11 +29,11 @@
                 "what's your stage",
                 "on what stage are you",
                 "how are you doing",
+                "What level are you",
                 "how is your day",
                 "how is your day going",
                 "how are you",
                 "how are you doing",
-                "what about your day",
                 "are you alright"
             ]
         },
@@ -44,10 +44,11 @@
                 "Hey leafy how do you level up",
                 "How do you level",
                 "How do i score points",
-                "How can i level you up"
+                "How can i level you up",
+                "How does the tree work "
             ],
             "answers": [
-                "Every month i get better based on how many green days and quests you complete, while bad days make me worse. If you want to know more about any of them just ask about them!"
+                "Every month i get better based on how many green days and quests you complete, while bad days make me worse. If you want a reminder ask about them specifically!"
             ]
         },
         {

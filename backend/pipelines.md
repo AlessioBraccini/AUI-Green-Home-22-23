@@ -7,6 +7,9 @@ nlp.train
 ## onIntent(device.dailyOffender)
 getOffender
 
+## onIntent(device.goodBoy)
+getGoodBoy
+
 ## onIntent(agent.leafyProgress)
 getLevelUpDaysNeeded
 
