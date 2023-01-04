@@ -1,27 +1,35 @@
 class DataAdapter{
     static statusCtrDemo = 0 // shared between all instances of DataAdapter
     static offenders = [
-        {name:'dishwasher', consumption:'400Wh', date:Date.now()},
-        {name:'washing-machine', consumption:'470Wh', date:Date.now()+1},
-        {name:'dryer', consumption: '490Wh', date:Date.now()+2},
-        {name:'fridge', consumption: '153Wh', date:Date.now()+3}
+        {name:'dishwasher', consumption:'4 kWh', date:Date.now()},
+        {name:'washing-machine', consumption:'15.3 kWh', date:Date.now()+1},
+        {name:'dryer', consumption: '4.9 kWh', date:Date.now()+2},
+        {name:'fridge', consumption: '4.7 kWh', date:Date.now()+3},
+        {name:'dishwasher', consumption: '4.9 kWh', date:Date.now()+4},
+        {name:'ac', consumption: '19.1 kWh', date:Date.now()+5},
+        {name:'washing-machine', consumption: '12.9 kWh', date:Date.now()+6}
     ]
 
     static goodBois = [
-        {name:'dryer', consumption:'2Wh', date:Date.now()},
-        {name:'fridge', consumption:'3Wh', date:Date.now()+1},
-        {name:'fridge', consumption: '3Wh', date:Date.now()+2},
-        {name:'washing-machine', consumption: '8Wh', date: Date.now()+3}
+        {name:'dryer', consumption:'0.2 kWh', date:Date.now()},
+        {name:'fridge', consumption:'0.5 kWh', date:Date.now()+1},
+        {name:'fridge', consumption: '0.3 kWh', date:Date.now()+2},
+        {name:'washing-machine', consumption: '0.8 kWh', date: Date.now()+3},
+        {name:'microwave', consumption: '0.1 kWh', date: Date.now()+4},
+        {name:'boiler', consumption: '0.4 kWh', date: Date.now()+5},
+        {name:'ac', consumption: '0.2 kWh', date: Date.now()+6}
     ]
 
     static levelThresholds=[22,27,33,43]
 
     static greenStreak = [
         {leaf: 1,star:1,cross:1,days:["leaf","star","cross","","","",""], date:Date.now()},
-        {leaf: 6,star:1,cross:1, days:["leaf", "star", "cross", "leaf", "", "",""], date:Date.now()+1},
-        {leaf: 26,star:1,cross: 1, days:["star", "", "","","", "",""], date:Date.now()+2},
-        {leaf: 60,star:15,cross: 3,days:["mon", "tue"]},
-        {leaf: 120,star:30,cross:7, days:["mon", "tue", "thu"]}
+        {leaf: 2,star:1,cross:1, days:["leaf", "star", "cross", "leaf", "", "",""], date:Date.now()+1},
+        {leaf: 2,star:2,cross: 1, days:["leaf", "star", "cross","leaf","star", "",""], date:Date.now()+2},
+        {leaf: 3,star:2,cross: 1,days:["leaf", "star", "cross","leaf","star", "leaf",""], date:Date.now()+3},
+        {leaf: 4,star:2,cross:1, days:["leaf", "star", "cross","leaf","star", "leaf","leaf"], date:Date.now()+4},
+        {leaf: 0,star:0,cross:1, days:["cross", "", "", "", "", "",""], date:Date.now()+5},
+        {leaf: 0,star:0,cross:2, days:["cross", "cross", "","","","","",], date:Date.now()+6},
     ]
 
     static instantTotalConsumption = [
@@ -29,46 +37,101 @@ class DataAdapter{
         {data: 30, units: 'kWh'},
         {data: 11.2, units: 'kWh'},
         {data: 7.9, units: 'kWh'},
-        {data: 35.6, units: 'kWh'}
+        {data: 8.1, units: 'kWh'},
+        {data: 7.9, units: 'kWh'},
+        {data: 7.9, units: 'kWh'}
     ]
 
     static goodAppliances =[
-        {appliances:["dryer","oven","microwave","boiler"],
-            consumptions:[2    , 18  ,   19      ,   40],
-            unitsList:["Wh","Wh","Wh","Wh"],
+        {appliances:[DataAdapter.goodBois[0].name,"oven","microwave","boiler", "ac"],
+            consumptions:[DataAdapter.goodBois[0].consumption, 0.25, 0.32, 0.32, 0.41],
+            unitsList:["","kWh","kWh","kWh","kWh"],
             date:Date.now()},
 
-        {appliances:["dryer","oven","microwave","boiler","washing-machine"],
-            consumptions:[12    , 25  ,   11      ,   42, 470],
-            unitsList:["Wh","Wh","Wh","Wh","Wh"],
+        {appliances:[DataAdapter.goodBois[1].name,"induction","microwave","ac", "dryer"],
+            consumptions:[DataAdapter.goodBois[1].consumption, 0.54, 0.59, 0.71, 0.99],
+            unitsList:["","kWh","kWh","kWh","kWh"],
             date:Date.now()+1},
 
+        {appliances:[DataAdapter.goodBois[2].name,"microwave","TV", "boiler", "washing-machine"],
+            consumptions:[DataAdapter.goodBois[2].consumption, 0.45, 0.46, 0.52, 0.67],
+            unitsList:["","kWh","kWh","kWh","kWh"],
+            date:Date.now()+2},
 
+        {appliances:[DataAdapter.goodBois[3].name,"oven","microwave","boiler","dryer"],
+            consumptions:[DataAdapter.goodBois[3].consumption, 0.87, 0.88, 0.90, 0.93],
+            unitsList:["","kWh","kWh","kWh","kWh"],
+            date:Date.now()+3},
 
-        {appliances:["dishwasher", "washing-machine", "ac", "fridge" ,"dryer","oven","microwave","boiler"],
-        consumptions:[100        ,        12 ,         13 ,      15  ,  16    , 18 ,   19        ,   40],
-        date:Date.now()+7}, //Stock one to have all devices in one place
+        {appliances:[DataAdapter.goodBois[4].name,"TV","ac","boiler","dryer"],
+            consumptions:[DataAdapter.goodBois[4].consumption, 0.26, 0.40, 0.43, 0.61],
+            unitsList:["","kWh","kWh","kWh","kWh"],
+            date:Date.now()+4},
 
+        {appliances:[DataAdapter.goodBois[5].name,"induction", "fridge", "microwave","TV"],
+            consumptions:[DataAdapter.goodBois[5].consumption, 0.65, 0.98, 1.1, 2.2],
+            unitsList:["","kWh","kWh","kWh","kWh"],
+            date:Date.now()+5},
+
+        {appliances:[DataAdapter.goodBois[6].name,"TV","dryer","fridge","dishwasher"],
+            consumptions:[DataAdapter.goodBois[6].consumption, 0.27, 0.95, 1.5, 2.1],
+            unitsList:["","kWh","kWh","kWh","kWh"],
+            date:Date.now()+6},
     ]
 
     static offenderAppliances =[
-        {appliances:["dishwasher", "washing-machine", "ac", "fridge" ],
-            consumptions:[400    ,        12        ,  13 ,      15],
-            unitsList:["Wh","Wh","Wh", "Wh"],
+        {appliances:[DataAdapter.offenders[0].name,"washing-machine","induction","fridge","TV"],
+            consumptions:[DataAdapter.offenders[0].consumption, 3.9, 3.3, 3.3, 2.8],
+            unitsList:["","kWh","kWh","kWh","kWh"],
             date:Date.now()},
 
-        {appliances:[ "washing-machine", "ac", "fridge" ],
-            consumptions:[   15        ,  8 ,      2],
-            unitsList:["Wh","Wh","Wh"],
+        {appliances:[DataAdapter.offenders[1].name,"dishwasher","ac","boiler","oven"],
+            consumptions:[DataAdapter.offenders[1].consumption, 15.0, 12.9, 12.4, 11.5],
+            unitsList:["","kWh","kWh","kWh","kWh"],
             date:Date.now()+1},
+
+        {appliances:[DataAdapter.offenders[2].name,"oven","dishwasher","induction","washing-machine"],
+            consumptions:[DataAdapter.offenders[2].consumption, 4.5, 4.2, 2.1, 2.0, 1.9],
+            unitsList:["","kWh","kWh","kWh","kWh"],
+            date:Date.now()+2},
+
+        {appliances:[DataAdapter.offenders[3].name,"dishwasher","microwave","dryer","induction"],
+            consumptions:[DataAdapter.offenders[3].consumption, 4.1, 2.9, 2.8, 2.6],
+            unitsList:["","kWh","kWh","kWh","kWh"],
+            date:Date.now()+3},
+
+        {appliances:[DataAdapter.offenders[4].name,"dishwasher","oven","fridge","induction"],
+            consumptions:[DataAdapter.offenders[4].consumption, 4.8, 3.9, 3.1, 2.7],
+            unitsList:["","kWh","kWh","kWh","kWh"],
+            date:Date.now()+4},
+
+        {appliances:[DataAdapter.offenders[5].name,"dishwasher","washing-machine","oven","dryer"],
+            consumptions:[DataAdapter.offenders[5].consumption, 10.7, 9.5, 5.8, 5.3],
+            unitsList:["","kWh","kWh","kWh","kWh"],
+            date:Date.now()+5},
+
+        {appliances:[DataAdapter.offenders[6].name,"oven","boiler","TV","microwave"],
+            consumptions:[DataAdapter.offenders[6].consumption, 9.7, 8.4, 8.4, 6.7],
+            unitsList:["","kWh","kWh","kWh","kWh"],
+            date:Date.now()+6},
     ]
 
     //Consideration: a json would probably be better. Though right now i don't know how to read EXACTLY the line number x
     static questList=[
         {quest:"Make yesterday's offender a good boy today",
             date:Date.now()},
-        {quest:"Consume less with yout dishwasher",
+        {quest:"Manage to have the washing machine in the top-5 good appliances for tomorrow",
             date:Date.now()+1},
+        {quest:"Consume less than",
+            date:Date.now()+2},
+        {quest:"Consume less with your dishwasher",
+            date:Date.now()+3},
+        {quest:"Consume less with your dishwasher",
+            date:Date.now()+4},
+        {quest:"Consume less with your dishwasher",
+            date:Date.now()+5},
+        {quest:"Consume less with your dishwasher",
+            date:Date.now()+6},
     ]
 
 
