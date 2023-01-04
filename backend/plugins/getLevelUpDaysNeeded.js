@@ -9,25 +9,19 @@ class GetLevelUpDaysNeeded {
         const ghc = new GreenHomeComponent()
         const level = parseInt(ghc.treeLevel.data) // [1..5]
         const maxLevel = parseInt(ghc.treeMaxLevel())
-        const currentGreenStreak = parseInt(ghc.greenStreak.streak)
+        const currentScore = ghc.currentTreeScore
+        const thresholds= ghc.levelThresholds
 
-        const d = new Date()
-        const daysInMonth = new Date(d.getFullYear(), d.getMonth() +1, 0).getDate()
-        const today = new Date().getUTCDate()
-        let percNeededForEachLevel = [];
-
-        for (const i of Array(maxLevel).keys()) {
-            // i = 0,1,2,3,4
-            percNeededForEachLevel.push(i / maxLevel)
+        for (const th of thresholds) {
+            if (currentScore< th){
+                input.answer = "I need " + Math.ceil((th-currentScore)*2 )+ " good days in a row to level up. Remember that with quests i can do it even faster!";
+                break;
+            }
         }
+        if(level==maxLevel){
+            input.answer = "I'm already at max level. Good job!";
 
-        if (level === maxLevel) {
-            input.answer = "I am already at max level! Good job!"
-        } else {
-            const levelsLeft = Math.ceil(percNeededForEachLevel[level] * today) - currentGreenStreak
-            input.answer = "I need " + levelsLeft + " more days this month to level up, so I can get to level " + (level + 1);
         }
-
     }
 }
 

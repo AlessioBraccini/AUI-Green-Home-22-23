@@ -25,7 +25,7 @@ class GreenHomeComponent {
         return DataAdapter.getGoodBoy(Date.now());
     }
     get treeLevel() {
-        return DataAdapter.getTreeScore();
+        return DataAdapter.getTreeLevel();
     }
 
 
@@ -57,6 +57,14 @@ class GreenHomeComponent {
 
     get quest(){
         return DataAdapter.getQuest()
+    }
+
+    get currentTreeScore(){
+        return DataAdapter.currentTreeScore()
+    }
+
+    get levelThresholds(){
+        return DataAdapter.getLevelThresholds()
     }
 
 
