@@ -209,8 +209,10 @@ class DataAdapter{
     static getMonthAverage(){
         let data = 0
         const totalSamples = (this.statusCtrDemo % this.instantTotalConsumption.length) + 1
-        for (let e in this.instantTotalConsumption.slice(0, totalSamples)){
-            data += e.data
+        console.log(totalSamples)
+        for (let i=0; i < totalSamples; i++){
+            console.log(DataAdapter.instantTotalConsumption[i].data)
+            data += DataAdapter.instantTotalConsumption[i].data
         }
         data = data / totalSamples
 
