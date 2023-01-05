@@ -30,27 +30,27 @@ export default {
           .then(res => {
             number.value = res.data['data']
 
-            if (number.value < 10){
+            if (number.value < 2){
               let sheet = window.document.styleSheets[0];
               sheet.insertRule('.pointer { top: 58%; left: 7% }', sheet.cssRules.length);
             }
-            else if(number.value < 20){
+            else if(number.value < 5){
               let sheet = window.document.styleSheets[0];
               sheet.insertRule('.pointer { top: 40%; left: 11% }', sheet.cssRules.length);
             }
-            else if(number.value < 30){
+            else if(number.value < 10){
               let sheet = window.document.styleSheets[0];
               sheet.insertRule('.pointer { top: 26%; left: 25% }', sheet.cssRules.length);
             }
-            else if(number.value < 40){
+            else if(number.value < 15){
               let sheet = window.document.styleSheets[0];
               sheet.insertRule('.pointer { top: 20%; left: 45% }', sheet.cssRules.length);
             }
-            else if(number.value < 50){
+            else if(number.value < 20){
               let sheet = window.document.styleSheets[0];
               sheet.insertRule('.pointer { top: 26%; left: 64% }', sheet.cssRules.length);
             }
-            else if(number.value < 60){
+            else if(number.value < 25){
               let sheet = window.document.styleSheets[0];
               sheet.insertRule('.pointer { top: 40%; left: 78% }', sheet.cssRules.length);
             }

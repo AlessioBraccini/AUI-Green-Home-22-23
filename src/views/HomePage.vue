@@ -17,11 +17,11 @@
       <OffenderWidget class="dailyOffender" @click="redirectOffenderBig"/>
       <GoodboiWidget class="goodBoy" @click="redirectGoodBoyBig"/>
       <TipsWidget class="tips"/>
-      <button class="button" @click="goOn">Step Forward</button>
-      <button class="button" @click="resetDemo">Reset Demo</button>
     </div>
     <div class="micDiv">
       <img src="../assets/Microphone.png" class="micImg" alt="mic" @click="redirectChat">
+      <button class="button" @click="goOn">Step Forward</button>
+      <button class="button" @click="resetDemo">Reset Demo</button>
     </div>
 
   </div>
@@ -227,11 +227,12 @@ export default {
     }
 
     .button{
+      position: relative;
       border-radius: 30px;
       border: #717173 solid 2px;
       margin-top: 5%;
-      width: 90%;
-      left: 5%;
+      width: 165%;
+      right: 78%;
     }
 
   .footer{
