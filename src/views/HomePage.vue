@@ -18,11 +18,16 @@
       <GoodboiWidget class="goodBoy" @click="redirectGoodBoyBig"/>
       <TipsWidget class="tips"/>
     </div>
+
     <div class="micDiv">
       <img src="../assets/Microphone.png" class="micImg" alt="mic" @click="redirectChat">
+    </div>
+
+    <div class="demoButt">
       <button class="button" @click="goOn">Step Forward</button>
       <button class="button" @click="resetDemo">Reset Demo</button>
     </div>
+
 
   </div>
 
@@ -226,13 +231,21 @@ export default {
       width: 100%;
     }
 
+    .demoButt{
+      position: relative;
+      float: right;
+      height: 14%;
+      width: 65%;
+    }
+
     .button{
       position: relative;
+      float: right;
       border-radius: 30px;
       border: #717173 solid 2px;
       margin-top: 5%;
-      width: 165%;
-      right: 78%;
+      width: 51%;
+      right: 3%;
     }
 
   .footer{
