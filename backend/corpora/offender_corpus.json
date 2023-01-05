@@ -101,7 +101,9 @@
                 "dryer": ["dryer"],
                 "oven": ["oven", "toaster", "broiler", "grill"],
                 "microwave": ["microwave", "micro-wave"],
-                "boiler": ["boiler", "water heater", "hot water heater"]
+                "boiler": ["boiler", "water heater", "hot water heater"],
+                "tv": ["tv", "TV", "television", "smart tv"],
+                "induction": ["induction stove", "induction", "stove"]
             }
         }
     }

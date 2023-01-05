@@ -62,5 +62,17 @@
             "turn it off when you are not at home for a long time",
             "wash your hands with cold water, if possible"
         ]
+    },
+    "tv": {
+        "threshold": "",
+        "tips": [
+
+        ]
+    },
+    "induction": {
+        "threshold": "",
+        "tips": [
+
+        ]
     }
 }
