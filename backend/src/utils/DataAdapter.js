@@ -25,11 +25,11 @@ class DataAdapter{
     static greenStreak = [
         {leaf: 1,star:1,cross:1,days:["leaf","star","cross","","","",""], date:Date.now()},
         {leaf: 2,star:1,cross:1, days:["leaf", "star", "cross", "leaf", "", "",""], date:Date.now()+1},
-        {leaf: 2,star:2,cross: 1, days:["leaf", "star", "cross","leaf","star", "",""], date:Date.now()+2},
-        {leaf: 3,star:2,cross: 1,days:["leaf", "star", "cross","leaf","star", "leaf",""], date:Date.now()+3},
-        {leaf: 4,star:2,cross:1, days:["leaf", "star", "cross","leaf","star", "leaf","leaf"], date:Date.now()+4},
+        {leaf: 2,star:2,cross: 1, days:["leaf", "star", "cross","leaf","cross", "",""], date:Date.now()+2},
+        {leaf: 3,star:2,cross: 1,days:["leaf", "star", "cross","leaf","cross", "leaf",""], date:Date.now()+3},
+        {leaf: 3,star:2,cross:2, days:["leaf", "star", "cross","leaf","cross", "leaf","star"], date:Date.now()+4},
         {leaf: 0,star:0,cross:1, days:["cross", "", "", "", "", "",""], date:Date.now()+5},
-        {leaf: 0,star:0,cross:2, days:["cross", "cross", "","","","","",], date:Date.now()+6},
+        {leaf: 1,star:0,cross:1, days:["cross", "leaf", "","","","","",], date:Date.now()+6},
     ]
 
     static instantTotalConsumption = [
@@ -39,7 +39,7 @@ class DataAdapter{
         {data: 7.9, units: 'kWh'},
         {data: 8.1, units: 'kWh'},
         {data: 7.9, units: 'kWh'},
-        {data: 7.9, units: 'kWh'}
+        {data: 7.7, units: 'kWh'}
     ]
 
     static goodAppliances =[
@@ -48,17 +48,17 @@ class DataAdapter{
             unitsList:["","kWh","kWh","kWh","kWh"],
             date:Date.now()},
 
-        {appliances:[DataAdapter.goodBois[1].name,"induction","microwave","ac", "dryer"],
+        {appliances:[DataAdapter.goodBois[1].name,"induction","microwave","TV", "dryer"],
             consumptions:[DataAdapter.goodBois[1].consumption, 0.54, 0.59, 0.71, 0.99],
             unitsList:["","kWh","kWh","kWh","kWh"],
             date:Date.now()+1},
 
-        {appliances:[DataAdapter.goodBois[2].name,"microwave","TV", "boiler", "washing-machine"],
+        {appliances:[DataAdapter.goodBois[2].name,"microwave","TV", "boiler", "induction"],
             consumptions:[DataAdapter.goodBois[2].consumption, 0.45, 0.46, 0.52, 0.67],
             unitsList:["","kWh","kWh","kWh","kWh"],
             date:Date.now()+2},
 
-        {appliances:[DataAdapter.goodBois[3].name,"oven","microwave","boiler","dryer"],
+        {appliances:[DataAdapter.goodBois[3].name,"oven","microwave","TV","dryer"],
             consumptions:[DataAdapter.goodBois[3].consumption, 0.87, 0.88, 0.90, 0.93],
             unitsList:["","kWh","kWh","kWh","kWh"],
             date:Date.now()+3},
@@ -100,7 +100,7 @@ class DataAdapter{
             unitsList:["","kWh","kWh","kWh","kWh"],
             date:Date.now()+3},
 
-        {appliances:[DataAdapter.offenders[4].name,"dishwasher","oven","fridge","induction"],
+        {appliances:[DataAdapter.offenders[4].name,"washing-machine","oven","fridge","induction"],
             consumptions:[DataAdapter.offenders[4].consumption, 4.8, 3.9, 3.1, 2.7],
             unitsList:["","kWh","kWh","kWh","kWh"],
             date:Date.now()+4},
