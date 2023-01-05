@@ -95,16 +95,8 @@ const FSM =  {
                 this.state = 'WAIT_APPROVAL_FOR_SPECIFIC_TIP'
                 return {reply: null, interactionEnd: false}
             },
-            getLeafyStatus() {
-                this.state = 'LEAFY_STATUS'
-                return {reply: null, interactionEnd: false}
-            },
-            getLeafyProgress() {
-                this.state = 'LEAFY_PROGRESS'
-                return {reply: null, interactionEnd: false}
-            },
-            getTodayConsumption() {
-                this.state = 'TODAY_CONSUMPTION'
+            proposeLeafyExplanation() {
+                this.state = 'WAIT_APPROVAL_LEAFY_INFO'
                 return {reply: null, interactionEnd: false}
             },
             getConsumptionYesterday() {
@@ -131,17 +123,6 @@ const FSM =  {
                 return {reply: null, interactionEnd: true}
             }
         },
-        LEAFY_STATUS: {
-            proposeLeafyExplanation() {
-                this.state = 'WAIT_APPROVAL_LEAFY_INFO'
-                return {reply: null, interactionEnd: false}
-            },
-            negateOrDefault() {
-                this.state = 'RESET'
-                this.currentDevice = null
-                return {reply: null, interactionEnd: true}
-            }
-        },
         WAIT_APPROVAL_FOR_SPECIFIC_TIP: {
             async approve(nlp) {
                 return {reply: (await nlp.process("how can i consume less with the " + this.currentDevice)).answer, interactionEnd: false}
@@ -150,7 +131,36 @@ const FSM =  {
                 this.state = 'RESET'
                 this.currentDevice = null
                 return {reply: null, interactionEnd: true}
-            }
+            },
+            // non canonical interactions, but if they happen they're managed correctly
+            getOffender(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getOffender', nlp)
+            },
+            howOffenderIsChosen(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('howOffenderIsChosen', nlp)
+            },
+            getConsumptionYesterday(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getConsumptionYesterday', nlp)
+            },
+            getConsumptionMonth(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getConsumptionMonth', nlp)
+            },
+            getGenericInfo(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getGenericInfo', nlp)
+            },
+            async getGenericTip(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getGenericTip', nlp)
+            },
+            proposeLeafyExplanation(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('proposeLeafyExplanation', nlp)
+            },
         },
         WAIT_APPROVAL_FOR_GENERIC_TIP: {
             async approve(nlp) {
@@ -160,7 +170,38 @@ const FSM =  {
                 this.state = 'RESET'
                 this.currentDevice = null
                 return {reply: null, interactionEnd: true}
-            }
+            },
+            // non canonical interactions, but if they happen they're managed correctly
+            getOffender(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getOffender', nlp)
+            },
+            howOffenderIsChosen(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('howOffenderIsChosen', nlp)
+            },
+            getConsumptionYesterday(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getConsumptionYesterday', nlp)
+            },
+            getConsumptionMonth(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getConsumptionMonth', nlp)
+            },
+            getGenericInfo(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getGenericInfo', nlp)
+            },
+            getSpecificTip(nlp, device) {
+                this.currentDevice = device
+                console.log(this.currentDevice)
+                this.state = 'RESET'
+                return this.dispatch('getSpecificTip', nlp, device)
+            },
+            proposeLeafyExplanation(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('proposeLeafyExplanation', nlp)
+            },
         },
         WAIT_APPROVAL_LEAFY_INFO: {
             approve(nlp) {
@@ -171,7 +212,42 @@ const FSM =  {
                 this.state = 'RESET'
                 this.currentDevice = null
                 return {reply: null, interactionEnd: true}
-            }
+            },
+            // non canonical interactions, but if they happen they're managed correctly
+            getOffender(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getOffender', nlp)
+            },
+            howOffenderIsChosen(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('howOffenderIsChosen', nlp)
+            },
+            getConsumptionYesterday(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getConsumptionYesterday', nlp)
+            },
+            getConsumptionMonth(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getConsumptionMonth', nlp)
+            },
+            getGenericInfo(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getGenericInfo', nlp)
+            },
+            async getGenericTip(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getGenericTip', nlp)
+            },
+            getSpecificTip(nlp, device) {
+                this.currentDevice = device
+                console.log(this.currentDevice)
+                this.state = 'RESET'
+                return this.dispatch('getSpecificTip', nlp, device)
+            },
+            proposeLeafyExplanation(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('proposeLeafyExplanation', nlp)
+            },
         },
         WAIT_APPROVAL_YESTERDAY_DETAIL: {
             async approve(nlp) {
@@ -182,7 +258,38 @@ const FSM =  {
                 this.state = 'RESET'
                 this.currentDevice = null
                 return {reply: null, interactionEnd: true}
-            }
+            },
+            // non canonical interactions, but if they happen they're managed correctly
+            getOffender(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getOffender', nlp)
+            },
+            howOffenderIsChosen(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('howOffenderIsChosen', nlp)
+            },
+            getConsumptionMonth(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getConsumptionMonth', nlp)
+            },
+            getGenericInfo(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getGenericInfo', nlp)
+            },
+            async getGenericTip(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getGenericTip', nlp)
+            },
+            getSpecificTip(nlp, device) {
+                this.currentDevice = device
+                console.log(this.currentDevice)
+                this.state = 'RESET'
+                return this.dispatch('getSpecificTip', nlp, device)
+            },
+            proposeLeafyExplanation(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('proposeLeafyExplanation', nlp)
+            },
         },
         WAIT_APPROVAL_INFO_DETAIL: {
             async approve(nlp) {
@@ -193,7 +300,42 @@ const FSM =  {
                 this.state = 'RESET'
                 this.currentDevice = null
                 return {reply: null, interactionEnd: true}
-            }
+            },
+            // non canonical interactions, but if they happen they're managed correctly
+            getOffender(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getOffender', nlp)
+            },
+            howOffenderIsChosen(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('howOffenderIsChosen', nlp)
+            },
+            getConsumptionYesterday(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getConsumptionYesterday', nlp)
+            },
+            getConsumptionMonth(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getConsumptionMonth', nlp)
+            },
+            getGenericInfo(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getGenericInfo', nlp)
+            },
+            async getGenericTip(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getGenericTip', nlp)
+            },
+            getSpecificTip(nlp, device) {
+                this.currentDevice = device
+                console.log(this.currentDevice)
+                this.state = 'RESET'
+                return this.dispatch('getSpecificTip', nlp, device)
+            },
+            proposeLeafyExplanation(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('proposeLeafyExplanation', nlp)
+            },
         },
         WAIT_APPROVAL_MONTH_DETAIL: {
             async approve(nlp) {
@@ -204,7 +346,38 @@ const FSM =  {
                 this.state = 'RESET'
                 this.currentDevice = null
                 return {reply: null, interactionEnd: true}
-            }
+            },
+            // non canonical interactions, but if they happen they're managed correctly
+            getOffender(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getOffender', nlp)
+            },
+            howOffenderIsChosen(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('howOffenderIsChosen', nlp)
+            },
+            getConsumptionYesterday(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getConsumptionYesterday', nlp)
+            },
+            getGenericInfo(nlp){
+                this.state = 'RESET'
+                return this.dispatch('getGenericInfo', nlp)
+            },
+            async getGenericTip(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('getGenericTip', nlp)
+            },
+            getSpecificTip(nlp, device) {
+                this.currentDevice = device
+                console.log(this.currentDevice)
+                this.state = 'RESET'
+                return this.dispatch('getSpecificTip', nlp, device)
+            },
+            proposeLeafyExplanation(nlp) {
+                this.state = 'RESET'
+                return this.dispatch('proposeLeafyExplanation', nlp)
+            },
         },
         LEAFY_INFO: {
             negateOrDefault() {
