@@ -25,9 +25,9 @@ class DataAdapter{
     static greenStreak = [
         {leaf: 1,star:1,cross:1,days:["leaf","star","cross","","","",""], date:Date.now()},
         {leaf: 2,star:1,cross:1, days:["leaf", "star", "cross", "leaf", "", "",""], date:Date.now()+1},
-        {leaf: 2,star:2,cross: 1, days:["leaf", "star", "cross","leaf","cross", "",""], date:Date.now()+2},
-        {leaf: 3,star:2,cross: 1,days:["leaf", "star", "cross","leaf","cross", "leaf",""], date:Date.now()+3},
-        {leaf: 3,star:2,cross:2, days:["leaf", "star", "cross","leaf","cross", "leaf","star"], date:Date.now()+4},
+        {leaf: 2,star:1,cross: 2, days:["leaf", "star", "cross","leaf","cross", "",""], date:Date.now()+2},
+        {leaf: 2,star:2,cross: 2,days:["leaf", "star", "cross","leaf","cross", "star",""], date:Date.now()+3},
+        {leaf: 2,star:3,cross:2, days:["leaf", "star", "cross","leaf","cross", "star","star"], date:Date.now()+4},
         {leaf: 0,star:0,cross:1, days:["cross", "", "", "", "", "",""], date:Date.now()+5},
         {leaf: 1,star:0,cross:1, days:["cross", "leaf", "","","","","",], date:Date.now()+6},
     ]
@@ -122,15 +122,15 @@ class DataAdapter{
             date:Date.now()},
         {quest:"Manage to have the washing machine in the top-5 good appliances for tomorrow",
             date:Date.now()+1},
-        {quest:"Consume less than",
+        {quest:"Manage to have the dryer in the top-5 good appliances for tomorrow",
             date:Date.now()+2},
-        {quest:"Consume less with your dishwasher",
+        {quest:"Consume less than 8 kWh today",
             date:Date.now()+3},
-        {quest:"Consume less with your dishwasher",
+        {quest:"Manage to have the dishwasher in the top-5 appliances for tomorrow",
             date:Date.now()+4},
-        {quest:"Consume less with your dishwasher",
+        {quest:"Consume less than 10 kWh today",
             date:Date.now()+5},
-        {quest:"Consume less with your dishwasher",
+        {quest:"Smile everyday!",
             date:Date.now()+6},
     ]
 
