@@ -56,7 +56,10 @@
         {
             "intent": "device.specificTip",
             "utterances": [
-                "how can i consume less with the @device"
+                "how can i consume less with the @device",
+                "give me a tip on @device",
+                "how do i consume less with @device",
+                "can you give me a tip for the @device"
             ],
             "answers": [
                 "For {{ device }}, you can {{ _data[entities.device.option].tips[0] }}. Do you want any more tips?",
@@ -95,7 +98,7 @@
         "device": {
             "options": {
                 "dishwasher": ["dishwasher"],
-                "washing-machine": ["washing machine", "washing-machine", "washy washy"],
+                "washing-machine": ["washing machine", "washing-machine", "washy washy", "washing"],
                 "ac": ["ac", "air conditioning"],
                 "fridge": ["fridge", "refrigerator"],
                 "dryer": ["dryer"],

@@ -204,9 +204,9 @@ const FSM =  {
             },
         },
         WAIT_APPROVAL_LEAFY_INFO: {
-            approve(nlp) {
+            async approve(nlp) {
                 this.state = 'LEAFY_INFO'
-                return {reply: nlp.process(), interactionEnd: false}
+                return {reply: (await nlp.process("how do you work")).answer, interactionEnd: true}
             },
             negateOrDefault() {
                 this.state = 'RESET'
@@ -294,7 +294,7 @@ const FSM =  {
         WAIT_APPROVAL_INFO_DETAIL: {
             async approve(nlp) {
                 this.state = 'RESET'
-                return {reply: (await nlp.process("What graphs can i view")).answer, interactionEnd: false}
+                return {reply: (await nlp.process("What graphs can i view")).answer, interactionEnd: true}
             },
             negateOrDefault() {
                 this.state = 'RESET'
