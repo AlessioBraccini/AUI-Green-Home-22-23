@@ -27,9 +27,13 @@ class DataAdapter{
         {leaf: 2,star:1,cross:1, days:["leaf", "star", "cross", "leaf", "", "",""], date:Date.now()+1},
         {leaf: 2,star:1,cross: 2, days:["leaf", "star", "cross","leaf","cross", "",""], date:Date.now()+2},
         {leaf: 2,star:2,cross: 2,days:["leaf", "star", "cross","leaf","cross", "star",""], date:Date.now()+3},
-        {leaf: 2,star:3,cross:2, days:["leaf", "star", "cross","leaf","cross", "star","star"], date:Date.now()+4},
-        {leaf: 0,star:0,cross:1, days:["cross", "", "", "", "", "",""], date:Date.now()+5},
-        {leaf: 1,star:0,cross:1, days:["cross", "leaf", "","","","","",], date:Date.now()+6},
+        {leaf: 2,star:3,cross:2, days:["leaf", "star", "cross","leaf","cross", "star","star"], date:Date.now()+4},//ask how long until level up
+        {leaf: 4,star:3,cross:2, days:["leaf", "leaf", "", "", "", "",""], date:Date.now()+6}, // ora ha appena leveluppato al 4, chiedere quanto manca al 5
+        {leaf: 24,star:3,cross:2, days:["cross", "leaf", "","","","","",], date:Date.now()+29}, //aggiungi that many leaves
+        {leaf: 4,star:3,cross:2, days:["leaf", "leaf", "", "", "", "",""], date:Date.now()+6}, // torna e mostra lo stesso per vedere che con stelle cresce prima
+        {leaf: 12,star:11,cross:2, days:["cross", "leaf", "","","","","",], date:Date.now()+25},
+        {leaf: 4,star:0,cross:24, days:["cross", "leaf", "","","","","",], date:Date.now()+28}
+        //ultimo scenario con le x per fare vedere l'albero morente distrutto triste
     ]
 
     static instantTotalConsumption = [
@@ -209,9 +213,7 @@ class DataAdapter{
     static getMonthAverage(){
         let data = 0
         const totalSamples = (this.statusCtrDemo % this.instantTotalConsumption.length) + 1
-        console.log(totalSamples)
         for (let i=0; i < totalSamples; i++){
-            console.log(DataAdapter.instantTotalConsumption[i].data)
             data += DataAdapter.instantTotalConsumption[i].data
         }
         data = data / totalSamples

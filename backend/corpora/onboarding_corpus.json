@@ -14,7 +14,7 @@
 
             ],
             "answers": [
-                "The  top left dashboard shows your consumptions today. Do you want to see last month's detailed energy history?"
+                "The  top left dashboard shows your consumptions today. I can give you yesterday's consumption as well, just ask for it!"
             ]
         },
         {
@@ -98,7 +98,7 @@
 
             ],
             "answers": [
-                "If you succesfully complete your quest AND have a green day, you'll earn a star. But remember, even if you complete the quest, no green day will result in no star!"
+                "If you successfully complete your quest AND have a green day, you'll earn a star that makes me grow stronger. But remember, even if you complete the quest, no green day will result in no star! "
 
             ]
         },

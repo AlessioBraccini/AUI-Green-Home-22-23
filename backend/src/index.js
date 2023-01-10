@@ -40,8 +40,8 @@ async function fsmProcessState(response, fsm, nlp) {
             break;
         case 'agent.leafyStatus': {
             const ghc = new GreenHomeComponent()
-            if (ghc.treeLevel < 2) {
-                response.answer += "Do you want a reminder on how I work?"
+            if (ghc.treeLevel.data < 2) {
+                response.answer += ". Do you want a reminder on how I work?"
                 reply = await fsm.dispatch("proposeLeafyExplanation", nlp)
             } else {
                 reply = await fsm.dispatch('negateOrDefault', nlp)
