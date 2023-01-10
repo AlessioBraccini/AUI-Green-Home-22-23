@@ -7,6 +7,7 @@
     <div class="text">
       {{quest}}
     </div>
+    {{datee}}
   </div>
 
 
@@ -22,6 +23,7 @@ export default {
   setup() {
 
     const quest = ref('');
+    const datee = ref(new Date);
     const name = ref('');
     const headersList = { "Access-Control-Allow-Origin": "*" }
 
@@ -29,12 +31,13 @@ export default {
     axios.get('http://localhost:3000/quest', { headers: headersList })
         .then(res => {
           quest.value = res.data['quest']
+          datee.value = res.data['date'].toDateString()
         })
         .catch(err => {
           console.log(err)
         })
 
-    return {quest, name}
+    return {quest, name, datee}
   }
 }
 </script>
