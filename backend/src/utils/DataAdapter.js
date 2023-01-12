@@ -1,7 +1,19 @@
 class DataAdapter{
     static statusCtrDemo = 0 // shared between all instances of DataAdapter
 
-    static dayNumber=[0,1,2,3,4,6,29,6,25,28] // Number of day to be shown in demo
+    static dayNumber=[
+        {data:'16', month: 'Jan'},
+        {data:'17', month: 'Jan'},
+        {data:'18', month: 'Jan'},
+        {data:'29', month: 'Jan'},
+        {data:'20', month: 'Jan'},
+        {data:'22', month: 'Jan'},
+        {data:'14', month: 'Feb'},
+        {data:'7', month: 'Feb'},
+        {data:'10', month: 'Feb'},
+        {data:'23', month: 'Feb'}
+    ]
+    // Number of day to be shown in demo
     static offenders = [
         {name:'dishwasher', consumption:'4 kWh', date:Date.now()},
         {name:'washing-machine', consumption:'15.3 kWh', date:Date.now()+1},

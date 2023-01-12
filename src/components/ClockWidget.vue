@@ -13,6 +13,8 @@
 
 <script>
 
+import axios from "axios";
+
 export default {
   name: "DataWidget",
 
@@ -28,7 +30,20 @@ export default {
     }
   },
   mounted() {
-    setInterval(() => this.setTime(), 10)
+    this.setTime()
+    const headersList = { "Access-Control-Allow-Origin": "*" }
+
+    axios.get('http://localhost:3000/demoDay', { headers: headersList })
+        .then(res => {
+          // datee.value = res.data['data']
+          console.log(res)
+          console.log(this.weekday.replace('12', res.data['data']))
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    // setInterval(() => this.setTime(), 10)
+
   },
   methods: {
     setTime() {

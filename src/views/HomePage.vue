@@ -13,22 +13,15 @@
 
   <div class="body">
     <div class="offender">
-      <DashWidget class="dash"/>
+      <DashWidget class="dash"  @click="resetDemo"/>
       <OffenderWidget class="dailyOffender" @click="redirectOffenderBig"/>
       <GoodboiWidget class="goodBoy" @click="redirectGoodBoyBig"/>
-      <TipsWidget class="tips"/>
+      <TipsWidget class="tips" @click="goOn"/>
     </div>
 
     <div class="micDiv">
       <img src="../assets/Microphone.png" class="micImg" alt="mic" @click="redirectChat">
     </div>
-
-    <div class="demoButt">
-      <button class="button" @click="goOn">Step Forward</button>
-      <button class="button" @click="resetDemo">Reset Demo</button>
-    </div>
-
-
   </div>
 
   <div class="footer">
@@ -60,6 +53,7 @@ export default {
   setup(){
 
     const user = ref(username)
+    const datee = ref('')
     const headersList = { "Access-Control-Allow-Origin": "*" }
 
     const startListening = () => {
@@ -128,7 +122,7 @@ export default {
     startListening()
 
     return {user, redirectChat, redirectOnboarding, redirectOffenderBig,startListening,
-      redirectGoodBoyBig, goOn, resetDemo}
+      redirectGoodBoyBig, goOn, resetDemo, datee}
   },
 }
 </script>
