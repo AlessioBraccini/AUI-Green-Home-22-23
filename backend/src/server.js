@@ -62,6 +62,11 @@ app.get('/quest', async (req, res) => {
   res.send(ghc.quest)
 })
 
+app.get('/demoDay',async(req,res) => {
+  const ghc = new GreenHomeComponent()
+  res.send(ghc.getDayForDemo())
+
+})
 app.post('/stepForwardDemo', async (req, res) => {
   const ghc = new GreenHomeComponent()
   ghc.stepForwardDemo()

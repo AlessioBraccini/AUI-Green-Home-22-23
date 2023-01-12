@@ -57,6 +57,10 @@ async function fsmProcessState(response, fsm, nlp) {
         case 'onboarding.genericInfo':
                 reply = await fsm.dispatch("getGenericInfo", nlp)
                 break;
+
+        case 'onboarding.graphInfo':
+                reply = await fsm.dispatch("genericReturnFalse", nlp)
+                break;
         default :
             console.log(response.intent)
             reply = await fsm.dispatch('negateOrDefault', nlp)
@@ -110,7 +114,12 @@ const FSM =  {
             getGenericInfo(){
                 this.state = 'WAIT_APPROVAL_INFO_DETAIL'
                 return {reply: null, interactionEnd: false}
+            },
+            genericReturnFalse(){
+                this.state = 'RESET'
+                return {reply: null, interactionEnd: false}
             }
+
         },
         OFFENDER_INFO: {
             async approve(nlp) {
