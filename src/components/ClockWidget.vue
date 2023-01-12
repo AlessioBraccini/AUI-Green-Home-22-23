@@ -49,7 +49,8 @@ export default {
             this.hours = hours;
             this.minutes = minutes;
             this.seconds = seconds;
-            this.weekday = date.toDateString().replace('16', res.data['data']).replace('Jan', res.data['month'])
+            let x = date.toDateString().substring(8,10)
+            this.weekday = date.toDateString().replace(x, res.data['data']).replace('Jan', res.data['month'])
 
             if(hours === 0 && minutes === 0 && seconds <= 15)
               location.reload()
