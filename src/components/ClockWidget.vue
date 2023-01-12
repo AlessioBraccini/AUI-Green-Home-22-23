@@ -31,35 +31,33 @@ export default {
   },
   mounted() {
     this.setTime()
-    const headersList = { "Access-Control-Allow-Origin": "*" }
 
-    axios.get('http://localhost:3000/demoDay', { headers: headersList })
-        .then(res => {
-          // datee.value = res.data['data']
-          console.log(res)
-          console.log(this.weekday.replace('12', res.data['data']))
-        })
-        .catch(err => {
-          console.log(err)
-        })
     // setInterval(() => this.setTime(), 10)
 
   },
   methods: {
     setTime() {
-      const date = new Date();
-      let hours = date.getHours();
-      let minutes = date.getMinutes();
-      let seconds = date.getSeconds();
-      hours = hours <= 9 ? `${hours}`.padStart(2, 0) : hours;
-      minutes = minutes <= 9 ? `${minutes}`.padStart(2, 0) : minutes;
-      this.hours = hours;
-      this.minutes = minutes;
-      this.seconds = seconds;
-      this.weekday = date.toDateString()
+      const headersList = {"Access-Control-Allow-Origin": "*"}
+      axios.get('http://localhost:3000/demoDay', {headers: headersList})
+          .then(res => {
+            const date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            hours = hours <= 9 ? `${hours}`.padStart(2, 0) : hours;
+            minutes = minutes <= 9 ? `${minutes}`.padStart(2, 0) : minutes;
+            this.hours = hours;
+            this.minutes = minutes;
+            this.seconds = seconds;
+            this.weekday = date.toDateString().replace('16', res.data['data']).replace('Jan', res.data['month'])
 
-      if(hours === 0 && minutes === 0 && seconds <= 15)
-        location.reload()
+            if(hours === 0 && minutes === 0 && seconds <= 15)
+              location.reload()
+          })
+          .catch(err => {
+            console.log(err)
+          })
+
     }
   }
 

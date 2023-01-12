@@ -15,11 +15,10 @@ class GreenHomeComponent {
         // utility function just for demo
         DataAdapter.demoReset()
     }
-    getDayForDemo(){
+    get getDayForDemo(){
         //demo function that returns the exact demo day
-        DataAdapter.getDayForDemo()
+        return DataAdapter.getDayForDemo()
     }
-
 
     get offender() {
         return DataAdapter.getOffender(Date.now());
