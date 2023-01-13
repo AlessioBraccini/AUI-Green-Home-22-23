@@ -2,16 +2,16 @@ class DataAdapter{
     static statusCtrDemo = 0 // shared between all instances of DataAdapter
 
     static dayNumber=[
-        {data:'16', month: 'Jan'},
-        {data:'17', month: 'Jan'},
-        {data:'18', month: 'Jan'},
-        {data:'29', month: 'Jan'},
-        {data:'20', month: 'Jan'},
-        {data:'22', month: 'Jan'},
-        {data:'14', month: 'Feb'},
-        {data:'7', month: 'Feb'},
-        {data:'10', month: 'Feb'},
-        {data:'23', month: 'Feb'}
+        {data:'1', month: 'Jan'},
+        {data:'2', month: 'Jan'},
+        {data:'3', month: 'Jan'},
+        {data:'4', month: 'Jan'},
+        {data:'5', month: 'Jan'},
+        {data:'7', month: 'Jan'},
+        {data:'30', month: 'Jan'},
+        {data:'7', month: 'Jan'},
+        {data:'26', month: 'Jan'},
+        {data:'29', month: 'Jan'}
     ]
     // Number of day to be shown in demo
     static offenders = [

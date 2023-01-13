@@ -32,7 +32,7 @@ export default {
   mounted() {
     this.setTime()
 
-    // setInterval(() => this.setTime(), 10)
+    setInterval(() => this.setTime(), 60000)
 
   },
   methods: {
