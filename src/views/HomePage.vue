@@ -56,6 +56,7 @@ export default {
     const datee = ref('')
     const headersList = { "Access-Control-Allow-Origin": "*" }
 
+    // start wake word recognition process
     const startListening = () => {
       let SpeechRecognition1 = window.SpeechRecognition || window.webkitSpeechRecognition
       let recognition1 = SpeechRecognition1? new SpeechRecognition1() : false

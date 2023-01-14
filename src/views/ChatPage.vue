@@ -119,6 +119,7 @@ export default {
     let sentences = ''
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    // call the tts component and make it say the passed message
     const speak = (text, end) => {
 
       const utterThis = new SpeechSynthesisUtterance(text);
@@ -146,6 +147,7 @@ export default {
       }
     }
 
+    // used to write the message instead of talking
     const sendMessage = async () => {
 
       messages.value = ['']
@@ -194,6 +196,8 @@ export default {
       sentences = ''
       message.value = ''
     }
+
+    // start the speach recognition process, convert the message in text and pass it to the backend
     const startSpeechRecognition = () => {
 
         if (!recognition) {
