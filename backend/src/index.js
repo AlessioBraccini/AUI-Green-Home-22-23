@@ -15,12 +15,8 @@ async function fsmProcessState(response, fsm, nlp) {
     let reply;
     console.log(intent)
     console.log(fsm.state)
-    // mega switch case for meaningful intent that cause to switch in the fsm --> set actionName to send to dispatch
-    //actionName = 'getOffender'
-    //fsm.dispatch(actionName)
     switch(intent) {
         case 'device.dailyOffender':
-            //response.answer="If wanted, this can be modified"
             reply = await fsm.dispatch("getOffender", nlp)
             break;
         case 'device.genericTip':
@@ -77,7 +73,7 @@ async function fsmProcessState(response, fsm, nlp) {
 
 const FSM =  {
     state: 'RESET',
-    currentDevice: null, //extra info to track the device the user is talking about (?)
+    currentDevice: null, //extra info to track the device the user is talking about
     transitions: {
         RESET : {
             getOffender() {

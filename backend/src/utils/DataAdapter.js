@@ -2,18 +2,18 @@ class DataAdapter{
     static statusCtrDemo = 0 // shared between all instances of DataAdapter
 
     static dayNumber=[
-        {data:'1', month: 'Jan'},
-        {data:'2', month: 'Jan'},
-        {data:'3', month: 'Jan'},
         {data:'4', month: 'Jan'},
         {data:'5', month: 'Jan'},
+        {data:'6', month: 'Jan'},
         {data:'7', month: 'Jan'},
+        {data:'8', month: 'Jan'},
+        {data:'10', month: 'Jan'},
         {data:'30', month: 'Jan'},
-        {data:'7', month: 'Jan'},
-        {data:'26', month: 'Jan'},
+        {data:'10', month: 'Jan'},
+        {data:'24', month: 'Jan'},
         {data:'29', month: 'Jan'}
-    ]
-    // Number of day to be shown in demo
+    ]     // Number of day to be shown in demo
+
     static offenders = [
         {name:'dishwasher', consumption:'4 kWh', date:Date.now()},
         {name:'washing-machine', consumption:'15.3 kWh', date:Date.now()+1},
@@ -23,11 +23,9 @@ class DataAdapter{
         {name:'ac', consumption: '19.1 kWh', date:Date.now()+6},
         {name:'washing-machine', consumption: '12.9 kWh', date:Date.now()+29},
         {name:'ac', consumption: '19.1 kWh', date:Date.now()+6},
-        {name:'oven', consumption: '30 kWh', date:Date.now()+25},
+        {name:'oven', consumption: '30 kWh', date:Date.now()+23},
         {name:'microwave', consumption: '8.6 kWh', date:Date.now()+28}
-
-
-    ]
+    ] //offenders in demo
 
     static goodBois = [
         {name:'dryer', consumption:'0.2 kWh', date:Date.now()},
@@ -38,13 +36,11 @@ class DataAdapter{
         {name:'boiler', consumption: '0.4 kWh', date: Date.now()+6},
         {name:'ac', consumption: '0.2 kWh', date: Date.now()+29},
         {name:'boiler', consumption: '0.4 kWh', date: Date.now()+6},
-        {name:'dryer', consumption: '0.2 kWh', date: Date.now()+25},
-        {name:'induction', consumption: '0.4 kWh', date: Date.now()+28},
+        {name:'dryer', consumption: '0.2 kWh', date: Date.now()+23},
+        {name:'induction', consumption: '0.4 kWh', date: Date.now()+28}
+    ]//good bois in demo
 
-
-    ]
-
-    static levelThresholds=[22,27,33,43]
+    static levelThresholds=[22,27,33,43] //thresholds used for the level up logic
 
     static greenStreak = [
         {leaf: 1,star:1,cross:1,days:["leaf","star","cross","","","",""], date:Date.now()},
@@ -53,11 +49,11 @@ class DataAdapter{
         {leaf: 2,star:2,cross: 2,days:["leaf", "star", "cross","leaf","cross", "star",""], date:Date.now()+3},
         {leaf: 2,star:3,cross:2, days:["leaf", "star", "cross","leaf","cross", "star","star"], date:Date.now()+4},//ask how long until level up
         {leaf: 4,star:3,cross:2, days:["leaf", "leaf", "", "", "", "",""], date:Date.now()+6}, // just leveled to 4, how long until 5?
-        {leaf: 24,star:3,cross:2, days:["cross", "leaf", "","","","","",], date:Date.now()+29}, // Add that many leaves and voila
+        {leaf: 24,star:3,cross:2, days:["leaf", "leaf", "leaf","leaf","leaf","","",], date:Date.now()+29}, // Add that many leaves and voilà
         {leaf: 4,star:3,cross:2, days:["leaf", "leaf", "", "", "", "",""], date:Date.now()+6}, // back to see stars make it level faster
-        {leaf: 12,star:11,cross:2, days:["cross", "leaf", "","","","","",], date:Date.now()+25},
-        {leaf: 4,star:0,cross:24, days:["cross", "leaf", "","","","","",], date:Date.now()+28}// scenario to show how a weak tree behaves
-    ]
+        {leaf: 4,star:17,cross:2, days:["star", "star", "star","star","","","",], date:Date.now()+23},
+        {leaf: 4,star:0,cross:24, days:["cross", "cross", "cross","","","","",], date:Date.now()+28}// scenario to show how a weak tree behaves
+    ] // use scenarios for the demo
 
     static instantTotalConsumption = [
         {data: 12.4, units: 'kWh',date:Date.now()},
@@ -68,11 +64,10 @@ class DataAdapter{
         {data: 7.9, units: 'kWh', date:Date.now()+6}, //good tree
         {data: 7.7, units: 'kWh', date:Date.now()+29}, //star tree
         {data: 7.9, units: 'kWh', date:Date.now()+6},
-        {data: 7.2, units: 'kWh', date:Date.now()+25}, //star tree
+        {data: 7.2, units: 'kWh', date:Date.now()+23}, //star tree
         {data: 29.3, units: 'kWh', date:Date.now()+28}, // bad tree
-
-
     ]
+
     static goodAppliances =[
         {appliances:[DataAdapter.goodBois[0].name,"oven","microwave","boiler", "ac"],
             consumptions:[DataAdapter.goodBois[0].consumption, 0.25, 0.32, 0.32, 0.41],
@@ -117,13 +112,13 @@ class DataAdapter{
         {appliances:[DataAdapter.goodBois[5].name,"induction", "fridge", "microwave","TV"],
             consumptions:[DataAdapter.goodBois[5].consumption, 0.65, 0.98, 1.1, 2.2],
             unitsList:["","kWh","kWh","kWh","kWh"],
-            date:Date.now()+25},// da cambiare isieme a bad
+            date:Date.now()+23},
 
         {appliances:[DataAdapter.goodBois[5].name,"induction", "fridge", "microwave","TV"],
             consumptions:[DataAdapter.goodBois[5].consumption, 0.65, 0.98, 1.1, 2.2],
             unitsList:["","kWh","kWh","kWh","kWh"],
-            date:Date.now()+28},// da cambiare insieme a bad
-    ]
+            date:Date.now()+28},
+    ]//consumption list for demo
 
     static offenderAppliances =[
         {appliances:[DataAdapter.offenders[0].name,"washing-machine","induction","fridge","TV"],
@@ -169,45 +164,43 @@ class DataAdapter{
         {appliances:[DataAdapter.offenders[6].name,"oven","boiler","TV","microwave"],
             consumptions:[DataAdapter.offenders[6].consumption, 9.7, 8.4, 8.4, 6.7],
             unitsList:["","kWh","kWh","kWh","kWh"],
-            date:Date.now()+25}, // star tree da rivedere mettili diversi
+            date:Date.now()+23},
 
         {appliances:[DataAdapter.offenders[6].name,"oven","boiler","TV","microwave"],
             consumptions:[DataAdapter.offenders[6].consumption, 9.7, 8.4, 8.4, 6.7],
             unitsList:["","kWh","kWh","kWh","kWh"],
-            date:Date.now()+28}, // sad tree da rivedere mettili diversi
+            date:Date.now()+28},
+    ]//consumption list for demo
 
 
-
-    ]
-
-    //Consideration: a json would probably be better. Though right now i don't know how to read EXACTLY the line number x
     static questList=[
         {quest:"Make yesterday's offender a good boy today",
             date:Date.now()},
-        {quest:"Manage to have the washing machine in the top-5 good appliances for tomorrow",
+        {quest:"Have the washing machine in the top-5 good appliances for tomorrow",
             date:Date.now()+1},
-        {quest:"Manage to have the dryer in the top-5 good appliances for tomorrow",
+        {quest:"Have the dryer in the top-5 good appliances for tomorrow",
             date:Date.now()+2},
         {quest:"Consume less than 8 kWh today",
             date:Date.now()+3},
-        {quest:"Manage to have the dishwasher in the top-5 appliances for tomorrow",
+        {quest:"Have the dishwasher in the top-5 appliances for tomorrow",
             date:Date.now()+4},
         {quest:"Consume less than 10 kWh today",
             date:Date.now()+6},
-        {quest:"Smile more today!",
+        {quest:"Manage to have the oven in the top-5 appliances for tomorrow",
             date:Date.now()+29},
         {quest:"Consume less than 10 kWh today",
             date:Date.now()+6},
-        {quest:"Enjoy your day to the fullest",
-            date:Date.now()+25},
+        {quest:"Make yesterday's offender a good boy today",
+            date:Date.now()+23},
         {quest:"Earn a leaf today",
             date:Date.now()+28},
-    ]
+    ] //Some examples of possible quest
 
 
     constructor() {
     }
 
+    //List of functionalities used in GreenHomeComponent
     static demoStepForward(){
         this.statusCtrDemo++
     }
@@ -264,7 +257,7 @@ class DataAdapter{
             case (score >43):
                 return {data: 5}
             default:
-                console.log("something went horribly wrong")
+                console.log("Something went wrong")
                 return{data: 3}
 
         }

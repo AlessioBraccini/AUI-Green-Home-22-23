@@ -3,7 +3,7 @@ var cors = require('cors')
 const { fsmProcessState, FSM } = require('./index')
 const {dockStart} = require("@nlpjs/basic");
 const {GreenHomeComponent} = require('./utils/GreenHomeComponent')
-//const {readJson} = require('./utils/readJson')
+
 
 const app = express()
 const port = 3000
@@ -13,7 +13,6 @@ const fsm = Object.create(FSM)
 app.use(cors())
 
 app.get('/', async (req, res) => {
-  //const response = await compute(req.query.msg)
   const nlp = dock.get('nlp')
   console.log(req.query.msg)
   const response = await nlp.process('en', req.query.msg);
