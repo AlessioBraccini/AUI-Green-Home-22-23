@@ -7,7 +7,7 @@ Project developped for the Advanced User Interfaces course held at _Politecnico 
 
 **Tutors**: Giudici Mathyas, Crovari Pietro
 
-**Project Evaluation**: TBD
+**Project Evaluation**: 30 cum Laude
 
 ## Project setup
 1. Use the following command twice: 
