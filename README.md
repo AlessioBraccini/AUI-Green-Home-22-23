@@ -10,27 +10,20 @@ Project developped for the Advanced User Interfaces course held at _Politecnico 
 **Project Evaluation**: 30 cum Laude
 
 ## Project setup
-1. Use the following command twice: 
-    * the first in the root project's directory
-    * the second in the backend directory 
+1. Use the following command in the backend directory 
 ```
 npm install
 ```
 
 ## Start the frontend server
-### Compiles and hot-reloads for development
+### Install serve in order to run the frontend
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+npm install -g serve
 ```
 
-### Lints and fixes files
+### Run the project contained in the dist folder
 ```
-npm run lint
+serve dist
 ```
 
 ## Start the backend server
